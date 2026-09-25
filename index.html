@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
   <meta property="og:title" content="Hedera Cleaning — Ultrasonična dezinfekcija vozila" />
-  <meta property="og:description" content="Dolazimo do vašeg automobila. Tretman traje oko 45 minuta, a vi ne morate biti prisutni." />
+  <meta property="og:description" content="Dolazimo do vašeg vozila. Tretman traje oko 45 minuta, a vi ne morate biti prisutni." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,8 +58,8 @@
         <p class="kicker">Ultrasonična dezinfekcija vozila</p>
         <h1 class="display">Svež vazduh u kabini.<br />Bez vašeg prisustva.</h1>
         <p class="hero__lead">
-          Dolazimo do vašeg automobila i ultrazvučnom maglom dezinfikujemo kabinu, ventilaciju i klimu
-          za oko 45&nbsp;minuta. Vi samo ostavite vozilo otključano.
+          Dolazimo do vašeg vozila i ultrazvučnom maglom dezinfikujemo kabinu, ventilaciju i klimu
+          za oko 45&nbsp;minuta. Vi samo ostavite ključ.
         </p>
         <div class="hero__actions">
           <a href="#zakazivanje" class="btn btn--primary">Zakaži termin</a>
@@ -98,10 +98,11 @@
       </figure>
 
       <div class="wrap wrap--wide">
-        <dl class="facts">
+        <dl class="facts facts--4">
           <div><dt>Trajanje tretmana</dt><dd>~45 min</dd></div>
           <div><dt>Termini svakog sata, pon–sub</dt><dd>09–17h</dd></div>
           <div><dt>Kod kuće, na poslu ili u garaži</dt><dd>Na vašoj adresi</dd></div>
+          <div><dt>Automobili, kombiji, kamioni i autobusi</dt><dd>Sva vozila</dd></div>
         </dl>
       </div>
     </section>
@@ -115,7 +116,7 @@
           <p class="section__lead">
             Isparivač klima-uređaja nalazi se duboko ispod kontrolne table — mračno i vlažno mesto bez protoka vazduha,
             idealno za gljivice, bakterije i plesni. Ultrazvučna magla se meša sa vazduhom koji kruži kroz kabinu
-            i dopire upravo tamo.
+            i dopire upravo tamo. Koristimo uređaj i tečnost COLLOID<sup>®</sup> tehnologije.
           </p>
         </header>
 
@@ -135,7 +136,7 @@
           <li>
             <span class="steps__n">2</span>
             <h3>Cirkulacija</h3>
-            <p>Vazduh kruži u zatvorenom krugu kabine i nosi maglu kroz ventilaciju, do filtera vazduha i isparivača klime.</p>
+            <p>Uz upaljeno vozilo i recirkulaciju klime, vazduh kruži u zatvorenom krugu i nosi maglu kroz ventilaciju, do filtera i isparivača.</p>
           </li>
           <li>
             <span class="steps__n">3</span>
@@ -169,7 +170,7 @@
       <div class="wrap">
         <header class="section__head">
           <p class="kicker">Postupak</p>
-          <h2 class="headline">Vi otključate. Mi završimo ostalo.</h2>
+          <h2 class="headline">Vi ostavite ključ. Mi završimo ostalo.</h2>
           <p class="section__lead">Ne morate biti prisutni. Evo kako izgleda termin zakazan za 10:00.</p>
         </header>
 
@@ -177,8 +178,8 @@
           <li>
             <time>Pre termina</time>
             <div>
-              <h3>Ostavite automobil otključan</h3>
-              <p>Ili ključ kod osobe sa kojom smo se dogovorili — portir, kolega, komšija.</p>
+              <h3>Ostavite ključ</h3>
+              <p>Predajte ga ekipi pri dolasku ili ga ostavite osobi na adresi — portiru, kolegi, ukućaninu.</p>
             </div>
           </li>
           <li>
@@ -192,7 +193,7 @@
             <time>10:05</time>
             <div>
               <h3>Pokrećemo uređaj</h3>
-              <p>Uređaj radi samostalno, a magla kruži kroz kabinu i ventilaciju dok su vrata zatvorena.</p>
+              <p>Palimo vozilo i uključujemo recirkulaciju klime. Uređaj radi samostalno, a magla kruži kroz kabinu i ventilaciju dok su vrata zatvorena.</p>
             </div>
           </li>
           <li>
@@ -205,8 +206,8 @@
           <li>
             <time>10:45</time>
             <div>
-              <h3>Zaključavamo i javljamo vam</h3>
-              <p>Dobijate poruku da je tretman završen. Automobil je spreman za vožnju.</p>
+              <h3>Zaključavamo i vraćamo ključ</h3>
+              <p>Ključ ostaje tamo gde smo se dogovorili, a vi dobijate poruku da je tretman završen.</p>
             </div>
           </li>
         </ol>
@@ -226,8 +227,8 @@
           <li>
             <span class="tag tag--required">Obavezno</span>
             <div>
-              <h3>Otključan automobil</h3>
-              <p>U vreme termina vozilo treba da bude otključano, ili ključ dostupan.</p>
+              <h3>Dostupan ključ</h3>
+              <p>Tokom tretmana palimo vozilo i uključujemo recirkulaciju klime, pa nam je ključ neophodan.</p>
             </div>
           </li>
           <li>
@@ -289,7 +290,63 @@
             </fieldset>
 
             <fieldset class="group">
-              <legend class="group__title">Vaši podaci</legend>
+              <legend class="group__title">Vozilo</legend>
+              <div class="segmented" role="radiogroup" aria-label="Vrsta vozila">
+                <label><input type="radio" name="vehicle" value="Automobil" checked /><span>Automobil</span></label>
+                <label><input type="radio" name="vehicle" value="Kombi" /><span>Kombi</span></label>
+                <label><input type="radio" name="vehicle" value="Kamion" /><span>Kamion</span></label>
+                <label><input type="radio" name="vehicle" value="Autobus" /><span>Autobus</span></label>
+              </div>
+              <div class="fields">
+                <div class="field">
+                  <label for="car">Marka i model</label>
+                  <input id="car" name="car" type="text" required placeholder="npr. Škoda Octavia" />
+                  <p class="error">Unesite marku i model vozila.</p>
+                </div>
+                <div class="field">
+                  <label for="plate">Registracija i boja <span class="optional">opciono</span></label>
+                  <input id="plate" name="plate" type="text" placeholder="npr. BG 123-AB, teget" />
+                </div>
+                <div class="field field--full">
+                  <label for="address">Adresa vozila</label>
+                  <input id="address" name="address" type="text" autocomplete="street-address" required placeholder="Ulica i broj, grad" />
+                  <p class="error">Unesite adresu na kojoj je vozilo parkirano.</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="group">
+              <legend class="group__title">Ključ</legend>
+              <p class="group__hint">Tokom tretmana palimo vozilo i uključujemo recirkulaciju klime, pa nam je potreban ključ.</p>
+              <div class="segmented segmented--2" role="radiogroup" aria-label="Preuzimanje ključa">
+                <label><input type="radio" name="keyHandover" value="Predaje lično ekipi" checked /><span>Predajem lično</span></label>
+                <label><input type="radio" name="keyHandover" value="Kod druge osobe" /><span>Kod druge osobe</span></label>
+              </div>
+              <div class="reveal-field" id="keyHolderWrap" hidden>
+                <div class="field">
+                  <label for="keyHolder">Kod koga je ključ?</label>
+                  <input id="keyHolder" name="keyHolder" type="text" placeholder="npr. portir zgrade, Jovan 064 123 4567" />
+                  <p class="error">Napišite kod koga preuzimamo ključ.</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="group">
+              <legend class="group__title">Priprema vozila <span class="optional">opciono</span></legend>
+              <div class="toggles">
+                <label class="toggle">
+                  <span><strong>Enterijer je usisan</strong><small>Preporučeno za najbolji rezultat.</small></span>
+                  <input type="checkbox" name="vacuumed" role="switch" />
+                </label>
+                <label class="toggle">
+                  <span><strong>Filter kabine je nedavno zamenjen</strong><small>Dodatni bonus.</small></span>
+                  <input type="checkbox" name="filter" role="switch" />
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="group">
+              <legend class="group__title">Kontakt</legend>
               <div class="fields">
                 <div class="field">
                   <label for="name">Ime i prezime</label>
@@ -301,20 +358,6 @@
                   <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="06x xxx xxxx" />
                   <p class="error">Unesite ispravan broj telefona.</p>
                 </div>
-                <div class="field field--full">
-                  <label for="address">Adresa vozila</label>
-                  <input id="address" name="address" type="text" autocomplete="street-address" required placeholder="Ulica i broj, grad" />
-                  <p class="error">Unesite adresu na kojoj je vozilo parkirano.</p>
-                </div>
-                <div class="field">
-                  <label for="car">Marka i model</label>
-                  <input id="car" name="car" type="text" required placeholder="npr. Škoda Octavia" />
-                  <p class="error">Unesite marku i model vozila.</p>
-                </div>
-                <div class="field">
-                  <label for="plate">Registracija i boja <span class="optional">opciono</span></label>
-                  <input id="plate" name="plate" type="text" placeholder="npr. BG 123-AB, teget" />
-                </div>
                 <div class="field">
                   <label for="email">E-mail <span class="optional">opciono</span></label>
                   <input id="email" name="email" type="email" autocomplete="email" />
@@ -322,28 +365,9 @@
                 </div>
                 <div class="field">
                   <label for="note">Napomena <span class="optional">opciono</span></label>
-                  <input id="note" name="note" type="text" placeholder="npr. ključ je kod portira" />
+                  <input id="note" name="note" type="text" placeholder="npr. vozilo je u podzemnoj garaži" />
                 </div>
               </div>
-            </fieldset>
-
-            <fieldset class="group">
-              <legend class="group__title">Priprema vozila</legend>
-              <div class="toggles">
-                <label class="toggle">
-                  <span><strong>Automobil će biti otključan</strong><small>Obavezno — ili ključ dostupan u vreme termina.</small></span>
-                  <input type="checkbox" name="unlocked" id="unlocked" role="switch" />
-                </label>
-                <label class="toggle">
-                  <span><strong>Enterijer je usisan</strong><small>Preporučeno za najbolji rezultat.</small></span>
-                  <input type="checkbox" name="vacuumed" role="switch" />
-                </label>
-                <label class="toggle">
-                  <span><strong>Filter kabine je nedavno zamenjen</strong><small>Dodatni bonus.</small></span>
-                  <input type="checkbox" name="filter" role="switch" />
-                </label>
-              </div>
-              <p class="error" id="unlockedError" hidden>Potvrdite da će automobil biti otključan.</p>
             </fieldset>
           </form>
 
@@ -356,6 +380,7 @@
                 <div><dt>Trajanje</dt><dd>oko 45 minuta</dd></div>
                 <div><dt>Adresa</dt><dd id="sumAddress">—</dd></div>
                 <div><dt>Vozilo</dt><dd id="sumCar">—</dd></div>
+                <div><dt>Ključ</dt><dd id="sumKey">Predajem lično</dd></div>
               </dl>
               <button type="submit" form="bookingForm" class="btn btn--primary btn--block" id="submitBtn">Zakaži termin</button>
               <p class="error error--form" id="formError" role="alert" hidden></p>
@@ -389,15 +414,19 @@
         <div class="faq">
           <details>
             <summary>Da li moram da budem prisutan tokom tretmana?</summary>
-            <div class="faq__body"><p>Ne. Dovoljno je da automobil bude otključan u zakazano vreme ili da ključ ostavite osobi sa kojom smo se dogovorili. Posle tretmana zaključavamo vozilo i javljamo vam se.</p></div>
+            <div class="faq__body"><p>Ne. Potreban nam je samo ključ, jer tokom tretmana palimo vozilo i uključujemo recirkulaciju klime. Možete ga predati ekipi pri dolasku ili ostaviti osobi na adresi. Posle tretmana zaključavamo vozilo, vraćamo ključ i javljamo vam se.</p></div>
           </details>
           <details>
             <summary>Koliko traje tretman?</summary>
-            <div class="faq__body"><p>Oko 45 minuta. Nakon toga je automobil spreman za vožnju.</p></div>
+            <div class="faq__body"><p>Oko 45 minuta. Nakon toga je vozilo spremno za vožnju.</p></div>
+          </details>
+          <details>
+            <summary>Da li radite kombije, kamione i autobuse?</summary>
+            <div class="faq__body"><p>Da. Tretman je pogodan za sva vozila — automobile, kombije, kamione i autobuse. Vrstu vozila izaberite pri zakazivanju.</p></div>
           </details>
           <details>
             <summary>Koje sredstvo se koristi?</summary>
-            <div class="faq__body"><p>Tečnost na bazi koloidnog srebra (13 ppm) — potpuno prirodna formulacija, bez benzoata i drugih toksičnih supstanci. Njena efikasnost od 99,99% dokazana je u kontaktu sa patogenima.</p></div>
+            <div class="faq__body"><p>Tečnost COLLOID<sup>®</sup> tehnologije na bazi koloidnog srebra (13 ppm) — potpuno prirodna formulacija, bez benzoata i drugih toksičnih supstanci. Njena efikasnost od 99,99% dokazana je u kontaktu sa patogenima.</p></div>
           </details>
           <details>
             <summary>Zašto je baš klima-uređaj problem?</summary>

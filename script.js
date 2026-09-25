@@ -367,7 +367,39 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     sync();
   };
   mirror("#address", "#sumAddress");
-  mirror("#car", "#sumCar");
+
+  /* vrsta vozila */
+  const PLACEHOLDERS = { Automobil: "npr. Škoda Octavia", Kombi: "npr. VW Transporter", Kamion: "npr. MAN TGX", Autobus: "npr. Mercedes Tourismo" };
+  const carInput = $("#car");
+  const vehicleType = () => form.querySelector('input[name="vehicle"]:checked').value;
+  function syncVehicle() {
+    const type = vehicleType();
+    carInput.placeholder = PLACEHOLDERS[type];
+    const model = carInput.value.trim();
+    $("#sumCar").textContent = model ? `${type}, ${model}` : type;
+  }
+  form.querySelectorAll('input[name="vehicle"]').forEach((r) => r.addEventListener("change", syncVehicle));
+  carInput.addEventListener("input", syncVehicle);
+  syncVehicle();
+
+  /* ključ: kod druge osobe traži dodatni podatak */
+  const keyHolderWrap = $("#keyHolderWrap");
+  const keyHolder = $("#keyHolder");
+  const keyWithOther = () => form.querySelector('input[name="keyHandover"]:checked').value === "Kod druge osobe";
+  function syncKey() {
+    const other = keyWithOther();
+    keyHolderWrap.hidden = !other;
+    keyHolder.required = other;
+    if (!other) keyHolder.closest(".field").classList.remove("is-invalid");
+    const holder = keyHolder.value.trim();
+    $("#sumKey").textContent = other ? (holder || "Kod druge osobe") : "Predajem lično";
+  }
+  form.querySelectorAll('input[name="keyHandover"]').forEach((r) => r.addEventListener("change", () => {
+    syncKey();
+    if (keyWithOther()) keyHolder.focus();
+  }));
+  keyHolder.addEventListener("input", syncKey);
+  syncKey();
 
   /* validacija — na napuštanju polja, ne tek na slanju */
   function validateField(input) {
@@ -384,7 +416,6 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     input.addEventListener("blur", () => { if (input.value.trim()) validateField(input); });
     input.addEventListener("input", () => { if (input.closest(".field").classList.contains("is-invalid")) validateField(input); });
   });
-  $("#unlocked").addEventListener("change", (e) => { if (e.target.checked) $("#unlockedError").hidden = true; });
 
   function validateAll() {
     let first = null;
@@ -392,14 +423,11 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       $("#slotError").hidden = false;
       first = timesEl;
     }
-    ["#name", "#phone", "#address", "#car", "#email"].forEach((id) => {
+    const ids = ["#car", "#address", ...(keyWithOther() ? ["#keyHolder"] : []), "#name", "#phone", "#email"];
+    ids.forEach((id) => {
       const input = $(id);
       if (!validateField(input) && !first) first = input;
     });
-    if (!$("#unlocked").checked) {
-      $("#unlockedError").hidden = false;
-      first = first || $("#unlocked");
-    }
     if (first) {
       first.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "center" });
       if (first.tagName === "INPUT") first.focus({ preventScroll: true });
@@ -421,10 +449,12 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       phone: get("phone"),
       email: get("email"),
       address: get("address"),
+      vehicleType: get("vehicle"),
       car: get("car"),
       plateAndColor: get("plate"),
+      keyHandover: get("keyHandover"),
+      keyHolder: keyWithOther() ? get("keyHolder") : "",
       note: get("note"),
-      unlocked: Boolean(data.unlocked),
       vacuumed: Boolean(data.vacuumed),
       cabinFilterReplaced: Boolean(data.filter),
     };
@@ -441,10 +471,10 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       `Telefon: ${b.phone}`,
       `E-mail: ${b.email || "—"}`,
       `Adresa vozila: ${b.address}`,
-      `Vozilo: ${b.car}${b.plateAndColor ? ` (${b.plateAndColor})` : ""}`,
+      `Vozilo: ${b.vehicleType}, ${b.car}${b.plateAndColor ? ` (${b.plateAndColor})` : ""}`,
+      `Ključ: ${b.keyHandover}${b.keyHolder ? ` — ${b.keyHolder}` : ""}`,
       `Napomena: ${b.note || "—"}`,
       "",
-      `Automobil otključan: ${b.unlocked ? "da" : "ne"}`,
       `Enterijer usisan: ${b.vacuumed ? "da" : "ne"}`,
       `Filter kabine nedavno menjan: ${b.cabinFilterReplaced ? "da" : "ne"}`,
     ].join("\n");
@@ -504,7 +534,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   function showDone(b) {
     $("#doneText").textContent =
       `${b.name.split(" ")[0]}, primili smo zahtev za ${formatDateLong(state.date)} u ${b.time}h, na adresi ${b.address}. ` +
-      `Javićemo vam se na ${b.phone} radi potvrde. Ne zaboravite da automobil bude otključan u vreme termina.`;
+      `Javićemo vam se na ${b.phone} radi potvrde. ${b.keyHolder ? `Ključ preuzimamo: ${b.keyHolder}.` : "Pripremite ključ za predaju ekipi."}`;
     swap(bookingEl, doneEl, () => {
       doneEl.classList.add("is-shown");
       doneEl.focus({ preventScroll: true });
@@ -519,7 +549,8 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     renderTimes();
     renderSummary();
     $("#sumAddress").textContent = "—";
-    $("#sumCar").textContent = "—";
+    syncVehicle();
+    syncKey();
     doneEl.classList.remove("is-shown");
     swap(doneEl, bookingEl);
   });
@@ -544,11 +575,11 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       `DTEND:${stamp(end)}`,
       "SUMMARY:Hedera Cleaning — dezinfekcija vozila",
       `LOCATION:${esc(b.address)}`,
-      `DESCRIPTION:${esc("Ostavite automobil otključan. Preporuka: usisan enterijer i nedavno zamenjen filter kabine.")}`,
+      `DESCRIPTION:${esc(`Ključ: ${b.keyHolder || "predajem lično ekipi"}. Preporuka: usisan enterijer i nedavno zamenjen filter kabine.`)}`,
       "BEGIN:VALARM",
       "TRIGGER:-PT1H",
       "ACTION:DISPLAY",
-      "DESCRIPTION:Otključajte automobil za Hedera Cleaning",
+      "DESCRIPTION:Pripremite ključ vozila za Hedera Cleaning",
       "END:VALARM",
       "END:VEVENT",
       "END:VCALENDAR",
