@@ -21,7 +21,8 @@ assets/photos/           ostale fotografije — spisak kadrova i naziva fajlova 
 
 - **Glatko skrolovanje** — ScrollSmoother (`#smooth-wrapper` / `#smooth-content` u `index.html`). Navigacija i meni su namerno van omotača.
 - **Navigacija svesna smera** — skriva se pri skrolovanju nadole, vraća se pri skrolovanju nagore.
-- **Paneli koji se preklapaju** — svaka sekcija sa klasom `panel` se zakači, a sledeća klizi preko nje; sekcija viša od ekrana se prvo pročita do kraja.
+- **Paneli koji se preklapaju** — svaka sekcija sa klasom `panel` se zakači, a sledeća klizi preko nje; sekcija viša od ekrana se prvo pročita do kraja. Pre nego što sledeća krene, sekcija stoji cela na ekranu koliko kaže `CONFIG.panelHold` (u visinama ekrana).
+- Brzina "dostizanja" glatkog skrola je `smooth` u `ScrollSmoother.create` (`script.js`).
 - Korisnicima koji u sistemu imaju uključeno „smanjeno kretanje“ sve ovo je isključeno i sajt se skroluje normalno.
 - GSAP je besplatan i za komercijalnu upotrebu ([GSAP Standard License](https://gsap.com/standard-license)).
 
@@ -38,6 +39,7 @@ Na vrhu `script.js` nalazi se objekat `CONFIG`:
 | `minLeadHours` | Minimalno vreme unapred za današnje termine. |
 | `daysAhead` | Koliko dana unapred se može zakazati. |
 | `bookedSlots` | Zauzeti termini, npr. `{ "2026-10-01": [9, 13] }`. |
+| `panelHold` | Pauza pre nego što sledeća sekcija krene preko trenutne, u visinama ekrana (podrazumevano `0.5`). |
 | `showPhotoPlaceholders` | `true` = na mestu fotografije koja nedostaje stoji polje sa opisom kadra; `false` = to mesto se sakriva. |
 
 > Sajt je statički, pa ne zna koje termine su drugi klijenti već zauzeli. Za automatsko blokiranje zauzetih termina potreban je mali backend (ili servis poput Cal.com / Google Calendar API) koji popunjava `bookedSlots`.

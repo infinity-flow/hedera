@@ -370,7 +370,6 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 .photo[data-ratio="4:3"] { aspect-ratio: 4 / 3; }
 .photo[data-ratio="3:2"] { aspect-ratio: 3 / 2; }
 .photo[data-ratio="4:5"] { aspect-ratio: 4 / 5; }
-.photo[data-ratio="21:9"] { aspect-ratio: 21 / 9; }
 .photo picture { display: block; height: 100%; }
 /* studijski snimak proizvoda: ceo, na beloj podlozi */
 .photo--product { background: #fff; }
@@ -416,34 +415,6 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 .vehicles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .vehicles li { display: grid; gap: 0.875rem; }
 .vehicles h3 { font-size: 1.1875rem; }
-
-/* Traka sa ekipom */
-.band { padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(5rem, 10vw, 8.5rem); background: var(--surface); }
-.band__frame { position: relative; }
-.band__photo { border-radius: var(--r-lg); }
-.band__photo:not(.is-missing)::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.62) 100%);
-}
-.band__photo.is-missing { background-color: #1F1F1F; box-shadow: none; }
-.band__photo.is-missing .photo__ph { justify-content: flex-start; align-items: flex-end; text-align: right; color: rgba(255, 255, 255, 0.6); }
-.band__photo.is-missing .photo__ph strong { color: #fff; }
-.band__photo.is-missing .photo__ph code { background: rgba(255, 255, 255, 0.12); }
-.band__text {
-  position: absolute;
-  left: clamp(1.5rem, 4vw, 3.5rem);
-  right: clamp(1.5rem, 4vw, 3.5rem);
-  bottom: clamp(1.5rem, 4vw, 3.5rem);
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  color: #fff;
-}
-.no-photo-placeholders .band:has(.is-missing) { display: none; }
 
 /* Priprema */
 .prep { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -749,7 +720,7 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
    Svaka sekcija se zakači kad dođe do vrha (ili do dna, ako je viša od ekrana),
    a sledeća klizi preko nje. Klase has-smoother / has-panels dodaje script.js. */
 .panel { position: relative; background: var(--bg); }
-.panel.section--surface, .panel.band { background: var(--surface); }
+.panel.section--surface { background: var(--surface); }
 .panel.hero { background-color: #0E140F; }
 .panel::after {
   content: "";
@@ -766,6 +737,15 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   border-radius: 28px 28px 0 0;
   box-shadow: 0 -24px 48px -28px rgba(0, 0, 0, 0.35);
 }
+/* svaki panel je bar visine ekrana; sadržaj kraćih je centriran vertikalno */
+.has-panels .panel.section {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.panel-hold { pointer-events: none; }   /* visinu (pauzu) postavlja script.js */
 .has-smoother { scroll-behavior: auto; }
 .has-smoother .summary { position: relative; top: auto; }   /* kači ga GSAP, ne sticky */
 
@@ -876,8 +856,6 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   }
   .vehicles::-webkit-scrollbar { display: none; }
   .vehicles li { flex: none; width: 68%; scroll-snap-align: start; }
-  .band__photo[data-ratio="21:9"] { aspect-ratio: 4 / 5; }
-  .band__photo.is-missing .photo__ph { justify-content: flex-start; align-items: center; text-align: center; padding-top: 2rem; }
   .timeline time { font-size: 1rem; }
   .prep { grid-template-columns: 1fr; }
   .fields { grid-template-columns: 1fr; }

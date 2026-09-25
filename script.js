@@ -12,6 +12,8 @@
  * - minLeadHours: koliko sati unapred najranije može da se zakaže današnji termin.
  * - daysAhead: koliko dana unapred je moguće zakazati.
  * - bookedSlots: zauzeti termini, npr. { "2026-10-01": [9, 13] }.
+ * - panelHold: koliko dugo (u visinama ekrana) sekcija ostaje cela na ekranu pre nego što
+ *   sledeća krene preko nje. 0 = odmah, 0.5 = pola ekrana skrolovanja, 1 = ceo ekran.
  * - showPhotoPlaceholders: dok neka fotografija iz assets/photos/ nedostaje, na njenom mestu
  *   stoji polje sa opisom kadra. Postavite na false pre objavljivanja ako neke fotografije
  *   još nemate — ta mesta će se tada potpuno sakriti.
@@ -27,6 +29,7 @@ const CONFIG = {
   daysAhead: 45,
   bookedSlots: {},
   showPhotoPlaceholders: true,
+  panelHold: 0.5,
 };
 
 const MONTHS_GEN = ["januara", "februara", "marta", "aprila", "maja", "juna", "jula", "avgusta", "septembra", "oktobra", "novembra", "decembra"];
@@ -178,22 +181,35 @@ const Scroll = {
       Scroll.smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 1.1,
+        smooth: 1.5,          // koliko sekundi skrol "dostiže" točkić — veće = sporije i mekše
         smoothTouch: 0.1,
         effects: false,
       });
     }
 
-    /* Paneli sa "overscroll"-om: panel niži od ekrana se kači kad dođe do vrha,
-       a viši od ekrana tek kad mu dno dođe do dna ekrana — prvo se ceo pročita,
-       pa ga sledeći panel prekrije. Prekriveni panel se blago zatamni. */
+    /* Paneli sa "overscroll"-om:
+       - panel je najmanje visine ekrana; viši panel se kači tek kad mu dno dođe do dna ekrana,
+         pa se prvo pročita ceo;
+       - posle toga sledi PAUZA (CONFIG.panelHold × visina ekrana) u kojoj panel stoji ceo na ekranu;
+       - tek onda sledeći panel klizi preko njega, a prekriveni se blago zatamni. */
     const panels = gsap.utils.toArray(".panel");
     const cover = $(".closing");
+    const holdPx = () => window.innerHeight * CONFIG.panelHold;
+    const spacers = [];
     panels.forEach((panel, i) => {
       panel.style.zIndex = String(i + 1);
+
+      // prazan prostor posle panela = pauza pre nego što sledeći krene preko njega
+      const spacer = document.createElement("div");
+      spacer.className = "panel-hold";
+      spacer.setAttribute("aria-hidden", "true");
+      panel.after(spacer);
+      spacers.push(spacer);
+
       ScrollTrigger.create({
         trigger: panel,
-        start: () => (panel.offsetHeight <= window.innerHeight ? "top top" : "bottom bottom"),
+        start: () => (panel.offsetHeight <= window.innerHeight + 1 ? "top top" : "bottom bottom"),
+        end: () => `+=${window.innerHeight + holdPx()}`,
         pin: true,
         pinSpacing: false,
       });
@@ -205,6 +221,9 @@ const Scroll = {
       });
     });
     cover.style.zIndex = $(".footer").style.zIndex = String(panels.length + 1);
+    const sizeSpacers = () => spacers.forEach((el) => { el.style.height = `${holdPx()}px`; });
+    sizeSpacers();
+    ScrollTrigger.addEventListener("refreshInit", sizeSpacers);
 
     /* position: sticky ne radi unutar ScrollSmoother-a, pa pregled termina kačimo GSAP-om */
     const summaryPin = gsap.matchMedia();
@@ -227,6 +246,8 @@ const Scroll = {
 
     return () => {
       ro.disconnect();
+      ScrollTrigger.removeEventListener("refreshInit", sizeSpacers);
+      spacers.forEach((el) => el.remove());
       summaryPin.revert();
       root.classList.remove("has-smoother", "has-panels");
       Scroll.smoother = null;

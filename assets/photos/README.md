@@ -22,7 +22,6 @@ Saveti:
 | `priprema-usisavanje.jpg` | Priprema | 3:2 | Usisavanje sedišta ili patosnica |
 | `priprema-filter.jpg` | Priprema | 3:2 | Nov i star filter kabine jedan pored drugog |
 | `priprema-kabina.jpg` | Priprema | 3:2 | Uredna, prazna kabina bez ličnih stvari |
-| `ekipa.jpg` | Traka pre zakazivanja | 21:9 (široko) | Ekipa u radu — uniforme, logo, vozilo firme. Na telefonu se prikazuje uspravno (4:5), pa ljude držite u sredini. Donji levi deo ostavite mirnijim jer tu stoji tekst. |
 
 Već ubačeno: `uredjaj.jpg` (studijski snimak uređaja, Tehnologija).
 
