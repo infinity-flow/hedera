@@ -11,7 +11,6 @@ Saveti:
 | Fajl | Sekcija | Format | Šta snimiti |
 |---|---|---|---|
 | `uredjaj-magla.jpg` | Tehnologija | 4:3 | Uređaj COLLOID u kabini, magla izlazi iz cevi — krupan plan |
-| `isparivac.jpg` | Tehnologija | 4:3 | Isparivač klime ili unutrašnjost ventilacionog kanala |
 | `vozilo-automobil.jpg` | Za svako vozilo | 4:5 (uspravno) | Putnički automobil, spolja ili kabina |
 | `vozilo-kombi.jpg` | Za svako vozilo | 4:5 (uspravno) | Kombi ili dostavno vozilo |
 | `vozilo-kamion.jpg` | Za svako vozilo | 4:5 (uspravno) | Kabina kamiona |

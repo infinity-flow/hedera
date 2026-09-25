@@ -15,15 +15,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/hero-interior-1200.webp 1200w, assets/hero-interior-2000.webp 2000w" imagesizes="(min-width: 1260px) 1180px, 100vw" />
+  <link rel="preload" as="image" href="assets/video/hero-poster.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <header class="nav" id="top">
+  <header class="nav is-over-hero" id="top">
     <div class="nav__bar">
       <a href="#top" class="nav__logo" aria-label="Hedera Cleaning — na vrh stranice">
-        <img src="assets/hedera-logo.svg" alt="Hedera Cleaning" width="118" height="30" />
+        <img class="nav__logo-dark" src="assets/hedera-logo.svg" alt="Hedera Cleaning" width="118" height="30" />
+        <img class="nav__logo-light" src="assets/hedera-logo-white.svg" alt="" width="118" height="30" aria-hidden="true" />
       </a>
 
       <nav class="nav__links" id="navLinks" aria-label="Glavna navigacija">
@@ -56,8 +57,15 @@
   <main>
 
     <!-- Hero -->
-    <section class="hero">
-      <div class="wrap">
+    <section class="hero" id="hero">
+      <div class="hero__media" aria-hidden="true">
+        <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" poster="assets/video/hero-poster.jpg">
+          <source src="assets/video/hero-720.mp4" type="video/mp4" media="(max-width: 900px)" />
+          <source src="assets/video/hero-1080.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="wrap hero__content">
         <p class="kicker">Ultrasonična dezinfekcija vozila</p>
         <h1 class="display">Svež vazduh u kabini.<br />Bez vašeg prisustva.</h1>
         <p class="hero__lead">
@@ -70,14 +78,13 @@
         </div>
       </div>
 
-      <figure class="wrap wrap--wide hero__figure">
-        <picture class="hero__photo">
-          <source type="image/webp" srcset="assets/hero-interior-1200.webp 1200w, assets/hero-interior-2000.webp 2000w" sizes="(min-width: 1260px) 1180px, 100vw" />
-          <img src="assets/hero-interior.jpg" width="2000" height="1333" alt="Kontrolna tabla automobila sa ventilacionim otvorima klime" fetchpriority="high" decoding="async" />
-        </picture>
-        <figcaption>Ultrazvučna magla prolazi kroz ventilaciju i klimu — do mesta koja ne vidite, a udišete.</figcaption>
-      </figure>
+      <button class="hero__pause" id="heroPause" type="button" aria-label="Pauziraj video" hidden>
+        <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" /></svg>
+        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" /></svg>
+      </button>
+    </section>
 
+    <section class="strip">
       <div class="wrap wrap--wide">
         <dl class="facts facts--4">
           <div><dt>Trajanje tretmana</dt><dd>~45 min</dd></div>
@@ -109,10 +116,13 @@
             <figcaption>Uređaj pretvara tečnost u maglu bez grejanja.</figcaption>
           </figure>
           <figure class="media">
-            <figure class="photo" data-ratio="4:3" data-shot="Isparivač klime ili unutrašnjost ventilacionog kanala">
-              <img src="assets/photos/isparivac.jpg" alt="Isparivač klima-uređaja ispod kontrolne table" loading="lazy" decoding="async" />
+            <figure class="photo" data-ratio="4:3" data-shot="Ventilacioni otvori klime">
+              <picture>
+                <source type="image/webp" srcset="assets/hero-interior-1200.webp 1200w, assets/hero-interior-2000.webp 2000w" sizes="(min-width: 1000px) 400px, 100vw" />
+                <img src="assets/hero-interior.jpg" width="2000" height="1333" alt="Kontrolna tabla automobila sa ventilacionim otvorima klime" loading="lazy" decoding="async" />
+              </picture>
             </figure>
-            <figcaption>Isparivač — mesto koje nikad ne vidite, a kroz koje dišete.</figcaption>
+            <figcaption>Magla prolazi kroz ventilaciju do isparivača — mesta koje ne vidite, a kroz koje dišete.</figcaption>
           </figure>
         </div>
 

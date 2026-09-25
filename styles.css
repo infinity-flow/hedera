@@ -142,12 +142,13 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 
 /* ---------- Navigacija (prozirni materijal) ---------- */
 .nav {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 50;
   background: var(--material);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
+  transition: background-color 300ms var(--ease-out);
 }
 /* ivica pri skrolovanju umesto stalne linije */
 .nav::after {
@@ -171,47 +172,93 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
-.nav__logo img { height: 30px; width: auto; }
+.nav__logo { position: relative; display: block; }
+.nav__logo img { height: 30px; width: auto; transition: opacity 300ms var(--ease-out); }
+.nav__logo-light { position: absolute; top: 0; left: 0; opacity: 0; }
 .nav__links { display: flex; gap: 1.75rem; margin-left: auto; }
-.nav__links a { font-size: 0.875rem; letter-spacing: -0.005em; color: var(--text-2); transition: color 150ms linear; }
+.nav__links a { font-size: 0.875rem; letter-spacing: -0.005em; color: var(--text-2); transition: color 300ms var(--ease-out); }
 .nav__links a:hover { color: var(--text); }
+
+/* preko hero videa: providno, zamućeno, beli tekst */
+.nav.is-over-hero:not(.is-open) {
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: saturate(140%) blur(16px);
+  backdrop-filter: saturate(140%) blur(16px);
+}
+.nav.is-over-hero:not(.is-open)::after { opacity: 1; background: rgba(255, 255, 255, 0.14); }
+.nav.is-over-hero:not(.is-open) .nav__links a { color: rgba(255, 255, 255, 0.8); }
+.nav.is-over-hero:not(.is-open) .nav__links a:hover { color: #fff; }
+.nav.is-over-hero:not(.is-open) .nav__logo-dark { opacity: 0; }
+.nav.is-over-hero:not(.is-open) .nav__logo-light { opacity: 1; }
 
 .nav__toggle { display: none; }
 
 .nav__sheet { display: none; }
 .scrim { display: none; }
 
-/* ---------- Hero ---------- */
-.hero { padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(4rem, 8vw, 7rem); text-align: center; }
-.hero .kicker { margin-bottom: 1rem; }
+/* ---------- Hero (video preko celog ekrana) ---------- */
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100svh;   /* bez skakanja kad se na telefonu sakrije traka pregledača */
+  padding: calc(var(--nav-h) + 2rem) 0 4.5rem;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  background: #0E140F url("assets/video/hero-poster.jpg") center / cover no-repeat;
+}
+.hero__media { position: absolute; inset: 0; z-index: -1; }
+.hero__video { width: 100%; height: 100%; object-fit: cover; }
+/* crni sloj: tamniji gore (navigacija) i dole, da tekst bude čitljiv */
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 50%, rgba(0, 0, 0, 0.25), transparent 70%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.45) 40%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.7) 100%);
+}
+.hero .kicker { margin-bottom: 1rem; color: var(--brand); }
+.hero .display { color: #fff; }
 .hero__lead {
   max-width: 36rem;
   margin: 1.5rem auto 0;
   font-size: clamp(1.1875rem, 1rem + 0.5vw, 1.375rem);
   line-height: 1.45;
   letter-spacing: -0.016em;
-  color: var(--text-2);
+  color: rgba(255, 255, 255, 0.84);
   text-wrap: pretty;
 }
 .hero__actions { display: flex; align-items: center; justify-content: center; gap: 1.75rem; margin-top: 2.25rem; flex-wrap: wrap; }
+.hero .link-arrow { color: #fff; }
 
-.hero__figure { margin-top: clamp(3rem, 7vw, 5rem); margin-bottom: 0; }
-.hero__photo {
-  display: block;
-  overflow: hidden;
-  border-radius: var(--r-lg);
-  background: #1a1a1a;
-  aspect-ratio: 16 / 9;
+.hero__pause {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 1.5rem;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: background-color 150ms linear, transform 160ms var(--ease-out);
 }
-.hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
-.hero figcaption {
-  max-width: 34rem;
-  margin: 1.25rem auto 0;
-  font-size: 0.875rem;
-  line-height: 1.45;
-  letter-spacing: -0.005em;
-  color: var(--text-2);
-}
+.hero__pause:hover { background: rgba(255, 255, 255, 0.22); }
+.hero__pause:active { transform: scale(0.92); }
+.hero__pause svg { width: 16px; height: 16px; fill: currentColor; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.hero__pause .icon-play { display: none; }
+.hero__pause.is-paused .icon-pause { display: none; }
+.hero__pause.is-paused .icon-play { display: block; }
+
+.strip { padding: clamp(2.5rem, 5vw, 3.5rem) 0 0; }
+.strip .facts { margin: 0; }
 
 .facts {
   display: grid;
@@ -335,6 +382,7 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 .photo[data-ratio="3:2"] { aspect-ratio: 3 / 2; }
 .photo[data-ratio="4:5"] { aspect-ratio: 4 / 5; }
 .photo[data-ratio="21:9"] { aspect-ratio: 21 / 9; }
+.photo picture { display: block; height: 100%; }
 .photo img { width: 100%; height: 100%; object-fit: cover; }
 
 .photo__ph { display: none; }
@@ -741,10 +789,11 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
     width: 18px; height: 1.5px;
     border-radius: 1px;
     background: #000;
-    transition: transform 300ms var(--ease-out);
+    transition: transform 300ms var(--ease-out), background-color 300ms var(--ease-out);
   }
   .nav__toggle span:first-child { top: 18px; }
   .nav__toggle span:last-child { top: 25px; }
+  .nav.is-over-hero:not(.is-open) .nav__toggle span { background: #fff; }
   .nav.is-open .nav__toggle span:first-child { transform: translateY(3.5px) rotate(45deg); }
   .nav.is-open .nav__toggle span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
 
@@ -785,8 +834,6 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   .scrim.is-on { opacity: 1; visibility: visible; transition: opacity 300ms linear, visibility 0s; }
 
   .facts, .facts--4, .facts--specs { grid-template-columns: 1fr; }
-  .hero__photo { aspect-ratio: 4 / 3; border-radius: var(--r); }
-  .hero__photo img { object-position: 45% 50%; }
   .facts > div { border-left: 0; padding: 1rem 0; border-top: 1px solid var(--hairline); flex-direction: row-reverse; justify-content: space-between; align-items: baseline; }
   .facts > div:first-child { border-top: 0; }
   .facts dd { font-size: 1.25rem; white-space: nowrap; }
@@ -840,10 +887,14 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 
 @media (prefers-reduced-transparency: reduce) {
   .nav, .nav__sheet { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .nav.is-over-hero:not(.is-open) { background: rgba(0, 0, 0, 0.72); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .hero__pause { background: rgba(0, 0, 0, 0.6); }
 }
 
 @media (prefers-contrast: more) {
   :root { --text-2: rgba(0, 0, 0, 0.8); --hairline: rgba(0, 0, 0, 0.3); --fill: rgba(0, 0, 0, 0.07); }
   .nav { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: 1px solid #000; }
+  .nav.is-over-hero:not(.is-open) { background: #000; border-bottom-color: #fff; }
+  .hero__media::after { background: rgba(0, 0, 0, 0.75); }
   .field input, .time, .day { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5); }
 }

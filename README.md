@@ -9,9 +9,10 @@ Jednostranični sajt za ultrasoničnu dezinfekciju vozila sa online zakazivanjem
 index.html               sadržaj stranice (hero, tehnologija, postupak, priprema, zakazivanje, pitanja, kontakt)
 styles.css               dizajn (Inter, boje #FAF6E9 / #34C759 / #FFF / #000)
 script.js                navigacija, izbor dana/vremena i forma za zakazivanje
-assets/hedera-logo.svg   logo
+assets/hedera-logo.svg   logo (tamni) i hedera-logo-white.svg (za navigaciju preko videa)
 assets/favicon.svg       ikonica (slovo H iz logotipa)
-assets/hero-interior.*   fotografija u hero delu (JPG + WebP 1200/2000 px)
+assets/video/            hero video: hero-1080.mp4 (desktop), hero-720.mp4 (telefon), hero-poster.jpg
+assets/hero-interior.*   fotografija ventilacije u sekciji Tehnologija (JPG + WebP 1200/2000 px)
 assets/photos/           ostale fotografije — spisak kadrova i naziva fajlova je u assets/photos/README.md
 ```
 

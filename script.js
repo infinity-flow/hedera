@@ -76,8 +76,15 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const sheet = $("#navSheet");
   const scrim = $("#scrim");
 
-  const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 4);
+  const hero = $("#hero");
+  // dok je navigacija preko hero videa: providna sa belim tekstom; posle toga svetla
+  const onScroll = () => {
+    const overHero = hero && hero.getBoundingClientRect().bottom > nav.offsetHeight;
+    nav.classList.toggle("is-over-hero", Boolean(overHero));
+    nav.classList.toggle("is-scrolled", !overHero && window.scrollY > 4);
+  };
   window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
   onScroll();
 
   const setOpen = (open) => {
@@ -91,6 +98,50 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
 
   $("#year").textContent = new Date().getFullYear();
+})();
+
+/* ---------- Hero video ----------
+   Ne pušta se kod "smanjenog kretanja" i uštede podataka (ostaje statična slika).
+   Pauzira se kad hero nije na ekranu; dugme omogućava ručnu pauzu. */
+(function initHeroVideo() {
+  const video = $("#heroVideo");
+  const btn = $("#heroPause");
+  if (!video) return;
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (reducedMotion.matches || saveData) return;
+
+  let userPaused = false;
+  let visible = true;
+
+  const sync = () => {
+    const paused = video.paused;
+    btn.classList.toggle("is-paused", paused);
+    btn.setAttribute("aria-label", paused ? "Pusti video" : "Pauziraj video");
+  };
+  const play = () => video.play().catch(() => {});
+
+  video.preload = "auto";
+  video.addEventListener("play", sync);
+  video.addEventListener("pause", sync);
+  video.addEventListener("playing", () => { btn.hidden = false; }, { once: true });
+
+  btn.addEventListener("click", () => {
+    userPaused = !video.paused;
+    if (userPaused) video.pause(); else play();
+  });
+
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    if (!visible) video.pause();
+    else if (!userPaused) play();
+  }).observe(video);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) video.pause();
+    else if (visible && !userPaused) play();
+  });
+
+  play();
 })();
 
 /* ---------- Pojavljivanje pri skrolovanju (samo veći blokovi) ---------- */
