@@ -76,16 +76,14 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const sheet = $("#navSheet");
   const scrim = $("#scrim");
 
-  const hero = $("#hero");
-  // dok je navigacija preko hero videa: providna sa belim tekstom; posle toga svetla
-  const onScroll = () => {
-    const overHero = hero && hero.getBoundingClientRect().bottom > nav.offsetHeight;
-    nav.classList.toggle("is-over-hero", Boolean(overHero));
-    nav.classList.toggle("is-scrolled", !overHero && window.scrollY > 4);
-  };
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-  onScroll();
+  // rezerva bez GSAP-a: beli tekst dok je navigacija preko hero videa
+  if (!window.ScrollTrigger) {
+    const hero = $("#hero");
+    const onScroll = () => nav.classList.toggle("is-over-hero", hero.getBoundingClientRect().bottom > nav.offsetHeight);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+  }
 
   const setOpen = (open) => {
     nav.classList.toggle("is-open", open);
@@ -100,48 +98,143 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   $("#year").textContent = new Date().getFullYear();
 })();
 
-/* ---------- Hero video ----------
-   Ne pušta se kod "smanjenog kretanja" i uštede podataka (ostaje statična slika).
-   Pauzira se kad hero nije na ekranu; dugme omogućava ručnu pauzu. */
-(function initHeroVideo() {
+/* ---------- Skrolovanje: jedno mesto za sve skokove na stranici ----------
+   Sa ScrollSmoother-om se skače kroz njega, bez njega nativno. */
+const Scroll = {
+  smoother: null,
+  to(target, position = "top top") {
+    if (this.smoother) {
+      this.smoother.scrollTo(target, true, position);
+    } else if (target === 0) {
+      window.scrollTo({ top: 0, behavior: reducedMotion.matches ? "auto" : "smooth" });
+    } else {
+      target.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: position.startsWith("center") ? "center" : "start" });
+    }
+  },
+  refresh() { if (window.ScrollTrigger) ScrollTrigger.refresh(); },
+};
+
+/* ---------- GSAP: glatko skrolovanje, paneli, navigacija, hero video ---------- */
+(function initMotion() {
+  const nav = $(".nav");
+  const hero = $("#hero");
   const video = $("#heroVideo");
-  const btn = $("#heroPause");
-  if (!video) return;
-  const saveData = navigator.connection && navigator.connection.saveData;
-  if (reducedMotion.matches || saveData) return;
+  const firstSection = hero.nextElementSibling;
+  const root = document.documentElement;
 
-  let userPaused = false;
-  let visible = true;
+  // video se pušta sam; kod "smanjenog kretanja" ostaje prvi kadar
+  if (reducedMotion.matches) { video.removeAttribute("autoplay"); video.pause(); }
+  const playVideo = () => { if (!reducedMotion.matches && !document.hidden) video.play().catch(() => {}); };
+  document.addEventListener("visibilitychange", () => (document.hidden ? video.pause() : playVideo()));
 
-  const sync = () => {
-    const paused = video.paused;
-    btn.classList.toggle("is-paused", paused);
-    btn.setAttribute("aria-label", paused ? "Pusti video" : "Pauziraj video");
-  };
-  const play = () => video.play().catch(() => {});
-
-  video.preload = "auto";
-  video.addEventListener("play", sync);
-  video.addEventListener("pause", sync);
-  video.addEventListener("playing", () => { btn.hidden = false; }, { once: true });
-
-  btn.addEventListener("click", () => {
-    userPaused = !video.paused;
-    if (userPaused) video.pause(); else play();
+  // linkovi ka sekcijama (#...) idu kroz Scroll.to
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const id = link.getAttribute("href");
+    const target = id === "#top" ? 0 : id.length > 1 && document.querySelector(id);
+    if (target === null || target === false) return;
+    e.preventDefault();
+    Scroll.to(target);
   });
 
-  new IntersectionObserver(([entry]) => {
-    visible = entry.isIntersecting;
-    if (!visible) video.pause();
-    else if (!userPaused) play();
-  }).observe(video);
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger, window.ScrollSmoother);
 
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) video.pause();
-    else if (visible && !userPaused) play();
+  /* Navigacija svesna smera (directionally-aware header):
+     skriva se pri skrolovanju nadole, vraća se čim krenete nagore. */
+  const showNav = gsap.from(nav, { yPercent: -150, paused: true, duration: 0.35, ease: "power2.out" }).progress(1);
+  ScrollTrigger.create({
+    start: "top top",
+    end: "max",
+    onUpdate(self) {
+      if (nav.classList.contains("is-open") || self.scroll() < 120 || self.direction === -1) showNav.play();
+      else showNav.reverse();
+    },
   });
 
-  play();
+  // beli tekst dok je navigacija preko hero videa; video staje kad ga prva sekcija potpuno prekrije
+  nav.classList.add("is-over-hero");
+  ScrollTrigger.create({
+    trigger: firstSection,
+    start: () => `top ${nav.offsetHeight}px`,
+    onEnter: () => nav.classList.remove("is-over-hero"),
+    onLeaveBack: () => nav.classList.add("is-over-hero"),
+  });
+  ScrollTrigger.create({
+    trigger: firstSection,
+    start: "top top",
+    onEnter: () => video.pause(),
+    onLeaveBack: playVideo,
+  });
+
+  const mm = gsap.matchMedia();
+
+  mm.add("(prefers-reduced-motion: no-preference)", () => {
+    root.classList.add("has-smoother", "has-panels");
+
+    /* Glatko skrolovanje (ScrollSmoother). Na ekranima osetljivim na dodir ostaje skoro nativno. */
+    if (window.ScrollSmoother) {
+      Scroll.smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1.1,
+        smoothTouch: 0.1,
+        effects: false,
+      });
+    }
+
+    /* Paneli sa "overscroll"-om: panel niži od ekrana se kači kad dođe do vrha,
+       a viši od ekrana tek kad mu dno dođe do dna ekrana — prvo se ceo pročita,
+       pa ga sledeći panel prekrije. Prekriveni panel se blago zatamni. */
+    const panels = gsap.utils.toArray(".panel");
+    const cover = $(".closing");
+    panels.forEach((panel, i) => {
+      panel.style.zIndex = String(i + 1);
+      ScrollTrigger.create({
+        trigger: panel,
+        start: () => (panel.offsetHeight <= window.innerHeight ? "top top" : "bottom bottom"),
+        pin: true,
+        pinSpacing: false,
+      });
+      const next = panels[i + 1] || cover;
+      gsap.fromTo(panel, { "--dim": 0 }, {
+        "--dim": 0.4,
+        ease: "none",
+        scrollTrigger: { trigger: next, start: "top bottom", end: "top top", scrub: true },
+      });
+    });
+    cover.style.zIndex = $(".footer").style.zIndex = String(panels.length + 1);
+
+    /* position: sticky ne radi unutar ScrollSmoother-a, pa pregled termina kačimo GSAP-om */
+    const summaryPin = gsap.matchMedia();
+    summaryPin.add("(min-width: 1001px)", () => {
+      const summary = $(".summary");
+      ScrollTrigger.create({
+        trigger: "#booking",
+        pin: summary,
+        pinSpacing: false,
+        start: "top 120px",
+        end: () => `bottom ${120 + summary.offsetHeight}px`,
+        refreshPriority: -1,
+      });
+    });
+
+    // visina se menja (FAQ, greške u formi, potvrda...) — preračunaj pozicije
+    let t;
+    const ro = new ResizeObserver(() => { clearTimeout(t); t = setTimeout(() => ScrollTrigger.refresh(), 150); });
+    ro.observe($("#smooth-content"));
+
+    return () => {
+      ro.disconnect();
+      summaryPin.revert();
+      root.classList.remove("has-smoother", "has-panels");
+      Scroll.smoother = null;
+      panels.forEach((p) => { p.style.zIndex = ""; });
+    };
+  });
+
+  if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
 })();
 
 /* ---------- Pojavljivanje pri skrolovanju (samo veći blokovi) ---------- */
@@ -375,7 +468,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       if (!validateField(input) && !first) first = input;
     });
     if (first) {
-      first.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "center" });
+      Scroll.to(first, "center center");
       if (first.tagName === "INPUT") first.focus({ preventScroll: true });
       return false;
     }
@@ -484,7 +577,8 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     swap(bookingEl, doneEl, () => {
       doneEl.classList.add("is-shown");
       doneEl.focus({ preventScroll: true });
-      $("#zakazivanje").scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
+      Scroll.refresh();
+      Scroll.to($("#zakazivanje"));
     });
   }
 

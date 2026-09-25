@@ -8,13 +8,22 @@ Jednostranični sajt za ultrasoničnu dezinfekciju vozila sa online zakazivanjem
 ```
 index.html               sadržaj stranice (hero, tehnologija, postupak, priprema, zakazivanje, pitanja, kontakt)
 styles.css               dizajn (Inter, boje #FAF6E9 / #34C759 / #FFF / #000)
-script.js                navigacija, izbor dana/vremena i forma za zakazivanje
+script.js                navigacija, GSAP animacije, izbor dana/vremena i forma za zakazivanje
+assets/vendor/gsap/      GSAP 3.15 (gsap, ScrollTrigger, ScrollSmoother) — lokalno, bez CDN-a
 assets/hedera-logo.svg   logo (tamni) i hedera-logo-white.svg (za navigaciju preko videa)
 assets/favicon.svg       ikonica (slovo H iz logotipa)
 assets/video/            hero video: hero-1080.mp4 (desktop), hero-720.mp4 (telefon), hero-poster.jpg
 assets/hero-interior.*   fotografija ventilacije u sekciji Tehnologija (JPG + WebP 1200/2000 px)
 assets/photos/           ostale fotografije — spisak kadrova i naziva fajlova je u assets/photos/README.md
 ```
+
+## Animacije (GSAP)
+
+- **Glatko skrolovanje** — ScrollSmoother (`#smooth-wrapper` / `#smooth-content` u `index.html`). Navigacija i meni su namerno van omotača.
+- **Navigacija svesna smera** — skriva se pri skrolovanju nadole, vraća se pri skrolovanju nagore.
+- **Paneli koji se preklapaju** — svaka sekcija sa klasom `panel` se zakači, a sledeća klizi preko nje; sekcija viša od ekrana se prvo pročita do kraja.
+- Korisnicima koji u sistemu imaju uključeno „smanjeno kretanje“ sve ovo je isključeno i sajt se skroluje normalno.
+- GSAP je besplatan i za komercijalnu upotrebu ([GSAP Standard License](https://gsap.com/standard-license)).
 
 ## Podešavanje zakazivanja
 

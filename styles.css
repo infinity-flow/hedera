@@ -246,30 +246,8 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 .hero__actions { display: flex; align-items: center; gap: 1.75rem; margin-top: 2.25rem; flex-wrap: wrap; }
 .hero .link-arrow { color: #fff; }
 
-.hero__pause {
-  position: absolute;
-  right: var(--gutter);
-  bottom: 64px;
-  width: 40px; height: 40px;
-  display: grid; place-items: center;
-  border: 0;
-  border-radius: 50%;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.14);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  cursor: pointer;
-  transition: background-color 150ms linear, transform 160ms var(--ease-out);
-}
-.hero__pause:hover { background: rgba(255, 255, 255, 0.22); }
-.hero__pause:active { transform: scale(0.92); }
-.hero__pause svg { width: 16px; height: 16px; fill: currentColor; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.hero__pause .icon-play { display: none; }
-.hero__pause.is-paused .icon-pause { display: none; }
-.hero__pause.is-paused .icon-play { display: block; }
-
-.strip { padding: clamp(2.5rem, 5vw, 3.5rem) 0 0; }
-.strip .facts { margin: 0; }
+.facts.facts--intro { margin: 0 0 clamp(4rem, 8vw, 6rem); }
+#tehnologija { padding-top: clamp(3.5rem, 6vw, 5rem); }
 
 .facts {
   display: grid;
@@ -440,7 +418,7 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 .vehicles h3 { font-size: 1.1875rem; }
 
 /* Traka sa ekipom */
-.band { padding: 0 0 clamp(5rem, 10vw, 8.5rem); background: var(--surface); }
+.band { padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(5rem, 10vw, 8.5rem); background: var(--surface); }
 .band__frame { position: relative; }
 .band__photo { border-radius: var(--r-lg); }
 .band__photo:not(.is-missing)::after {
@@ -755,17 +733,41 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 }
 
 /* ---------- Završni poziv ---------- */
-.closing { padding: 0 0 clamp(5rem, 10vw, 8.5rem); text-align: center; }
+.closing { position: relative; padding: clamp(5rem, 10vw, 8.5rem) 0; text-align: center; background: var(--bg); }
 .closing .btn { margin-top: 2.25rem; }
 
 /* ---------- Footer ---------- */
-.footer { border-top: 1px solid var(--hairline); padding: 3rem 0 2rem; font-size: 0.875rem; letter-spacing: -0.005em; }
+.footer { position: relative; background: var(--bg); border-top: 1px solid var(--hairline); padding: 3rem 0 2rem; font-size: 0.875rem; letter-spacing: -0.005em; }
 .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
 .footer__grid img { height: 30px; width: auto; margin-bottom: 0.75rem; }
 .footer h4 { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; }
 .footer__grid a, .footer__grid p { display: block; color: var(--text-2); line-height: 1.9; }
 .footer__grid a:hover { color: var(--text); }
 .footer__legal { margin-top: 2.5rem; color: var(--text-3); font-size: 0.8125rem; }
+
+/* ---------- Paneli koji se preklapaju pri skrolovanju (GSAP) ----------
+   Svaka sekcija se zakači kad dođe do vrha (ili do dna, ako je viša od ekrana),
+   a sledeća klizi preko nje. Klase has-smoother / has-panels dodaje script.js. */
+.panel { position: relative; background: var(--bg); }
+.panel.section--surface, .panel.band { background: var(--surface); }
+.panel.hero { background-color: #0E140F; }
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  border-radius: inherit;
+  background: #000;
+  opacity: var(--dim, 0);
+  pointer-events: none;
+}
+.has-panels .panel:not(.hero),
+.has-panels .closing {
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -24px 48px -28px rgba(0, 0, 0, 0.35);
+}
+.has-smoother { scroll-behavior: auto; }
+.has-smoother .summary { position: relative; top: auto; }   /* kači ga GSAP, ne sticky */
 
 /* ---------- Pojavljivanje pri skrolovanju ---------- */
 .reveal { opacity: 0; transform: translateY(16px); }
@@ -905,7 +907,6 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   .nav__sheet { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
   .nav::before { -webkit-backdrop-filter: none; backdrop-filter: none; -webkit-mask-image: none; mask-image: none; inset: 0; background: rgba(250, 246, 233, 0.96); }
   .nav.is-over-hero:not(.is-open)::before { background: rgba(0, 0, 0, 0.75); }
-  .hero__pause { background: rgba(0, 0, 0, 0.6); }
 }
 
 @media (prefers-contrast: more) {
