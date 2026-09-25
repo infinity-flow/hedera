@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" type="image/webp" imagesrcset="assets/hero-interior-1200.webp 1200w, assets/hero-interior-2000.webp 2000w" imagesizes="(min-width: 1260px) 1180px, 100vw" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -68,33 +69,11 @@
       </div>
 
       <figure class="wrap wrap--wide hero__figure">
-        <div class="stage" id="stage">
-          <svg class="stage__car" viewBox="0 96 1000 276" aria-hidden="true">
-            <defs>
-              <g id="wheel">
-                <circle class="car-tire" r="58" />
-                <circle class="car-rim" r="38" />
-                <circle class="car-spokes" r="31" />
-                <path class="car-spokes" d="M0 -7V-31M6.7 -2.2L29.5 -9.6M4.1 5.7L18.2 25.1M-4.1 5.7L-18.2 25.1M-6.7 -2.2L-29.5 -9.6" />
-                <circle class="car-tire" r="6" />
-              </g>
-            </defs>
-            <path class="car-body" d="M905 318 C925 316 931 300 929 282 C927 262 922 244 904 236 C890 231 870 228 850 225 C790 216 730 206 690 200 C650 170 612 142 575 130 C520 116 420 114 368 124 C318 134 262 166 216 194 C160 204 118 208 98 218 C82 228 78 258 80 290 C82 310 92 318 110 318 L182.4 318 A70 70 0 1 1 317.6 318 L702.4 318 A70 70 0 1 1 837.6 318 L905 318 Z" />
-            <path class="car-glass" d="M262 192 C300 168 338 147 380 139 C430 130 520 131 568 139 C598 150 628 172 652 196 Z" />
-            <path class="car-line" d="M474 132 L470 196 L466 304" />
-            <path class="car-line" d="M652 197 C664 230 668 268 664 300" />
-            <path class="car-line car-line--soft" d="M92 238 C330 228 640 230 922 250" />
-            <path class="car-line" d="M396 222 H424 M596 224 H624" />
-            <path class="car-line" d="M636 197 C646 184 662 182 672 190 L668 200 Z" />
-            <path class="car-line" d="M872 236 C890 238 906 242 916 250" />
-            <path class="car-line" d="M84 232 L112 226" />
-            <use href="#wheel" x="250" y="300" />
-            <use href="#wheel" x="770" y="300" />
-            <path class="car-ground" d="M40 360 H960" />
-          </svg>
-          <canvas class="stage__fog" id="fog" aria-hidden="true"></canvas>
-        </div>
-        <figcaption>Ultrazvuk pretvara tečnost za dezinfekciju u maglu od kapi manjih od 5 mikrona, koja kruži kroz kabinu i ventilaciju.</figcaption>
+        <picture class="hero__photo">
+          <source type="image/webp" srcset="assets/hero-interior-1200.webp 1200w, assets/hero-interior-2000.webp 2000w" sizes="(min-width: 1260px) 1180px, 100vw" />
+          <img src="assets/hero-interior.jpg" width="2000" height="1333" alt="Kontrolna tabla automobila sa ventilacionim otvorima klime" fetchpriority="high" decoding="async" />
+        </picture>
+        <figcaption>Ultrazvučna magla prolazi kroz ventilaciju i klimu — do mesta koja ne vidite, a udišete.</figcaption>
       </figure>
 
       <div class="wrap wrap--wide">

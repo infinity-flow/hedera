@@ -196,15 +196,14 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 .hero__actions { display: flex; align-items: center; justify-content: center; gap: 1.75rem; margin-top: 2.25rem; flex-wrap: wrap; }
 
 .hero__figure { margin-top: clamp(3rem, 7vw, 5rem); margin-bottom: 0; }
-.stage {
-  position: relative;
-  background: var(--surface);
-  border-radius: var(--r-lg);
-  padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 4vw, 4rem) clamp(1.25rem, 3vw, 2.5rem);
+.hero__photo {
+  display: block;
   overflow: hidden;
+  border-radius: var(--r-lg);
+  background: #1a1a1a;
+  aspect-ratio: 16 / 9;
 }
-.stage__car { width: 100%; max-width: 860px; height: auto; margin: 0 auto; }
-.stage__fog { position: absolute; pointer-events: none; }
+.hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
 .hero figcaption {
   max-width: 34rem;
   margin: 1.25rem auto 0;
@@ -213,15 +212,6 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   letter-spacing: -0.005em;
   color: var(--text-2);
 }
-
-.car-body { fill: var(--bg); stroke: #000; stroke-width: 2; stroke-linejoin: round; }
-.car-glass { fill: #E9EFE5; stroke: #000; stroke-width: 2; stroke-linejoin: round; }
-.car-line { fill: none; stroke: #000; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.car-line--soft { stroke: rgba(0, 0, 0, 0.28); stroke-width: 1.5; }
-.car-tire { fill: #000; }
-.car-rim { fill: var(--surface); }
-.car-spokes { fill: none; stroke: #000; stroke-width: 2; stroke-linecap: round; }
-.car-ground { stroke: var(--hairline); stroke-width: 2; stroke-linecap: round; }
 
 .facts {
   display: grid;
@@ -704,9 +694,11 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   .scrim.is-on { opacity: 1; visibility: visible; transition: opacity 300ms linear, visibility 0s; }
 
   .facts, .facts--4, .facts--specs { grid-template-columns: 1fr; }
+  .hero__photo { aspect-ratio: 4 / 3; border-radius: var(--r); }
+  .hero__photo img { object-position: 45% 50%; }
   .facts > div { border-left: 0; padding: 1rem 0; border-top: 1px solid var(--hairline); flex-direction: row-reverse; justify-content: space-between; align-items: baseline; }
   .facts > div:first-child { border-top: 0; }
-  .facts dd { font-size: 1.25rem; }
+  .facts dd { font-size: 1.25rem; white-space: nowrap; }
   .facts dt { text-align: right; }
 
   .steps { grid-template-columns: 1fr; gap: 1.5rem; }
