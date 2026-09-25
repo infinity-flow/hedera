@@ -12,6 +12,9 @@
  * - minLeadHours: koliko sati unapred najranije može da se zakaže današnji termin.
  * - daysAhead: koliko dana unapred je moguće zakazati.
  * - bookedSlots: zauzeti termini, npr. { "2026-10-01": [9, 13] }.
+ * - showPhotoPlaceholders: dok neka fotografija iz assets/photos/ nedostaje, na njenom mestu
+ *   stoji polje sa opisom kadra. Postavite na false pre objavljivanja ako neke fotografije
+ *   još nemate — ta mesta će se tada potpuno sakriti.
  */
 const CONFIG = {
   endpoint: "",
@@ -23,6 +26,7 @@ const CONFIG = {
   minLeadHours: 2,
   daysAhead: 45,
   bookedSlots: {},
+  showPhotoPlaceholders: true,
 };
 
 const MONTHS_GEN = ["januara", "februara", "marta", "aprila", "maja", "juna", "jula", "avgusta", "septembra", "oktobra", "novembra", "decembra"];
@@ -42,6 +46,28 @@ const endOf = (h) => {
   return formatTime(Math.floor(total / 60), total % 60);
 };
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+/* ---------- Fotografije: polje sa opisom kadra dok fajl ne postoji ---------- */
+(function initPhotos() {
+  if (!CONFIG.showPhotoPlaceholders) document.documentElement.classList.add("no-photo-placeholders");
+  const CAMERA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>';
+
+  document.querySelectorAll(".photo").forEach((fig) => {
+    const img = fig.querySelector("img");
+    const ph = document.createElement("div");
+    ph.className = "photo__ph";
+    ph.setAttribute("aria-hidden", "true");
+    ph.innerHTML = `${CAMERA}<strong></strong><code></code><small></small>`;
+    ph.querySelector("strong").textContent = fig.dataset.shot || "";
+    ph.querySelector("code").textContent = img.getAttribute("src");
+    ph.querySelector("small").textContent = `Format ${fig.dataset.ratio}`;
+    fig.appendChild(ph);
+
+    const missing = () => fig.classList.add("is-missing");
+    if (img.complete && img.naturalWidth === 0) missing();
+    else img.addEventListener("error", missing, { once: true });
+  });
+})();
 
 /* ---------- Navigacija ---------- */
 (function initNav() {

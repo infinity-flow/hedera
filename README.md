@@ -12,6 +12,7 @@ script.js                navigacija, izbor dana/vremena i forma za zakazivanje
 assets/hedera-logo.svg   logo
 assets/favicon.svg       ikonica (slovo H iz logotipa)
 assets/hero-interior.*   fotografija u hero delu (JPG + WebP 1200/2000 px)
+assets/photos/           ostale fotografije — spisak kadrova i naziva fajlova je u assets/photos/README.md
 ```
 
 ## Podešavanje zakazivanja
@@ -27,6 +28,7 @@ Na vrhu `script.js` nalazi se objekat `CONFIG`:
 | `minLeadHours` | Minimalno vreme unapred za današnje termine. |
 | `daysAhead` | Koliko dana unapred se može zakazati. |
 | `bookedSlots` | Zauzeti termini, npr. `{ "2026-10-01": [9, 13] }`. |
+| `showPhotoPlaceholders` | `true` = na mestu fotografije koja nedostaje stoji polje sa opisom kadra; `false` = to mesto se sakriva. |
 
 > Sajt je statički, pa ne zna koje termine su drugi klijenti već zauzeli. Za automatsko blokiranje zauzetih termina potreban je mali backend (ili servis poput Cal.com / Google Calendar API) koji popunjava `bookedSlots`.
 
@@ -34,3 +36,4 @@ Na vrhu `script.js` nalazi se objekat `CONFIG`:
 
 - Zameniti kontakt telefon i e-mail u futeru (`index.html`) i u `CONFIG.email`.
 - Podesiti `CONFIG.endpoint` da bi zahtevi stizali bez e-mail klijenta.
+- Ubaciti fotografije u `assets/photos/` ili postaviti `showPhotoPlaceholders: false`.

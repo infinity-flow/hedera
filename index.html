@@ -28,6 +28,7 @@
 
       <nav class="nav__links" id="navLinks" aria-label="Glavna navigacija">
         <a href="#tehnologija">Tehnologija</a>
+        <a href="#vozila">Vozila</a>
         <a href="#postupak">Postupak</a>
         <a href="#priprema">Priprema</a>
         <a href="#pitanja">Pitanja</a>
@@ -42,6 +43,7 @@
 
     <div class="nav__sheet" id="navSheet">
       <a href="#tehnologija">Tehnologija</a>
+      <a href="#vozila">Vozila</a>
       <a href="#postupak">Postupak</a>
       <a href="#priprema">Priprema</a>
       <a href="#pitanja">Pitanja</a>
@@ -99,6 +101,21 @@
           </p>
         </header>
 
+        <div class="media-row">
+          <figure class="media">
+            <figure class="photo" data-ratio="4:3" data-shot="Uređaj COLLOID u kabini, magla izlazi iz cevi — krupan plan">
+              <img src="assets/photos/uredjaj-magla.jpg" alt="Ultrazvučni uređaj u kabini dok iz cevi izlazi magla" loading="lazy" decoding="async" />
+            </figure>
+            <figcaption>Uređaj pretvara tečnost u maglu bez grejanja.</figcaption>
+          </figure>
+          <figure class="media">
+            <figure class="photo" data-ratio="4:3" data-shot="Isparivač klime ili unutrašnjost ventilacionog kanala">
+              <img src="assets/photos/isparivac.jpg" alt="Isparivač klima-uređaja ispod kontrolne table" loading="lazy" decoding="async" />
+            </figure>
+            <figcaption>Isparivač — mesto koje nikad ne vidite, a kroz koje dišete.</figcaption>
+          </figure>
+        </div>
+
         <dl class="facts facts--specs">
           <div><dt>Frekvencija ultrazvučne ćelije</dt><dd>1,7 MHz</dd></div>
           <div><dt>Prečnik kapi u magli</dt><dd>&lt; 5 µm</dd></div>
@@ -144,8 +161,47 @@
       </div>
     </section>
 
+    <!-- Sva vozila -->
+    <section class="section section--surface" id="vozila">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker">Sva vozila</p>
+          <h2 class="headline">Za svako vozilo.</h2>
+          <p class="section__lead">Automobili, kombiji, kamioni i autobusi — isti tretman i isto trajanje, oko 45 minuta.</p>
+        </header>
+      </div>
+      <div class="wrap wrap--wide">
+        <ul class="vehicles">
+          <li>
+            <figure class="photo" data-ratio="4:5" data-shot="Putnički automobil, spolja ili kabina">
+              <img src="assets/photos/vozilo-automobil.jpg" alt="Automobili" loading="lazy" decoding="async" />
+            </figure>
+            <h3>Automobili</h3>
+          </li>
+          <li>
+            <figure class="photo" data-ratio="4:5" data-shot="Kombi ili dostavno vozilo">
+              <img src="assets/photos/vozilo-kombi.jpg" alt="Kombiji" loading="lazy" decoding="async" />
+            </figure>
+            <h3>Kombiji</h3>
+          </li>
+          <li>
+            <figure class="photo" data-ratio="4:5" data-shot="Kabina kamiona">
+              <img src="assets/photos/vozilo-kamion.jpg" alt="Kamioni" loading="lazy" decoding="async" />
+            </figure>
+            <h3>Kamioni</h3>
+          </li>
+          <li>
+            <figure class="photo" data-ratio="4:5" data-shot="Autobus, spolja ili putnički prostor">
+              <img src="assets/photos/vozilo-autobus.jpg" alt="Autobusi" loading="lazy" decoding="async" />
+            </figure>
+            <h3>Autobusi</h3>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- Postupak -->
-    <section class="section section--surface" id="postupak">
+    <section class="section" id="postupak">
       <div class="wrap">
         <header class="section__head">
           <p class="kicker">Postupak</p>
@@ -167,6 +223,9 @@
               <h3>Stižemo na adresu</h3>
               <p>Pronalazimo vozilo po modelu, boji i registraciji koje ste uneli pri zakazivanju.</p>
             </div>
+            <figure class="photo timeline__photo" data-ratio="4:3" data-shot="Ekipa Hedera stiže do vozila (uniforma, oprema)">
+              <img src="assets/photos/postupak-dolazak.jpg" alt="Ekipa Hedera stiže do parkiranog vozila" loading="lazy" decoding="async" />
+            </figure>
           </li>
           <li>
             <time>10:05</time>
@@ -174,6 +233,9 @@
               <h3>Pokrećemo uređaj</h3>
               <p>Palimo vozilo i uključujemo recirkulaciju klime. Uređaj radi samostalno, a magla kruži kroz kabinu i ventilaciju dok su vrata zatvorena.</p>
             </div>
+            <figure class="photo timeline__photo" data-ratio="4:3" data-shot="Uređaj postavljen u kabini, vrata zatvorena, magla vidljiva kroz staklo">
+              <img src="assets/photos/postupak-uredjaj.jpg" alt="Kabina ispunjena maglom dok uređaj radi" loading="lazy" decoding="async" />
+            </figure>
           </li>
           <li>
             <time>10:35</time>
@@ -181,6 +243,9 @@
               <h3>Provetravamo kabinu</h3>
               <p>Otvaramo vrata dok se vazduh potpuno ne osveži.</p>
             </div>
+            <figure class="photo timeline__photo" data-ratio="4:3" data-shot="Otvorena vrata vozila tokom provetravanja">
+              <img src="assets/photos/postupak-provetravanje.jpg" alt="Otvorena vrata vozila tokom provetravanja" loading="lazy" decoding="async" />
+            </figure>
           </li>
           <li>
             <time>10:45</time>
@@ -188,13 +253,16 @@
               <h3>Zaključavamo i vraćamo ključ</h3>
               <p>Ključ ostaje tamo gde smo se dogovorili, a vi dobijate poruku da je tretman završen.</p>
             </div>
+            <figure class="photo timeline__photo" data-ratio="4:3" data-shot="Predaja ključa ili poruka klijentu na telefonu">
+              <img src="assets/photos/postupak-kljuc.jpg" alt="Predaja ključa klijentu posle tretmana" loading="lazy" decoding="async" />
+            </figure>
           </li>
         </ol>
       </div>
     </section>
 
     <!-- Priprema -->
-    <section class="section" id="priprema">
+    <section class="section section--surface" id="priprema">
       <div class="wrap">
         <header class="section__head">
           <p class="kicker">Priprema</p>
@@ -204,34 +272,69 @@
 
         <ul class="prep">
           <li>
-            <span class="tag tag--required">Obavezno</span>
-            <div>
-              <h3>Dostupan ključ</h3>
-              <p>Tokom tretmana palimo vozilo i uključujemo recirkulaciju klime, pa nam je ključ neophodan.</p>
+            <figure class="photo" data-ratio="3:2" data-shot="Ključ vozila u ruci ili na stolu">
+              <img src="assets/photos/priprema-kljuc.jpg" alt="Ključ vozila" loading="lazy" decoding="async" />
+            </figure>
+            <div class="prep__body">
+              <span class="tag tag--required">Obavezno</span>
+              <div>
+                <h3>Dostupan ključ</h3>
+                <p>Tokom tretmana palimo vozilo i uključujemo recirkulaciju klime, pa nam je ključ neophodan.</p>
+              </div>
             </div>
           </li>
           <li>
-            <span class="tag">Preporučeno</span>
-            <div>
-              <h3>Usisan enterijer</h3>
-              <p>Kad nema prašine i mrvica, magla lakše dopire do samih površina.</p>
+            <figure class="photo" data-ratio="3:2" data-shot="Usisavanje sedišta ili patosnica">
+              <img src="assets/photos/priprema-usisavanje.jpg" alt="Usisavanje enterijera vozila" loading="lazy" decoding="async" />
+            </figure>
+            <div class="prep__body">
+              <span class="tag">Preporučeno</span>
+              <div>
+                <h3>Usisan enterijer</h3>
+                <p>Kad nema prašine i mrvica, magla lakše dopire do samih površina.</p>
+              </div>
             </div>
           </li>
           <li>
-            <span class="tag tag--bonus">Bonus</span>
-            <div>
-              <h3>Nedavno zamenjen filter kabine</h3>
-              <p>Filter zadržava prašinu i polen. Sa novim filterom ventilacija posle tretmana duže ostaje čista.</p>
+            <figure class="photo" data-ratio="3:2" data-shot="Nov i star filter kabine jedan pored drugog">
+              <img src="assets/photos/priprema-filter.jpg" alt="Zamena filtera kabine" loading="lazy" decoding="async" />
+            </figure>
+            <div class="prep__body">
+              <span class="tag tag--bonus">Bonus</span>
+              <div>
+                <h3>Nedavno zamenjen filter kabine</h3>
+                <p>Filter zadržava prašinu i polen. Sa novim filterom ventilacija posle tretmana duže ostaje čista.</p>
+              </div>
             </div>
           </li>
           <li>
-            <span class="tag">Savet</span>
-            <div>
-              <h3>Prazna kabina</h3>
-              <p>Izvadite lične stvari i dokumenta, da bi magla stigla do svake površine.</p>
+            <figure class="photo" data-ratio="3:2" data-shot="Uredna, prazna kabina bez ličnih stvari">
+              <img src="assets/photos/priprema-kabina.jpg" alt="Prazna i uredna kabina vozila" loading="lazy" decoding="async" />
+            </figure>
+            <div class="prep__body">
+              <span class="tag">Savet</span>
+              <div>
+                <h3>Prazna kabina</h3>
+                <p>Izvadite lične stvari i dokumenta, da bi magla stigla do svake površine.</p>
+              </div>
             </div>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <!-- Ekipa -->
+    <section class="band">
+      <div class="wrap wrap--wide">
+        <div class="band__frame">
+          <figure class="photo band__photo" data-ratio="21:9" data-shot="Ekipa Hedera u radu — uniforme, logo, vozilo firme. Široka fotografija, važan sadržaj u sredini">
+            <img src="assets/photos/ekipa.jpg" alt="Ekipa Hedera Cleaning" loading="lazy" decoding="async" />
+          </figure>
+          <div class="band__text">
+            <h2 class="headline">Mi dolazimo.<br />Vi nastavljate svoj dan.</h2>
+            <a href="#zakazivanje" class="btn btn--primary">Zakaži termin</a>
+          </div>
+        </div>
       </div>
     </section>
 
