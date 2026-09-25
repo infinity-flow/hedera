@@ -4,6 +4,13 @@
    (negativan za velike naslove, ~0 za sitan tekst).
    ========================================================= */
 
+/* registrovano svojstvo, da bi prelaz boje navigacije bio gladak */
+@property --nav-tint {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
 :root {
   --bg: #FAF6E9;
   --surface: #FFFFFF;
@@ -27,7 +34,7 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);   /* blizu kritično prigušene opruge */
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
-  --nav-h: 56px;
+  --nav-h: 92px;   /* 24px + 44px (dugme) + 24px */
   --gutter: clamp(1rem, 4vw, 2.5rem);
 }
 
@@ -113,7 +120,7 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 .btn:active { transform: scale(0.97); transition-duration: 80ms; }
 .btn--primary { background: var(--brand); color: #000; }
 .btn--primary:hover { background: var(--brand-press); }
-.btn--small { min-height: 34px; padding: 0 1rem; font-size: 0.9375rem; }
+.btn--small { min-height: 44px; padding: 0 1.25rem; font-size: 1rem; }
 .btn--block { width: 100%; }
 .btn[disabled] { opacity: 0.5; cursor: default; transform: none; }
 
@@ -142,45 +149,44 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 
 /* ---------- Navigacija (prozirni materijal) ---------- */
 .nav {
+  --nav-tint: rgba(250, 246, 233, 0.55);
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 50;
-  /* uvek providna sa zamućenjem — ista pozadina preko videa i preko sadržaja */
-  background: rgba(255, 255, 255, 0.06);
-  -webkit-backdrop-filter: saturate(160%) blur(18px);
-  backdrop-filter: saturate(160%) blur(18px);
+  transition: --nav-tint 300ms var(--ease-out);
 }
-/* ivica pri skrolovanju umesto stalne linije */
-.nav::after {
+/* zamućenje kao gradijent: puno pri vrhu, nestaje ka dnu — bez oštre ivice.
+   Na pseudo-elementu, da maska ne bi zahvatila i tekst navigacije. */
+.nav::before {
   content: "";
   position: absolute;
-  left: 0; right: 0; top: 100%;
-  height: 1px;
-  background: var(--hairline);
-  opacity: 0;
-  transition: opacity 200ms linear;
+  inset: 0 0 -40% 0;
+  z-index: -1;
   pointer-events: none;
+  background: linear-gradient(180deg, var(--nav-tint) 0%, transparent 100%);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-mask-image: linear-gradient(180deg, #000 45%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 45%, transparent 100%);
 }
-.nav.is-scrolled::after { opacity: 1; }
+.nav.is-over-hero { --nav-tint: rgba(0, 0, 0, 0.28); }
 
 .nav__bar {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  height: var(--nav-h);
+  gap: 2.5rem;
   max-width: calc(1180px + var(--gutter) * 2);
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  padding: 24px var(--gutter);
 }
 .nav__logo { position: relative; display: block; }
-.nav__logo img { height: 30px; width: auto; transition: opacity 300ms var(--ease-out); }
+.nav__logo img { height: 36px; width: auto; transition: opacity 300ms var(--ease-out); }
 .nav__logo-light { position: absolute; top: 0; left: 0; opacity: 0; }
-.nav__links { display: flex; gap: 1.75rem; margin-left: auto; }
-.nav__links a { font-size: 0.875rem; letter-spacing: -0.005em; color: var(--text-2); transition: color 300ms var(--ease-out); }
+.nav__links { display: flex; gap: 2rem; margin-left: auto; }
+.nav__links a { font-size: 1rem; font-weight: 500; letter-spacing: -0.011em; color: var(--text-2); transition: color 300ms var(--ease-out); }
 .nav__links a:hover { color: var(--text); }
 
 /* preko hero videa: providno, zamućeno, beli tekst */
-.nav.is-over-hero:not(.is-open)::after { opacity: 1; background: rgba(255, 255, 255, 0.14); }
 .nav.is-over-hero:not(.is-open) .nav__links a { color: rgba(255, 255, 255, 0.8); }
 .nav.is-over-hero:not(.is-open) .nav__links a:hover { color: #fff; }
 .nav.is-over-hero:not(.is-open) .nav__logo-dark { opacity: 0; }
@@ -225,12 +231,8 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   letter-spacing: 0.1em;   /* verzal traži širi razmak slova */
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
 }
-/* zelena crtica brenda ispred teksta — zelen tekst se gubi preko zelenog lišća */
-.hero__eyebrow::before { content: ""; width: 1.5rem; height: 2px; border-radius: 1px; background: var(--brand); }
+
 .hero .display { color: #fff; font-size: clamp(2.5rem, 1.2rem + 5vw, 5.25rem); }
 .hero__lead {
   max-width: 38rem;
@@ -781,7 +783,9 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 }
 
 @media (max-width: 760px) {
-  :root { --nav-h: 52px; }
+  :root { --nav-h: 76px; }   /* 16px + 44px + 16px */
+  .nav__bar { padding-top: 16px; padding-bottom: 16px; }
+  .nav__logo img { height: 32px; }
 
   .nav__links, .nav__cta { display: none; }
   .nav__toggle {
@@ -898,16 +902,16 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  .nav, .nav__sheet { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
-  .nav:not(.is-open) { background: rgba(250, 246, 233, 0.94); }
-  .nav.is-over-hero:not(.is-open) { background: rgba(0, 0, 0, 0.72); }
+  .nav__sheet { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .nav::before { -webkit-backdrop-filter: none; backdrop-filter: none; -webkit-mask-image: none; mask-image: none; inset: 0; background: rgba(250, 246, 233, 0.96); }
+  .nav.is-over-hero:not(.is-open)::before { background: rgba(0, 0, 0, 0.75); }
   .hero__pause { background: rgba(0, 0, 0, 0.6); }
 }
 
 @media (prefers-contrast: more) {
   :root { --text-2: rgba(0, 0, 0, 0.8); --hairline: rgba(0, 0, 0, 0.3); --fill: rgba(0, 0, 0, 0.07); }
-  .nav { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: 1px solid #000; }
-  .nav.is-over-hero:not(.is-open) { background: #000; border-bottom-color: #fff; }
+  .nav::before { -webkit-backdrop-filter: none; backdrop-filter: none; -webkit-mask-image: none; mask-image: none; inset: 0; background: var(--bg); border-bottom: 1px solid #000; }
+  .nav.is-over-hero:not(.is-open)::before { background: #000; border-bottom-color: #fff; }
   .hero__media::after { background: rgba(0, 0, 0, 0.75); }
   .field input, .time, .day { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5); }
 }
