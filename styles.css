@@ -145,10 +145,10 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 50;
-  background: var(--material);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  transition: background-color 300ms var(--ease-out);
+  /* uvek providna sa zamućenjem — ista pozadina preko videa i preko sadržaja */
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  backdrop-filter: saturate(160%) blur(18px);
 }
 /* ivica pri skrolovanju umesto stalne linije */
 .nav::after {
@@ -180,11 +180,6 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 .nav__links a:hover { color: var(--text); }
 
 /* preko hero videa: providno, zamućeno, beli tekst */
-.nav.is-over-hero:not(.is-open) {
-  background: rgba(255, 255, 255, 0.06);
-  -webkit-backdrop-filter: saturate(140%) blur(16px);
-  backdrop-filter: saturate(140%) blur(16px);
-}
 .nav.is-over-hero:not(.is-open)::after { opacity: 1; background: rgba(255, 255, 255, 0.14); }
 .nav.is-over-hero:not(.is-open) .nav__links a { color: rgba(255, 255, 255, 0.8); }
 .nav.is-over-hero:not(.is-open) .nav__links a:hover { color: #fff; }
@@ -201,44 +196,58 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   position: relative;
   isolation: isolate;
   display: grid;
-  place-items: center;
+  align-items: end;
   min-height: 100vh;
   min-height: 100svh;   /* bez skakanja kad se na telefonu sakrije traka pregledača */
-  padding: calc(var(--nav-h) + 2rem) 0 4.5rem;
+  padding: calc(var(--nav-h) + 2rem) 0 64px;
   overflow: hidden;
-  text-align: center;
+  text-align: left;
   color: #fff;
   background: #0E140F url("assets/video/hero-poster.jpg") center / cover no-repeat;
 }
 .hero__media { position: absolute; inset: 0; z-index: -1; }
 .hero__video { width: 100%; height: 100%; object-fit: cover; }
-/* crni sloj: tamniji gore (navigacija) i dole, da tekst bude čitljiv */
+/* crni sloj: najtamniji dole levo, gde je tekst; blago tamniji i gore zbog navigacije */
 .hero__media::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 55% at 50% 50%, rgba(0, 0, 0, 0.25), transparent 70%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.45) 40%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.7) 100%);
+    radial-gradient(ellipse 85% 80% at 0% 100%, rgba(0, 0, 0, 0.62), transparent 72%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0.45) 60%, rgba(0, 0, 0, 0.78) 100%);
 }
-.hero .kicker { margin-bottom: 1rem; color: var(--brand); }
-.hero .display { color: #fff; }
+.hero__content { max-width: calc(1180px + var(--gutter) * 2); }
+.hero__content > * { max-width: 46rem; }
+.hero__eyebrow {
+  margin-bottom: 1rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;   /* verzal traži širi razmak slova */
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+/* zelena crtica brenda ispred teksta — zelen tekst se gubi preko zelenog lišća */
+.hero__eyebrow::before { content: ""; width: 1.5rem; height: 2px; border-radius: 1px; background: var(--brand); }
+.hero .display { color: #fff; font-size: clamp(2.5rem, 1.2rem + 5vw, 5.25rem); }
 .hero__lead {
-  max-width: 36rem;
-  margin: 1.5rem auto 0;
+  max-width: 38rem;
+  margin: 1.5rem 0 0;
   font-size: clamp(1.1875rem, 1rem + 0.5vw, 1.375rem);
   line-height: 1.45;
   letter-spacing: -0.016em;
   color: rgba(255, 255, 255, 0.84);
   text-wrap: pretty;
 }
-.hero__actions { display: flex; align-items: center; justify-content: center; gap: 1.75rem; margin-top: 2.25rem; flex-wrap: wrap; }
+.hero__actions { display: flex; align-items: center; gap: 1.75rem; margin-top: 2.25rem; flex-wrap: wrap; }
 .hero .link-arrow { color: #fff; }
 
 .hero__pause {
   position: absolute;
   right: var(--gutter);
-  bottom: 1.5rem;
+  bottom: 64px;
   width: 40px; height: 40px;
   display: grid; place-items: center;
   border: 0;
@@ -890,7 +899,8 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 
 @media (prefers-reduced-transparency: reduce) {
   .nav, .nav__sheet { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
-  .nav.is-over-hero:not(.is-open) { background: rgba(0, 0, 0, 0.72); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .nav:not(.is-open) { background: rgba(250, 246, 233, 0.94); }
+  .nav.is-over-hero:not(.is-open) { background: rgba(0, 0, 0, 0.72); }
   .hero__pause { background: rgba(0, 0, 0, 0.6); }
 }
 
