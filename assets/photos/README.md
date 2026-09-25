@@ -10,7 +10,6 @@ Saveti:
 
 | Fajl | Sekcija | Format | Šta snimiti |
 |---|---|---|---|
-| `uredjaj-magla.jpg` | Tehnologija | 4:3 | Uređaj COLLOID u kabini, magla izlazi iz cevi — krupan plan |
 | `vozilo-automobil.jpg` | Za svako vozilo | 4:5 (uspravno) | Putnički automobil, spolja ili kabina |
 | `vozilo-kombi.jpg` | Za svako vozilo | 4:5 (uspravno) | Kombi ili dostavno vozilo |
 | `vozilo-kamion.jpg` | Za svako vozilo | 4:5 (uspravno) | Kabina kamiona |
@@ -24,5 +23,7 @@ Saveti:
 | `priprema-filter.jpg` | Priprema | 3:2 | Nov i star filter kabine jedan pored drugog |
 | `priprema-kabina.jpg` | Priprema | 3:2 | Uredna, prazna kabina bez ličnih stvari |
 | `ekipa.jpg` | Traka pre zakazivanja | 21:9 (široko) | Ekipa u radu — uniforme, logo, vozilo firme. Na telefonu se prikazuje uspravno (4:5), pa ljude držite u sredini. Donji levi deo ostavite mirnijim jer tu stoji tekst. |
+
+Već ubačeno: `uredjaj.jpg` (studijski snimak uređaja, Tehnologija).
 
 Ako pre objavljivanja neke fotografije još nemate, u `script.js` postavite `showPhotoPlaceholders: false` — mesta bez fotografije će se tada sakriti.

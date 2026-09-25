@@ -383,6 +383,9 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 .photo[data-ratio="4:5"] { aspect-ratio: 4 / 5; }
 .photo[data-ratio="21:9"] { aspect-ratio: 21 / 9; }
 .photo picture { display: block; height: 100%; }
+/* studijski snimak proizvoda: ceo, na beloj podlozi */
+.photo--product { background: #fff; }
+.photo.photo--product img { object-fit: contain; padding: clamp(1.25rem, 4%, 2.5rem); }
 .photo img { width: 100%; height: 100%; object-fit: cover; }
 
 .photo__ph { display: none; }
