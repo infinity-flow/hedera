@@ -2,11 +2,11 @@
 <html lang="sr-Latn">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Hedera Cleaning — Ultrasonična dezinfekcija vozila</title>
-  <meta name="description" content="Hedera Cleaning — ultrasonična dezinfekcija vozila na vašoj adresi. Uklanja bakterije, viruse, gljivice, buđ i neprijatne mirise iz kabine i ventilacije. Zakažite termin online." />
+  <meta name="description" content="Ultrasonična dezinfekcija kabine, ventilacije i klime na vašoj adresi. Tretman traje oko 45 minuta, a vi ne morate biti prisutni. Zakažite termin online." />
   <meta name="theme-color" content="#FAF6E9" />
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
   <meta property="og:title" content="Hedera Cleaning — Ultrasonična dezinfekcija vozila" />
   <meta property="og:description" content="Dolazimo do vašeg automobila. Tretman traje oko 45 minuta, a vi ne morate biti prisutni." />
@@ -14,510 +14,431 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ============ HEADER ============ -->
-  <header class="header" id="top">
-    <div class="container header__inner">
-      <a href="#top" class="logo" aria-label="Hedera Cleaning — početak">
-        <img src="assets/logo.svg" alt="" width="36" height="36" />
-        <span>Hedera<strong>Cleaning</strong></span>
+  <header class="nav" id="top">
+    <div class="nav__bar">
+      <a href="#top" class="nav__logo" aria-label="Hedera Cleaning — na vrh stranice">
+        <img src="assets/hedera-logo.svg" alt="Hedera Cleaning" width="118" height="30" />
       </a>
 
-      <nav class="nav" id="nav" aria-label="Glavna navigacija">
+      <nav class="nav__links" id="navLinks" aria-label="Glavna navigacija">
         <a href="#tehnologija">Tehnologija</a>
-        <a href="#kako-radimo">Kako radimo</a>
+        <a href="#postupak">Postupak</a>
         <a href="#priprema">Priprema</a>
         <a href="#pitanja">Pitanja</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#zakazivanje" class="btn btn--primary btn--sm nav__cta">Zakaži termin</a>
       </nav>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Otvori meni" aria-expanded="false" aria-controls="nav">
-        <span></span><span></span><span></span>
+      <a href="#zakazivanje" class="btn btn--primary btn--small nav__cta">Zakaži</a>
+
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="Meni" aria-expanded="false" aria-controls="navSheet">
+        <span></span><span></span>
       </button>
     </div>
+
+    <div class="nav__sheet" id="navSheet">
+      <a href="#tehnologija">Tehnologija</a>
+      <a href="#postupak">Postupak</a>
+      <a href="#priprema">Priprema</a>
+      <a href="#pitanja">Pitanja</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#zakazivanje" class="btn btn--primary">Zakaži termin</a>
+    </div>
   </header>
+  <div class="scrim" id="scrim"></div>
 
   <main>
 
-    <!-- ============ HERO ============ -->
+    <!-- Hero -->
     <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <span class="eyebrow"><span class="dot"></span>Dolazimo na vašu adresu</span>
-          <h1>Čist vazduh u vašem automobilu. <span class="hl">Bez vašeg prisustva.</span></h1>
-          <p class="lead">
-            Ultrasonična dezinfekcija dopire tamo gde krpa i usisivač ne mogu — u ventilaciju,
-            klima-uređaj, sedišta i tapacir. Vi samo otključate automobil, a mi završavamo ostalo za oko 45 minuta.
-          </p>
-          <div class="hero__actions">
-            <a href="#zakazivanje" class="btn btn--primary">Zakaži termin online
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="#tehnologija" class="btn btn--ghost">Kako funkcioniše?</a>
-          </div>
-
-          <ul class="hero__facts">
-            <li><strong>~45 min</strong><span>trajanje tretmana</span></li>
-            <li><strong>09–17h</strong><span>ponedeljak – subota</span></li>
-            <li><strong>0 min</strong><span>vašeg prisustva</span></li>
-          </ul>
+      <div class="wrap">
+        <p class="kicker">Ultrasonična dezinfekcija vozila</p>
+        <h1 class="display">Svež vazduh u kabini.<br />Bez vašeg prisustva.</h1>
+        <p class="hero__lead">
+          Dolazimo do vašeg automobila i suvom maglom dezinfikujemo kabinu, ventilaciju i klimu
+          za oko 45&nbsp;minuta. Vi samo ostavite vozilo otključano.
+        </p>
+        <div class="hero__actions">
+          <a href="#zakazivanje" class="btn btn--primary">Zakaži termin</a>
+          <a href="#tehnologija" class="link-arrow">Kako funkcioniše</a>
         </div>
+      </div>
 
-        <div class="hero__visual" aria-hidden="true">
-          <div class="visual-card">
-            <div class="visual-card__badge">
-              <span class="pulse"></span> Tretman u toku
-            </div>
-            <svg class="car" viewBox="0 0 400 190" fill="none">
-              <!-- fog particles inside cabin -->
-              <g class="fog">
-                <circle cx="150" cy="95" r="4" /><circle cx="175" cy="80" r="3" /><circle cx="200" cy="100" r="5" />
-                <circle cx="225" cy="78" r="3" /><circle cx="250" cy="96" r="4" /><circle cx="270" cy="84" r="3" />
-                <circle cx="190" cy="70" r="2.5" /><circle cx="240" cy="68" r="2.5" /><circle cx="160" cy="75" r="2" />
-                <circle cx="215" cy="92" r="2" /><circle cx="285" cy="95" r="2.5" /><circle cx="135" cy="92" r="2" />
+      <figure class="wrap wrap--wide hero__figure">
+        <div class="stage" id="stage">
+          <svg class="stage__car" viewBox="0 96 1000 276" aria-hidden="true">
+            <defs>
+              <g id="wheel">
+                <circle class="car-tire" r="58" />
+                <circle class="car-rim" r="38" />
+                <circle class="car-spokes" r="31" />
+                <path class="car-spokes" d="M0 -7V-31M6.7 -2.2L29.5 -9.6M4.1 5.7L18.2 25.1M-4.1 5.7L-18.2 25.1M-6.7 -2.2L-29.5 -9.6" />
+                <circle class="car-tire" r="6" />
               </g>
-              <!-- body -->
-              <path class="car__body" d="M28 138v-28c2-14 14-20 26-22l58-9c28-30 48-38 76-38h58c30 2 48 14 70 38l40 8c18 4 26 12 26 26v25H28Z" />
-              <!-- windows -->
-              <path class="car__glass" d="M124 82c20-22 36-30 60-30h20v30h-80Z" />
-              <path class="car__glass" d="M216 52h40c20 1 34 10 50 30h-90V52Z" />
-              <!-- details -->
-              <path class="car__line" d="M210 50v88" />
-              <path class="car__line" d="M60 108h300" />
-              <rect class="car__light" x="352" y="100" width="18" height="8" rx="4" />
-              <!-- wheels -->
-              <g class="wheel"><circle cx="104" cy="140" r="26" /><circle cx="104" cy="140" r="10" class="hub" /></g>
-              <g class="wheel"><circle cx="304" cy="140" r="26" /><circle cx="304" cy="140" r="10" class="hub" /></g>
-              <path class="car__ground" d="M10 168h380" />
-            </svg>
-
-            <div class="visual-card__stats">
-              <div><span>Ventilacija</span><div class="bar"><i style="--w:92%"></i></div></div>
-              <div><span>Klima-uređaj</span><div class="bar"><i style="--w:88%"></i></div></div>
-              <div><span>Tapacir i sedišta</span><div class="bar"><i style="--w:96%"></i></div></div>
-            </div>
-          </div>
+            </defs>
+            <path class="car-body" d="M905 318 C925 316 931 300 929 282 C927 262 922 244 904 236 C890 231 870 228 850 225 C790 216 730 206 690 200 C650 170 612 142 575 130 C520 116 420 114 368 124 C318 134 262 166 216 194 C160 204 118 208 98 218 C82 228 78 258 80 290 C82 310 92 318 110 318 L182.4 318 A70 70 0 1 1 317.6 318 L702.4 318 A70 70 0 1 1 837.6 318 L905 318 Z" />
+            <path class="car-glass" d="M262 192 C300 168 338 147 380 139 C430 130 520 131 568 139 C598 150 628 172 652 196 Z" />
+            <path class="car-line" d="M474 132 L470 196 L466 304" />
+            <path class="car-line" d="M652 197 C664 230 668 268 664 300" />
+            <path class="car-line car-line--soft" d="M92 238 C330 228 640 230 922 250" />
+            <path class="car-line" d="M396 222 H424 M596 224 H624" />
+            <path class="car-line" d="M636 197 C646 184 662 182 672 190 L668 200 Z" />
+            <path class="car-line" d="M872 236 C890 238 906 242 916 250" />
+            <path class="car-line" d="M84 232 L112 226" />
+            <use href="#wheel" x="250" y="300" />
+            <use href="#wheel" x="770" y="300" />
+            <path class="car-ground" d="M40 360 H960" />
+          </svg>
+          <canvas class="stage__fog" id="fog" aria-hidden="true"></canvas>
         </div>
+        <figcaption>Ultrazvuk pretvara sredstvo u maglu čestica od nekoliko mikrona, koja za par minuta ispuni celu kabinu.</figcaption>
+      </figure>
+
+      <div class="wrap wrap--wide">
+        <dl class="facts">
+          <div><dt>Trajanje tretmana</dt><dd>~45 min</dd></div>
+          <div><dt>Termini svakog sata, pon–sub</dt><dd>09–17h</dd></div>
+          <div><dt>Kod kuće, na poslu ili u garaži</dt><dd>Na vašoj adresi</dd></div>
+        </dl>
       </div>
     </section>
 
-    <!-- ============ TEHNOLOGIJA ============ -->
+    <!-- Tehnologija -->
     <section class="section" id="tehnologija">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Tehnologija</span>
-          <h2>Šta je ultrasonična dezinfekcija vozila?</h2>
-          <p>
-            Uređaj pomoću ultrazvučnih vibracija pretvara dezinfekciono sredstvo u <strong>suvu maglu</strong> —
-            oblak mikroskopskih čestica koje lebde u vazduhu i prodiru u svaki kutak kabine. Za razliku od prskanja,
-            magla ne kvasi površine, ne ostavlja tragove i ne oštećuje elektroniku ni materijale.
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker">Tehnologija</p>
+          <h2 class="headline">Magla koja stiže tamo gde krpa ne može.</h2>
+          <p class="section__lead">
+            Uređaj ultrazvučnim vibracijama pretvara sredstvo za dezinfekciju u suvu maglu. Čestice su toliko sitne
+            da lebde, prolaze kroz kanale ventilacije i talože se na svakoj površini — bez vlaženja i bez tragova.
           </p>
-        </div>
+        </header>
 
-        <div class="tech">
-          <div class="tech__steps">
-            <div class="tech-step">
-              <span class="tech-step__num">01</span>
-              <div>
-                <h3>Ultrazvučna nebulizacija</h3>
-                <p>Visokofrekventne vibracije razbijaju tečnost u čestice veličine nekoliko mikrona — mnogo sitnije od kapi spreja.</p>
-              </div>
-            </div>
-            <div class="tech-step">
-              <span class="tech-step__num">02</span>
-              <div>
-                <h3>Cirkulacija kroz ventilaciju</h3>
-                <p>Uz uključenu recirkulaciju klime, magla prolazi kroz kanale, isparivač i filter — mesta gde se mikroorganizmi najviše zadržavaju.</p>
-              </div>
-            </div>
-            <div class="tech-step">
-              <span class="tech-step__num">03</span>
-              <div>
-                <h3>Dezinfekcija i neutralizacija mirisa</h3>
-                <p>Čestice se talože na tapaciru, plafonu, tepisima i pod sedištima, gde deluju na izvor neprijatnih mirisa, a ne samo ga prikrivaju.</p>
-              </div>
-            </div>
-            <div class="tech-step">
-              <span class="tech-step__num">04</span>
-              <div>
-                <h3>Provetravanje</h3>
-                <p>Na kraju se kabina provetri, pa je automobil odmah spreman za vožnju — suv, svež i bez hemijskog mirisa.</p>
-              </div>
-            </div>
-          </div>
+        <ol class="steps">
+          <li>
+            <span class="steps__n">1</span>
+            <h3>Nebulizacija</h3>
+            <p>Visokofrekventne vibracije razbijaju tečnost u čestice mnogo sitnije od kapi spreja.</p>
+          </li>
+          <li>
+            <span class="steps__n">2</span>
+            <h3>Cirkulacija</h3>
+            <p>Uz uključenu recirkulaciju klime, magla prolazi kroz kanale, isparivač i filter — gde se mikroorganizmi najviše zadržavaju.</p>
+          </li>
+          <li>
+            <span class="steps__n">3</span>
+            <h3>Provetravanje</h3>
+            <p>Kabina se na kraju provetri, pa je automobil odmah spreman za vožnju, suv i bez hemijskog mirisa.</p>
+          </li>
+        </ol>
+      </div>
 
-          <div class="eliminates">
-            <h3>Šta tretman uklanja</h3>
-            <ul class="chips">
-              <li>Bakterije</li>
-              <li>Viruse</li>
-              <li>Gljivice i buđ</li>
-              <li>Grinje</li>
-              <li>Alergene</li>
-              <li>Miris cigareta</li>
-              <li>Miris ljubimaca</li>
-              <li>Ustajali vazduh iz klime</li>
-              <li>Miris hrane</li>
-            </ul>
-            <div class="eliminates__note">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <p>Bezbedno za putnike, decu i kućne ljubimce nakon provetravanja. Ne oštećuje kožu, plastiku, tkaninu ni elektroniku.</p>
-            </div>
+      <div class="wrap wrap--wide">
+        <div class="tile tile--split">
+          <div>
+            <h3 class="title">Šta tretman uklanja</h3>
+            <p class="muted">Deluje na izvor neprijatnih mirisa i alergena, umesto da ih prikriva.</p>
           </div>
+          <ul class="checklist">
+            <li>Bakterije i virusi</li>
+            <li>Gljivice i buđ</li>
+            <li>Grinje i alergeni</li>
+            <li>Ustajali miris iz klime</li>
+            <li>Miris cigareta</li>
+            <li>Miris ljubimaca i hrane</li>
+          </ul>
+          <p class="tile__foot">Bezbedno za decu i kućne ljubimce nakon provetravanja. Ne oštećuje kožu, tkaninu, plastiku ni elektroniku.</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ PREDNOSTI ============ -->
-    <section class="section section--white">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Zašto Hedera</span>
-          <h2>Dezinfekcija koja se prilagođava vama</h2>
-        </div>
+    <!-- Postupak -->
+    <section class="section section--surface" id="postupak">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker">Postupak</p>
+          <h2 class="headline">Vi otključate. Mi završimo ostalo.</h2>
+          <p class="section__lead">Ne morate biti prisutni. Evo kako izgleda termin zakazan za 10:00.</p>
+        </header>
 
-        <div class="features">
-          <article class="feature">
-            <div class="feature__icon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+        <ol class="timeline">
+          <li>
+            <time>Pre termina</time>
+            <div>
+              <h3>Ostavite automobil otključan</h3>
+              <p>Ili ključ kod osobe sa kojom smo se dogovorili — portir, kolega, komšija.</p>
             </div>
-            <h3>Dolazimo do vas</h3>
-            <p>Ispred kuće, na parkingu firme ili u garaži — ekipa dolazi tamo gde je automobil parkiran.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon">
-              <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </div>
-            <h3>Ne morate biti prisutni</h3>
-            <p>Dovoljno je da automobil bude otključan ili da ključ ostavite dogovorenoj osobi. Javljamo se kad završimo.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon">
-              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </div>
-            <h3>Gotovo za 45 minuta</h3>
-            <p>Kratak tretman koji se uklapa u pauzu za ručak ili sastanak. Automobil je odmah spreman za vožnju.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 14c3-6 7-9 16-10-1 9-4 13-10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20c3-4 6-7 10-9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </div>
-            <h3>Bez vlage i tragova</h3>
-            <p>Suva magla ne kvasi sedišta niti ostavlja mrlje — nema čekanja da se enterijer osuši.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ KAKO RADIMO ============ -->
-    <section class="section" id="kako-radimo">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Kako radimo</span>
-          <h2>Četiri koraka do svežeg automobila</h2>
-        </div>
-
-        <ol class="process">
-          <li class="process__item">
-            <span class="process__num">1</span>
-            <h3>Zakažete termin</h3>
-            <p>Izaberete dan i sat između 09 i 17h i ostavite adresu na kojoj se nalazi automobil.</p>
           </li>
-          <li class="process__item">
-            <span class="process__num">2</span>
-            <h3>Otključate automobil</h3>
-            <p>U dogovoreno vreme automobil treba da bude otključan. Vaše prisustvo nije potrebno.</p>
+          <li>
+            <time>10:00</time>
+            <div>
+              <h3>Stižemo na adresu</h3>
+              <p>Pronalazimo vozilo po modelu, boji i registraciji koje ste uneli pri zakazivanju.</p>
+            </div>
           </li>
-          <li class="process__item">
-            <span class="process__num">3</span>
-            <h3>Radimo tretman</h3>
-            <p>Ekipa sprovodi ultrasoničnu dezinfekciju kabine i ventilacije — oko 45 minuta.</p>
+          <li>
+            <time>10:05</time>
+            <div>
+              <h3>Pokrećemo uređaj</h3>
+              <p>Magla ispunjava kabinu i kruži kroz ventilaciju dok vozilo stoji zatvoreno.</p>
+            </div>
           </li>
-          <li class="process__item">
-            <span class="process__num">4</span>
-            <h3>Vozite čist automobil</h3>
-            <p>Provetrimo kabinu, zaključamo vozilo i obavestimo vas da je sve gotovo.</p>
+          <li>
+            <time>10:35</time>
+            <div>
+              <h3>Provetravamo kabinu</h3>
+              <p>Otvaramo vrata dok se vazduh potpuno ne osveži.</p>
+            </div>
+          </li>
+          <li>
+            <time>10:45</time>
+            <div>
+              <h3>Zaključavamo i javljamo vam</h3>
+              <p>Dobijate poruku da je tretman završen. Automobil je spreman za vožnju.</p>
+            </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ============ PRIPREMA ============ -->
-    <section class="section section--white" id="priprema">
-      <div class="container prep">
-        <div class="prep__intro">
-          <span class="eyebrow">Priprema vozila</span>
-          <h2>Kako da tretman bude što uspešniji</h2>
-          <p>
-            Dezinfekcija deluje najbolje na čistim površinama. Uz nekoliko jednostavnih koraka pre našeg dolaska,
-            rezultat je vidljiviji i traje duže.
-          </p>
-        </div>
+    <!-- Priprema -->
+    <section class="section" id="priprema">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker">Priprema</p>
+          <h2 class="headline">Za najbolji rezultat.</h2>
+          <p class="section__lead">Dezinfekcija deluje najbolje na čistim površinama. Nekoliko sitnica pre našeg dolaska čini veliku razliku.</p>
+        </header>
 
-        <ul class="prep__list">
-          <li class="prep-item">
-            <span class="prep-item__tag">Preporučeno</span>
-            <h3>Usisan enterijer</h3>
-            <p>Uklonite prašinu, mrvice i sitne otpatke sa sedišta i tepiha. Magla tako dopire direktno do materijala, a ne do nečistoće.</p>
+        <ul class="prep">
+          <li>
+            <span class="tag tag--required">Obavezno</span>
+            <div>
+              <h3>Otključan automobil</h3>
+              <p>U vreme termina vozilo treba da bude otključano, ili ključ dostupan.</p>
+            </div>
           </li>
-          <li class="prep-item prep-item--bonus">
-            <span class="prep-item__tag">Dodatni bonus</span>
-            <h3>Nedavno zamenjen filter kabine</h3>
-            <p>Nov filter vazduha (polenski filter) sprečava da se stare nečistoće ponovo šire kroz ventilaciju posle tretmana.</p>
+          <li>
+            <span class="tag">Preporučeno</span>
+            <div>
+              <h3>Usisan enterijer</h3>
+              <p>Kad nema prašine i mrvica, magla deluje direktno na materijal, pa je efekat jači i traje duže.</p>
+            </div>
           </li>
-          <li class="prep-item">
-            <span class="prep-item__tag">Obavezno</span>
-            <h3>Otključan automobil</h3>
-            <p>U vreme termina vozilo treba da bude otključano, ili ključ kod osobe sa kojom smo se dogovorili.</p>
+          <li>
+            <span class="tag tag--bonus">Bonus</span>
+            <div>
+              <h3>Nedavno zamenjen filter kabine</h3>
+              <p>Nov polenski filter sprečava da se stare nečistoće posle tretmana ponovo šire kroz ventilaciju.</p>
+            </div>
           </li>
-          <li class="prep-item">
-            <span class="prep-item__tag">Savet</span>
-            <h3>Prazna kabina</h3>
-            <p>Izvadite lične stvari, dokumenta i dečija sedišta ako je moguće, da bi magla stigla do svake površine.</p>
+          <li>
+            <span class="tag">Savet</span>
+            <div>
+              <h3>Prazna kabina</h3>
+              <p>Izvadite lične stvari i dokumenta, da bi magla stigla do svake površine.</p>
+            </div>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- ============ ZAKAZIVANJE ============ -->
-    <section class="section booking-section" id="zakazivanje">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Online zakazivanje</span>
-          <h2>Izaberite termin</h2>
-          <p>Termini su dostupni svakog sata od 09 do 17h. Tretman traje oko 45 minuta.</p>
-        </div>
+    <!-- Zakazivanje -->
+    <section class="section section--surface" id="zakazivanje">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker">Zakazivanje</p>
+          <h2 class="headline">Izaberite termin.</h2>
+          <p class="section__lead">Svakog sata od 09 do 17h. Potvrdićemo termin telefonom pre dolaska.</p>
+        </header>
+      </div>
 
-        <div class="booking">
+      <div class="wrap wrap--wide">
+        <div class="booking" id="booking">
           <form class="booking__form" id="bookingForm" novalidate>
 
-            <!-- Step 1: date & time -->
-            <fieldset class="panel">
-              <legend class="panel__title"><span class="step-num">1</span> Datum i vreme</legend>
-
-              <div class="scheduler">
-                <div class="calendar" id="calendar">
-                  <div class="calendar__head">
-                    <button type="button" class="icon-btn" id="prevMonth" aria-label="Prethodni mesec">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m15 6-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-                    <strong id="monthLabel" aria-live="polite"></strong>
-                    <button type="button" class="icon-btn" id="nextMonth" aria-label="Sledeći mesec">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-                  </div>
-                  <div class="calendar__weekdays" aria-hidden="true">
-                    <span>Pon</span><span>Uto</span><span>Sre</span><span>Čet</span><span>Pet</span><span>Sub</span><span>Ned</span>
-                  </div>
-                  <div class="calendar__grid" id="calendarGrid" role="grid"></div>
-                </div>
-
-                <div class="slots">
-                  <p class="slots__label" id="slotsLabel">Izaberite datum</p>
-                  <div class="slots__grid" id="slotsGrid" role="radiogroup" aria-labelledby="slotsLabel"></div>
-                  <p class="field-error" id="slotError" hidden>Izaberite datum i vreme termina.</p>
-                </div>
+            <fieldset class="group">
+              <legend class="group__title">Dan</legend>
+              <div class="days">
+                <button type="button" class="days__arrow days__arrow--prev" id="daysPrev" aria-label="Prethodni dani" disabled>
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m15 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="days__track" id="days" role="radiogroup" aria-label="Dan termina"></div>
+                <button type="button" class="days__arrow days__arrow--next" id="daysNext" aria-label="Sledeći dani">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
               </div>
             </fieldset>
 
-            <!-- Step 2: details -->
-            <fieldset class="panel">
-              <legend class="panel__title"><span class="step-num">2</span> Vaši podaci</legend>
+            <fieldset class="group">
+              <legend class="group__title">Vreme</legend>
+              <div class="times" id="times" role="radiogroup" aria-label="Vreme termina"></div>
+              <p class="error" id="slotError" hidden>Izaberite dan i vreme.</p>
+            </fieldset>
 
+            <fieldset class="group">
+              <legend class="group__title">Vaši podaci</legend>
               <div class="fields">
                 <div class="field">
-                  <label for="name">Ime i prezime *</label>
-                  <input id="name" name="name" type="text" autocomplete="name" required placeholder="Marko Marković" />
-                  <p class="field-error">Unesite ime i prezime.</p>
+                  <label for="name">Ime i prezime</label>
+                  <input id="name" name="name" type="text" autocomplete="name" required />
+                  <p class="error">Unesite ime i prezime.</p>
                 </div>
                 <div class="field">
-                  <label for="phone">Telefon *</label>
-                  <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="06x xxx xxxx" pattern="[0-9+\s\/\-()]{6,}" />
-                  <p class="field-error">Unesite ispravan broj telefona.</p>
-                </div>
-                <div class="field">
-                  <label for="email">E-mail</label>
-                  <input id="email" name="email" type="email" autocomplete="email" placeholder="vas@email.com" />
-                  <p class="field-error">Unesite ispravnu e-mail adresu.</p>
-                </div>
-                <div class="field">
-                  <label for="car">Marka i model vozila *</label>
-                  <input id="car" name="car" type="text" required placeholder="npr. Škoda Octavia" />
-                  <p class="field-error">Unesite marku i model vozila.</p>
+                  <label for="phone">Telefon</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="06x xxx xxxx" />
+                  <p class="error">Unesite ispravan broj telefona.</p>
                 </div>
                 <div class="field field--full">
-                  <label for="address">Adresa na kojoj je vozilo parkirano *</label>
+                  <label for="address">Adresa vozila</label>
                   <input id="address" name="address" type="text" autocomplete="street-address" required placeholder="Ulica i broj, grad" />
-                  <p class="field-error">Unesite adresu vozila.</p>
+                  <p class="error">Unesite adresu na kojoj je vozilo parkirano.</p>
                 </div>
                 <div class="field">
-                  <label for="plate">Registarska oznaka</label>
-                  <input id="plate" name="plate" type="text" placeholder="BG 123-AB" />
+                  <label for="car">Marka i model</label>
+                  <input id="car" name="car" type="text" required placeholder="npr. Škoda Octavia" />
+                  <p class="error">Unesite marku i model vozila.</p>
                 </div>
                 <div class="field">
-                  <label for="color">Boja vozila</label>
-                  <input id="color" name="color" type="text" placeholder="npr. teget" />
+                  <label for="plate">Registracija i boja <span class="optional">opciono</span></label>
+                  <input id="plate" name="plate" type="text" placeholder="npr. BG 123-AB, teget" />
                 </div>
-                <div class="field field--full">
-                  <label for="note">Napomena</label>
-                  <textarea id="note" name="note" rows="3" placeholder="npr. vozilo je u garaži, ključ je kod portira, jak miris cigareta…"></textarea>
+                <div class="field">
+                  <label for="email">E-mail <span class="optional">opciono</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" />
+                  <p class="error">Unesite ispravnu e-mail adresu.</p>
+                </div>
+                <div class="field">
+                  <label for="note">Napomena <span class="optional">opciono</span></label>
+                  <input id="note" name="note" type="text" placeholder="npr. ključ je kod portira" />
                 </div>
               </div>
             </fieldset>
 
-            <!-- Step 3: preparation -->
-            <fieldset class="panel">
-              <legend class="panel__title"><span class="step-num">3</span> Priprema vozila</legend>
-              <div class="checks">
-                <label class="check">
-                  <input type="checkbox" name="unlocked" id="unlocked" required />
-                  <span class="check__box"></span>
-                  <span><strong>Automobil će biti otključan</strong> u vreme termina (ili je ključ dostupan). *</span>
+            <fieldset class="group">
+              <legend class="group__title">Priprema vozila</legend>
+              <div class="toggles">
+                <label class="toggle">
+                  <span><strong>Automobil će biti otključan</strong><small>Obavezno — ili ključ dostupan u vreme termina.</small></span>
+                  <input type="checkbox" name="unlocked" id="unlocked" role="switch" />
                 </label>
-                <label class="check">
-                  <input type="checkbox" name="vacuumed" />
-                  <span class="check__box"></span>
-                  <span><strong>Enterijer je usisan</strong> — preporučeno za najbolji rezultat.</span>
+                <label class="toggle">
+                  <span><strong>Enterijer je usisan</strong><small>Preporučeno za najbolji rezultat.</small></span>
+                  <input type="checkbox" name="vacuumed" role="switch" />
                 </label>
-                <label class="check">
-                  <input type="checkbox" name="filter" />
-                  <span class="check__box"></span>
-                  <span><strong>Filter kabine je nedavno zamenjen</strong> — dodatni bonus.</span>
+                <label class="toggle">
+                  <span><strong>Filter kabine je nedavno zamenjen</strong><small>Dodatni bonus.</small></span>
+                  <input type="checkbox" name="filter" role="switch" />
                 </label>
-                <p class="field-error" id="unlockedError" hidden>Potvrdite da će automobil biti otključan.</p>
               </div>
+              <p class="error" id="unlockedError" hidden>Potvrdite da će automobil biti otključan.</p>
             </fieldset>
-
-            <p class="form-error" id="formError" role="alert" hidden></p>
           </form>
 
-          <!-- Summary -->
-          <aside class="summary" aria-live="polite">
+          <aside class="summary" aria-label="Pregled termina">
             <div class="summary__card">
-              <h3>Vaš termin</h3>
-              <dl>
-                <div><dt>Datum</dt><dd id="sumDate">—</dd></div>
-                <div><dt>Vreme</dt><dd id="sumTime">—</dd></div>
-                <div><dt>Trajanje</dt><dd>~45 minuta</dd></div>
-                <div><dt>Lokacija</dt><dd>Vaša adresa</dd></div>
+              <p class="summary__label">Vaš termin</p>
+              <p class="summary__date" id="sumDate">Izaberite dan</p>
+              <p class="summary__time" id="sumTime">i vreme</p>
+              <dl class="summary__rows">
+                <div><dt>Trajanje</dt><dd>oko 45 minuta</dd></div>
+                <div><dt>Adresa</dt><dd id="sumAddress">—</dd></div>
+                <div><dt>Vozilo</dt><dd id="sumCar">—</dd></div>
               </dl>
-              <button type="submit" form="bookingForm" class="btn btn--primary btn--block" id="submitBtn">
-                Potvrdi zakazivanje
-              </button>
-              <p class="summary__hint">Potvrdićemo termin telefonom ili porukom pre dolaska.</p>
+              <button type="submit" form="bookingForm" class="btn btn--primary btn--block" id="submitBtn">Zakaži termin</button>
+              <p class="error error--form" id="formError" role="alert" hidden></p>
             </div>
           </aside>
         </div>
 
-        <!-- Success -->
-        <div class="success" id="success" hidden tabindex="-1">
-          <div class="success__icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Zahtev je poslat!</h3>
-          <p id="successText"></p>
-          <div class="success__actions">
+        <div class="done" id="done" hidden tabindex="-1">
+          <svg class="done__mark" viewBox="0 0 52 52" aria-hidden="true">
+            <circle cx="26" cy="26" r="25" />
+            <path d="m15 27 7 7 15-16" />
+          </svg>
+          <h3 class="headline headline--small">Zahtev je poslat.</h3>
+          <p class="done__text" id="doneText"></p>
+          <div class="done__actions">
             <button type="button" class="btn btn--primary" id="icsBtn">Dodaj u kalendar</button>
-            <button type="button" class="btn btn--ghost" id="newBooking">Zakaži još jedan termin</button>
+            <button type="button" class="link-arrow link-arrow--button" id="newBooking">Zakaži još jedan termin</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ FAQ ============ -->
-    <section class="section section--white" id="pitanja">
-      <div class="container faq-wrap">
-        <div class="section__head section__head--left">
-          <span class="eyebrow">Pitanja</span>
-          <h2>Česta pitanja</h2>
-          <p>Niste pronašli odgovor? <a href="#kontakt">Kontaktirajte nas</a>.</p>
-        </div>
+    <!-- Pitanja -->
+    <section class="section" id="pitanja">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker">Pitanja</p>
+          <h2 class="headline">Česta pitanja.</h2>
+        </header>
 
         <div class="faq">
           <details>
             <summary>Da li moram da budem prisutan tokom tretmana?</summary>
-            <p>Ne. Dovoljno je da automobil bude otključan u zakazano vreme ili da ključ ostavite osobi sa kojom smo se dogovorili. Nakon tretmana zaključavamo vozilo i javljamo vam se.</p>
+            <div class="faq__body"><p>Ne. Dovoljno je da automobil bude otključan u zakazano vreme ili da ključ ostavite osobi sa kojom smo se dogovorili. Posle tretmana zaključavamo vozilo i javljamo vam se.</p></div>
           </details>
           <details>
             <summary>Koliko traje tretman?</summary>
-            <p>Oko 45 minuta, uključujući provetravanje kabine. Automobil je odmah nakon toga spreman za vožnju.</p>
+            <div class="faq__body"><p>Oko 45 minuta, uključujući provetravanje. Automobil je odmah nakon toga spreman za vožnju.</p></div>
           </details>
           <details>
-            <summary>Da li je tretman bezbedan za decu i kućne ljubimce?</summary>
-            <p>Da. Nakon provetravanja u kabini ne ostaju štetne materije ni jak hemijski miris, pa je vozilo bezbedno za sve putnike.</p>
+            <summary>Da li je bezbedno za decu i kućne ljubimce?</summary>
+            <div class="faq__body"><p>Da. Nakon provetravanja u kabini ne ostaju štetne materije ni jak hemijski miris.</p></div>
           </details>
           <details>
             <summary>Može li magla da ošteti elektroniku ili kožu?</summary>
-            <p>Ne. Suva magla se sastoji od mikroskopskih čestica koje ne kvase površine, pa ne ostavlja vlagu, mrlje ni tragove na koži, tkanini, plastici ili ekranima.</p>
+            <div class="faq__body"><p>Ne. Suva magla ne kvasi površine, pa ne ostavlja vlagu, mrlje ni tragove na koži, tkanini, plastici ili ekranima.</p></div>
           </details>
           <details>
-            <summary>Zašto je preporučeno da auto bude usisan?</summary>
-            <p>Prašina i otpaci „štite“ površine ispod sebe. Kada je enterijer usisan, dezinfekcija deluje direktno na materijal i rezultat je bolji i trajniji.</p>
+            <summary>Zašto je važno da auto bude usisan?</summary>
+            <div class="faq__body"><p>Prašina i otpaci prekrivaju površine ispod sebe. Kada je enterijer usisan, dezinfekcija deluje direktno na materijal i rezultat je bolji i trajniji.</p></div>
           </details>
           <details>
-            <summary>Zašto je važan filter kabine?</summary>
-            <p>Stari filter zadržava prašinu, polen i mikroorganizme. Ako je filter nedavno zamenjen, ventilacija posle tretmana ostaje čista duže vreme. Nije obavezno, ali je veliki plus.</p>
+            <summary>Zašto se pominje filter kabine?</summary>
+            <div class="faq__body"><p>Stari filter zadržava prašinu, polen i mikroorganizme. Ako je nedavno zamenjen, ventilacija posle tretmana ostaje čista duže. Nije obavezno, ali pomaže.</p></div>
           </details>
           <details>
             <summary>Koliko često treba raditi dezinfekciju?</summary>
-            <p>Za većinu vozača dovoljno je dva do tri puta godišnje — idealno pred sezonu grejanja i pred sezonu klime. Ako u automobilu često vozite decu, ljubimce ili pušite, preporučujemo češće.</p>
+            <div class="faq__body"><p>Za većinu vozača dva do tri puta godišnje — idealno pred sezonu grejanja i pred sezonu klime. Češće ako vozite decu, ljubimce ili se u automobilu puši.</p></div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- ============ CTA ============ -->
-    <section class="cta">
-      <div class="container cta__inner">
-        <div>
-          <h2>Spremni za svež vazduh u automobilu?</h2>
-          <p>Zakažite termin za manje od minut. Mi dolazimo — vi nastavljate svoj dan.</p>
-        </div>
-        <a href="#zakazivanje" class="btn btn--dark">Zakaži termin</a>
+    <!-- Završni poziv -->
+    <section class="closing">
+      <div class="wrap">
+        <h2 class="display display--small">Svež vazduh je<br />45 minuta daleko.</h2>
+        <a href="#zakazivanje" class="btn btn--primary">Zakaži termin</a>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
   <footer class="footer" id="kontakt">
-    <div class="container footer__grid">
+    <div class="wrap wrap--wide footer__grid">
       <div>
-        <a href="#top" class="logo">
-          <img src="assets/logo.svg" alt="" width="36" height="36" />
-          <span>Hedera<strong>Cleaning</strong></span>
-        </a>
-        <p class="footer__about">Ultrasonična dezinfekcija vozila na vašoj adresi.</p>
+        <img src="assets/hedera-logo.svg" alt="Hedera Cleaning" width="118" height="30" />
+        <p class="muted">Ultrasonična dezinfekcija vozila na vašoj adresi.</p>
       </div>
       <div>
         <h4>Kontakt</h4>
-        <ul>
-          <li><a href="tel:+381600000000">+381 60 000 0000</a></li>
-          <li><a href="mailto:info@hederacleaning.rs">info@hederacleaning.rs</a></li>
-        </ul>
+        <a href="tel:+381600000000">+381 60 000 0000</a>
+        <a href="mailto:info@hederacleaning.rs">info@hederacleaning.rs</a>
       </div>
       <div>
         <h4>Radno vreme</h4>
-        <ul>
-          <li>Ponedeljak – Subota</li>
-          <li>09:00 – 17:00</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Navigacija</h4>
-        <ul>
-          <li><a href="#tehnologija">Tehnologija</a></li>
-          <li><a href="#priprema">Priprema vozila</a></li>
-          <li><a href="#zakazivanje">Zakazivanje</a></li>
-        </ul>
+        <p>Ponedeljak – subota</p>
+        <p>09:00 – 17:00</p>
       </div>
     </div>
-    <div class="container footer__bottom">
-      <span>© <span id="year"></span> Hedera Cleaning. Sva prava zadržana.</span>
+    <div class="wrap wrap--wide footer__legal">
+      <p>© <span id="year"></span> Hedera Cleaning</p>
     </div>
   </footer>
 
