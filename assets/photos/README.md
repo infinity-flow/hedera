@@ -23,6 +23,6 @@ Saveti:
 | `priprema-filter.jpg` | Priprema | 3:2 | Nov i star filter kabine jedan pored drugog |
 | `priprema-kabina.jpg` | Priprema | 3:2 | Uredna, prazna kabina bez ličnih stvari |
 
-Već ubačeno: `uredjaj.jpg` (studijski snimak uređaja, Tehnologija).
+Već ubačeno: `uredjaj-kabina.jpg` (+ WebP 1200/2000) — uređaj u kabini, sekcija Tehnologija.
 
 Ako pre objavljivanja neke fotografije još nemate, u `script.js` postavite `showPhotoPlaceholders: false` — mesta bez fotografije će se tada sakriti.

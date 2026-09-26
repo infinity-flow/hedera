@@ -13,7 +13,6 @@ assets/vendor/gsap/      GSAP 3.15 (gsap, ScrollTrigger, ScrollSmoother) — lok
 assets/hedera-logo.svg   logo (tamni) i hedera-logo-white.svg (za navigaciju preko videa)
 assets/favicon.svg       ikonica (slovo H iz logotipa)
 assets/video/            hero video: hero-1080.mp4 (desktop), hero-720.mp4 (telefon), hero-poster.jpg
-assets/hero-interior.*   fotografija ventilacije u sekciji Tehnologija (JPG + WebP 1200/2000 px)
 assets/photos/           ostale fotografije — spisak kadrova i naziva fajlova je u assets/photos/README.md
 ```
 
