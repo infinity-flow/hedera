@@ -35,7 +35,8 @@
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
   --nav-h: 92px;   /* 24px + 44px (dugme) + 24px */
-  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --content: 1180px;                       /* širina sadržaja */
+  --gutter: clamp(1rem, 4vw, 2.5rem);      /* bočni razmak: 16px na telefonu … 40px na desktopu */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -69,8 +70,9 @@ button { font: inherit; color: inherit; }
 
 :focus-visible { outline: 2px solid var(--brand-ink); outline-offset: 3px; border-radius: 8px; }
 
-.wrap { width: 100%; max-width: calc(980px + var(--gutter) * 2); margin: 0 auto; padding: 0 var(--gutter); }
-.wrap--wide { max-width: calc(1180px + var(--gutter) * 2); }
+/* JEDNA margina za ceo sajt: sadržaj najviše --content široko, a sa strane najmanje --gutter.
+   Sve (navigacija, hero, naslovi, fotografije, forma, futer) počinje i završava se na istoj liniji. */
+.wrap { width: 100%; max-width: calc(var(--content) + var(--gutter) * 2); margin: 0 auto; padding: 0 var(--gutter); }
 
 .muted { color: var(--text-2); }
 
@@ -175,7 +177,7 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  max-width: calc(1180px + var(--gutter) * 2);
+  max-width: calc(var(--content) + var(--gutter) * 2);
   margin: 0 auto;
   padding: 24px var(--gutter);
 }
@@ -222,7 +224,7 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
     radial-gradient(ellipse 85% 80% at 0% 100%, rgba(0, 0, 0, 0.62), transparent 72%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0.45) 60%, rgba(0, 0, 0, 0.78) 100%);
 }
-.hero__content { max-width: calc(1180px + var(--gutter) * 2); }
+.hero__content { max-width: calc(var(--content) + var(--gutter) * 2); }
 .hero__content > * { max-width: 46rem; }
 .hero__eyebrow {
   margin-bottom: 1rem;
@@ -538,8 +540,8 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 }
 .days__arrow:active { transform: scale(0.92); }
 .days__arrow[disabled] { opacity: 0; pointer-events: none; }
-.days__arrow--prev { left: -18px; }
-.days__arrow--next { right: -18px; }
+.days__arrow--prev { left: 0; }
+.days__arrow--next { right: 0; }
 @media (hover: none), (max-width: 760px) { .days__arrow { display: none; } }
 
 /* vreme */
