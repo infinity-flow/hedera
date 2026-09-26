@@ -405,8 +405,9 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
 
 /* jedna široka fotografija sa potpisom (Tehnologija) */
 .media { margin: 0; display: grid; gap: 0.75rem; }
-.media--wide { margin-bottom: clamp(3rem, 6vw, 4.5rem); }
-.media--wide .photo { border-radius: var(--r-lg); }
+.media--wide { gap: 1rem; margin-bottom: clamp(4.5rem, 8vw, 6.5rem); }   /* razmak do podataka ispod */
+.media--wide .photo { border-radius: var(--r-lg); aspect-ratio: auto; height: 540px; }
+.media--wide .photo img { object-position: 50% 70%; }   /* uređaj i magla u kadru */
 .media figcaption { font-size: 0.875rem; color: var(--text-2); letter-spacing: -0.005em; }
 .no-photo-placeholders .media:has(.is-missing) { display: none; }
 
@@ -841,7 +842,7 @@ h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.016em; font-weig
   .timeline li { grid-template-columns: 1fr; gap: 0.25rem; }
   .timeline__photo { margin-top: 0.75rem; }
   .timeline__photo .photo__ph strong { display: block; }
-  .media--wide .photo { border-radius: var(--r); aspect-ratio: 4 / 3; }
+  .media--wide .photo { border-radius: var(--r); aspect-ratio: 4 / 3; height: auto; }
   .media--wide .photo img { object-position: 40% 50%; }
   /* vozila: horizontalna traka koja se prevlači */
   .vehicles {
