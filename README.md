@@ -13,7 +13,7 @@ assets/vendor/gsap/      GSAP 3.15 (gsap, ScrollTrigger, ScrollSmoother) — lok
 assets/hedera-logo.svg   logo (tamni) i hedera-logo-white.svg (za navigaciju preko videa)
 assets/favicon.svg       ikonica (slovo H iz logotipa)
 assets/video/            hero video: hero-1080.mp4 (desktop), hero-720.mp4 (telefon), hero-poster.jpg
-assets/photos/           ostale fotografije — spisak kadrova i naziva fajlova je u assets/photos/README.md
+assets/photos/           fotografije (Tehnologija, Za svako vozilo) — vidi assets/photos/README.md
 ```
 
 ## Animacije (GSAP)
@@ -47,4 +47,3 @@ Na vrhu `script.js` nalazi se objekat `CONFIG`:
 
 - Zameniti kontakt telefon i e-mail u futeru (`index.html`) i u `CONFIG.email`.
 - Podesiti `CONFIG.endpoint` da bi zahtevi stizali bez e-mail klijenta.
-- Ubaciti fotografije u `assets/photos/` ili postaviti `showPhotoPlaceholders: false`.
