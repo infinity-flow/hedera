@@ -10,10 +10,6 @@ Saveti:
 
 | Fajl | Sekcija | Format | Šta snimiti |
 |---|---|---|---|
-| `postupak-dolazak.jpg` | Postupak (10:00) | 4:3 | Ekipa stiže do vozila (uniforma, oprema) |
-| `postupak-uredjaj.jpg` | Postupak (10:05) | 4:3 | Uređaj u kabini, vrata zatvorena, magla vidljiva kroz staklo |
-| `postupak-provetravanje.jpg` | Postupak (10:35) | 4:3 | Otvorena vrata vozila tokom provetravanja |
-| `postupak-kljuc.jpg` | Postupak (10:45) | 4:3 | Predaja ključa ili poruka klijentu na telefonu |
 | `priprema-kljuc.jpg` | Priprema | 3:2 | Ključ vozila u ruci ili na stolu |
 | `priprema-usisavanje.jpg` | Priprema | 3:2 | Usisavanje sedišta ili patosnica |
 | `priprema-filter.jpg` | Priprema | 3:2 | Nov i star filter kabine jedan pored drugog |
