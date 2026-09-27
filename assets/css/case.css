@@ -1,0 +1,199 @@
+/* ==========================================================================
+   CASE STUDY — sadržaj popupa za projekat (Figma node 15:2)
+
+   Template za svaki rad: hero, zaglavlje, pa sekcije Tipografija / Boje /
+   Logo / Primena. Brend boje klijenta se prosleđuju inline preko --swatch,
+   jer su podatak o projektu a ne token sajta.
+   ========================================================================== */
+
+.case__hero {
+  width: 100%;
+  /* height: auto je obavezan — bez njega height="1200" atribut na <img> ostaje
+     kao prezentacioni hint, visina nije auto pa se aspect-ratio ignoriše. */
+  height: auto;
+  /* Figma: 1654×815 (≈2:1), slika kadrirana centrirano */
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media screen and (max-width: 40rem) {
+  .case__hero {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.case__body {
+  padding: clamp(1.5rem, 3.3vw, 3rem);
+}
+
+/* ---- Zaglavlje ----------------------------------------------------------- */
+.case__badge {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 10px;
+  border: 1px solid #C3C3C3;
+  border-radius: var(--radius-btn);
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #656565;
+}
+
+.case__title {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.75rem, 3.4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.case__intro {
+  max-width: 46ch;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--c-muted);
+  text-wrap: pretty;
+}
+
+/* ---- Sekcije ------------------------------------------------------------- */
+.case__section {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--c-line);
+}
+
+.case__label {
+  font-size: clamp(1.375rem, 2.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Tipografija i Boje: naslov levo, sadržaj desno */
+.case__section.is--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Logo i Primena: naslov gore, sadržaj preko cele širine */
+.case__section.is--stack > .case__label {
+  margin-bottom: clamp(1.25rem, 2.2vw, 1.75rem);
+}
+
+/* ---- Tipografija --------------------------------------------------------- */
+.case__typeface {
+  font-size: clamp(1.75rem, 4vw, 3.25rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.case__typeface-note {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  color: var(--c-muted);
+}
+
+/* ---- Boje ---------------------------------------------------------------- */
+.case__swatches {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.swatch {
+  display: flex;
+  align-items: flex-start;
+  min-height: 9rem;
+  padding: 14px 16px;
+  border-radius: var(--radius-btn);
+  background-color: var(--swatch);
+  color: var(--swatch-ink);
+  font-size: 1rem;
+  line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Logo ---------------------------------------------------------------- */
+.case__logos {
+  display: grid;
+  /* Figma: 500 / 308 / 830 px širine, sve visine 500 — prva kartica je kvadrat,
+     pa je visina reda otprilike jednaka njenoj širini */
+  grid-template-columns: 500fr 308fr 830fr;
+  gap: 1rem;
+  grid-auto-rows: clamp(10rem, 20vw, 20rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.logo-card {
+  display: grid;
+  place-items: center;
+  gap: 8%;
+  padding: clamp(1rem, 3vw, 2.25rem);
+  border-radius: var(--radius-card);
+  background-color: var(--swatch, #1C1C1C);
+}
+
+.logo-card img {
+  /* min-*: 0 je obavezno — grid stavke podrazumevano imaju min-height: auto,
+     pa ih max-height ne bi skupio ispod prirodne visine SVG-a. */
+  min-width: 0;
+  min-height: 0;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Vertikalna verzija: znak iznad natpisa */
+.logo-card.is--stacked {
+  grid-template-rows: 1.2fr 1fr;
+  align-content: center;
+}
+
+/* ---- Primena ------------------------------------------------------------- */
+.case__shots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Poslednja slika ide preko cele širine samo kad bi inače ostala sama u redu
+   (neparan broj). Sa dve slike obe stoje jedna pored druge. */
+.case__shots li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.case__shots img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-btn);
+}
+
+/* ---- Responsive ---------------------------------------------------------- */
+@media screen and (max-width: 40rem) {
+  .case__section.is--split {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .case__logos {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: 11rem;
+  }
+
+  .case__shots {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

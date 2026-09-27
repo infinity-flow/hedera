@@ -1,0 +1,92 @@
+/* ==========================================================================
+   PILLARS — tri foto-kartice ispod hera
+   Figma nodes 3:21 / 3:22 / 3:24 ("Group 65 / 66 / 67")
+   Kartica 428.621×475.004 @ radius 24, crni gradijent odozdo, tekst dole.
+   ========================================================================== */
+
+.pillars {
+  padding-inline: var(--gutter);
+}
+
+.pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: var(--container);
+  margin-inline: auto;
+}
+
+/* ---- Kartica ------------------------------------------------------------- */
+.pillar {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 428.621 / 475.004;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.pillar__img,
+.pillar__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.pillar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Figma kadrira ovu sliku uz donju ivicu (h 124.03%, top -24.03%) */
+.pillar__img.is--bottom {
+  object-position: 50% 100%;
+}
+
+.pillar__scrim {
+  background-image: linear-gradient(to top, rgb(0 0 0 / 0.8), rgb(0 0 0 / 0));
+}
+
+/* ---- Tekst --------------------------------------------------------------- */
+.pillar__body {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 11px;
+  padding: clamp(2rem, 3.33vw, 3rem) clamp(1.25rem, 1.67vw, 1.5rem);
+  color: var(--c-white);
+}
+
+/* Figma: 36/42, tracking -0.72px (-0.02em), max 315.986px */
+.pillar__title {
+  max-width: 19.75rem;
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1667;
+  letter-spacing: -0.02em;
+}
+
+/* Figma: 16/20 */
+.pillar__text {
+  font-size: clamp(0.9375rem, 1.11vw, 1rem);
+  line-height: 1.25;
+  text-wrap: pretty;
+}
+
+/* ---- Responsive ---------------------------------------------------------- */
+@media screen and (max-width: 1023px) {
+  .pillars__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pillar {
+    aspect-ratio: auto;
+    min-height: clamp(22rem, 52vw, 28rem);
+  }
+
+  .pillar__title {
+    max-width: 24rem;
+  }
+}

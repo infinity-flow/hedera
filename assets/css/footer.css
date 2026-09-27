@@ -1,0 +1,150 @@
+/* ==========================================================================
+   FOOTER — Figma node 5:25 "Desktop - 9"
+   Visina 100vh, vertikalni flex: navigacija gore, velika reč i donja traka
+   gurnute ka dnu preko margin-top:auto.
+   ========================================================================== */
+
+.site-footer {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  /* Figma ima 78.64px odozgo, ali fiksirani header je ~96px visok i pokrio bi
+     prvi red kad se dođe do dna stranice — zato veći gornji padding */
+  padding: clamp(6rem, 8.3vw, 7.5rem) var(--gutter) clamp(2rem, 3.9vw, 3.5rem);
+  background-color: var(--c-ink);
+  color: var(--c-white);
+  overflow: hidden;
+}
+
+.site-footer__inner {
+  display: flex;
+  container-type: inline-size;      /* velika reč se meri prema kontejneru, ne viewportu */
+  /* Isti navy kao footer. container-type pravi stacking context, pa bi bez ove
+     podloge mix-blend-mode na sloganu blendovao u prazno. */
+  background-color: var(--c-ink);
+  flex: 1;
+  flex-flow: column;
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+}
+
+/* ---- Gornji deo: brend + tri kolone -------------------------------------
+   Kolone iz Figme na 1440: 402 / 260 / 308 / 350 px unutar kontejnera 1320.
+   -------------------------------------------------------------------------- */
+.site-footer__nav {
+  display: grid;
+  /* Figma slotovi na 1320: 402 / 260 / 308 / 350 — bez gapa da počeci kolona
+     padnu tačno na 0 / 402 / 662 / 970 kao u dizajnu */
+  grid-template-columns: 402fr 260fr 308fr 350fr;
+  gap: 0;
+}
+
+.site-footer__logo {
+  display: block;
+  width: 219.359px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 14px;
+}
+
+.site-footer__tagline {
+  max-width: 273px;
+  font-size: 1rem;                 /* 16px */
+  line-height: 1.35;
+  opacity: 0.5;
+  text-wrap: pretty;
+}
+
+.site-footer__col {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 14px;                       /* 35px razmak u Figmi minus visina reda */
+}
+
+.site-footer__heading {
+  margin-bottom: 4px;              /* header → prva stavka je 39px, ostale 35px */
+  font-size: 1.125rem;             /* 18px */
+  font-weight: 700;
+  line-height: 1.17;
+}
+
+.site-footer__link {
+  font-size: 1.125rem;
+  line-height: 1.17;
+  color: rgb(255 255 255 / 0.5);
+  transition: color 0.25s ease;
+}
+
+/* Prva kolona su bold beli linkovi, bez naslova */
+.site-footer__link.is--strong {
+  font-weight: 700;
+  color: var(--c-white);
+}
+
+@media (hover: hover) {
+  a.site-footer__link:hover {
+    color: var(--c-white);
+  }
+}
+
+/* ---- Velika reč ---------------------------------------------------------
+   Figma: tekst visok 174.09px odsečen na 132.078px, tj. 0.759 svoje veličine —
+   descenderi ulaze u liniju ispod. Isti odnos držimo preko em jedinica.
+   -------------------------------------------------------------------------- */
+.site-footer__word {
+  margin-top: auto;                /* gura reč i donju traku ka dnu */
+  padding-top: clamp(2.5rem, 6vw, 5rem);
+  /* Tekst je širok 7.2256 × font-size, a u Figmi zauzima 0.993 kontejnera →
+     font-size = 0.993 / 7.2256 = 13.742% širine kontejnera. */
+  font-size: clamp(2rem, 11.9vw, 11.337rem);   /* fallback bez container queries */
+  font-size: 13.742cqw;
+  font-weight: 400;
+  line-height: 1;
+  mix-blend-mode: overlay;
+  opacity: 0.7;              /* pojačano sa 0.5 */
+  white-space: nowrap;
+}
+
+.site-footer__word span {
+  display: block;
+  height: 0.7281em;        /* 132.078 / 181.39 — descenderi ulaze u liniju ispod */
+  overflow: hidden;
+  /* Bela od 100% na vrhu do 0% na liniji reza */
+  background-image: linear-gradient(to bottom, rgb(255 255 255 / 1), rgb(255 255 255 / 0));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Donja traka --------------------------------------------------------- */
+.site-footer__bottom {
+  margin-top: 10px;
+  padding-top: 26px;
+  text-align: center;
+}
+
+.site-footer__copy {
+  font-size: 0.875rem;             /* 14px */
+  line-height: 1.3;
+  opacity: 0.5;
+}
+
+/* ---- Responsive ---------------------------------------------------------- */
+@media screen and (max-width: 900px) {
+  .site-footer__nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .site-footer__nav {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-footer__word {
+    padding-top: 3rem;
+  }
+}

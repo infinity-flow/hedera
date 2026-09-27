@@ -1,0 +1,53 @@
+/* ---- Reset / base ------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, figure, blockquote, dl, dd { margin: 0; }
+
+/* :where() nosi nultu specifičnost — klasna pravila iznad ovoga uvek pobeđuju
+   (bez toga margin:0 gasi npr. margin-inline:auto na listi koja je grid) */
+:where(ul[role="list"]),
+:where(ol[role="list"]) { list-style: none; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, picture, svg, video, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select { font: inherit; color: inherit; }
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

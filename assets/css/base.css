@@ -1,0 +1,236 @@
+/* ==========================================================================
+   BASE — font, tokeni, tipografija, dugmad
+   ========================================================================== */
+
+/* ---- Font --------------------------------------------------------------- */
+@font-face {
+  font-family: "Stack Sans Headline";
+  src: url("../fonts/StackSansHeadline-VariableFont_wght.ttf") format("truetype-variations"),
+       url("../fonts/StackSansHeadline-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;          /* varijabilna wght osa */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Tokeni (vrednosti iz Figme: node 1:6 "Desktop - 8") ----------------- */
+:root {
+  /* Boje */
+  --c-ink:      #0D1B2A;         /* brend navy */
+  --c-white:    #FFFFFF;
+  --c-bg:       #F5F5F7;         /* podloga stranice (= podloga menija) */
+  --c-green:    #34C759;         /* status indikator */
+  --c-accent:   #106ACA;         /* brend plava — CTA i spotlight */
+  --c-veil:     rgb(13 27 42 / 0.2);   /* tamni sloj preko hero slike */
+  --c-line:     rgb(13 27 42 / 0.12);  /* hairline razdelnici */
+  --c-muted:    rgb(13 27 42 / 0.62);  /* sekundarni tekst */
+
+  /* Tipografija */
+  --font: "Stack Sans Headline", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --container:   1824px;                          /* Figma je 1320; prošireno na zahtev */
+  --gutter:      clamp(1.25rem, 4.1667vw, 3.75rem); /* 60px na 1440 */
+  --radius-card: 24px;
+  --radius-btn:  12px;
+}
+
+/* ---- Base --------------------------------------------------------------- */
+html {
+  /* scroll-behavior namerno NIJE smooth — ScrollSmoother vodi skrol i native
+     smooth bi mu se suprotstavljao. Sidrni linkovi idu kroz smoother.scrollTo(). */
+  /* Rezerviše mesto za scrollbar uvek, pa zaključavanje skrola pri otvaranju
+     menija ne pomeri layout ni fiksirane elemente. */
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font);
+  font-weight: 400;
+  overflow-x: clip;              /* main se pomera ulevo dok je meni otvoren */
+}
+
+/* Dok je meni otvoren, stranica iza njega se ne skroluje — skrola samo meni.
+   scrollbar-gutter iznad drži rezervisano mesto pa nema poskakivanja. */
+body[data-menu-status="open"] {
+  overflow: hidden;
+}
+
+/* ---- Skip link ----------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  padding: 0.75em 1.25em;
+  background-color: var(--c-ink);
+  color: var(--c-white);
+  transform: translateY(-150%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* ---- Dugmad -------------------------------------------------------------
+   Figma: padding 16px 12px, radius 12px, 18px tekst
+   ------------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 12px;
+  border-radius: var(--radius-btn);
+  font-size: 1.125rem;           /* 18px */
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.btn--primary {
+  background-color: var(--c-ink);
+  color: var(--c-white);
+}
+
+.btn--ghost {
+  color: var(--c-white);
+}
+
+.btn__icon {
+  flex: none;
+  width: 15.072px;
+  height: 15.072px;
+  fill: currentColor;
+}
+
+@media (hover: hover) {
+  .btn--primary:hover { background-color: #16293d; }
+  .btn--ghost:hover .btn__icon { transform: translate(2px, -2px); }
+}
+
+.btn__icon { transition: transform 0.25s ease; }
+
+/* ---- Reveal na skrol -----------------------------------------------------
+   Skriveno stanje se primenjuje samo ako JS radi (.has-js se postavlja
+   inline u <head>), da sadržaj ne ostane nevidljiv ako skripta pukne.
+   -------------------------------------------------------------------------- */
+.has-js [data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+.has-js [data-animate].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-js [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- Zaglavlje sekcije (deljeno: Usluge, Portfolio, ...) ----------------- */
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  align-items: end;
+  gap: clamp(1.5rem, 4vw, 3.75rem);
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding: 8px 12px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-btn);
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+
+.section-title {
+  max-width: 20ch;
+  font-size: clamp(1.875rem, 3.33vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.section-lead {
+  max-width: 30rem;
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  line-height: 1.4444;
+  color: var(--c-muted);
+  text-wrap: pretty;
+}
+
+@media screen and (max-width: 1024px) {
+  .section-head {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+/* ---- Dugme: outline varijanta (na svetloj podlozi) ----------------------- */
+.btn--outline {
+  border: 1px solid var(--c-line);
+  color: var(--c-ink);
+}
+
+@media (hover: hover) {
+  .btn--outline:hover {
+    border-color: rgb(13 27 42 / 0.3);
+    background-color: var(--c-white);
+  }
+}
+
+/* ---- Dugme: akcentna (plava) varijanta ----------------------------------- */
+.btn--accent {
+  background-color: var(--c-accent);
+  color: var(--c-white);
+}
+
+@media (hover: hover) {
+  .btn--accent:hover {
+    background-color: #0D579F;
+  }
+}
+
+/* ---- SplitText: reveal po linijama --------------------------------------
+   Elementi se kriju dok ih SplitText ne razdvoji, da tekst ne bljesne u
+   nepodeljenom stanju. Klasu is-split postavlja split-lines.js — i kad
+   animira, i kad je reduce-motion pa samo otkriva.
+   -------------------------------------------------------------------------- */
+.has-js [data-split] {
+  visibility: hidden;
+}
+
+.has-js [data-split].is-split {
+  visibility: visible;
+}
+
+/* Centrirano zaglavlje sekcije (portfolio) */
+.section-head.is--centered {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.section-head.is--centered .section-title {
+  max-width: 24ch;
+}
+
+.section-head.is--centered .section-lead {
+  max-width: 52ch;
+}

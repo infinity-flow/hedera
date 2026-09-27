@@ -1,0 +1,242 @@
+/* ==========================================================================
+   PORTFOLIO — beskonačni slajder kartica
+   https://demos.gsap.com/demo/infinite-card-slider/
+
+   Kartice su apsolutno pozicionirane; portfolio.js im računa x preko
+   gsap.utils.wrap(), pa se niz vrti u krug bez dupliranja elemenata.
+   Slajder je namerno pune širine, van kontejnera, da kartice izlaze
+   izvan oba ruba ekrana.
+   ========================================================================== */
+
+.portfolio {
+  padding-block: clamp(5rem, 8.3vw, 7.5rem);
+  overflow: hidden;
+}
+
+.portfolio__inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---- Slajder ------------------------------------------------------------- */
+.slider {
+  --card-w: clamp(15rem, 23vw, 26rem);
+  --card-gap: 20px;
+
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;          /* vertikalni skrol stranice ostaje nativan */
+}
+
+.slider.is--dragging {
+  cursor: grabbing;
+}
+
+.slider__track {
+  position: relative;
+  height: calc(var(--card-w) * 4 / 3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--card-w);
+  will-change: transform;
+}
+
+/* ---- Kartica ------------------------------------------------------------- */
+.work__media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.work__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.work__scrim {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to top, rgb(0 0 0 / 0.85), rgb(0 0 0 / 0) 58%);
+  pointer-events: none;
+}
+
+/* ---- Naziv projekta na kartici ------------------------------------------ */
+.work__body {
+  position: absolute;
+  inset: auto 0 0;
+  padding: clamp(1.25rem, 1.7vw, 1.5rem);
+  color: var(--c-white);
+}
+
+.work__title {
+  margin-bottom: 0.375rem;
+  font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.work__text {
+  font-size: clamp(0.875rem, 1vw, 0.9375rem);
+  line-height: 1.35;
+  color: rgb(255 255 255 / 0.75);
+  text-wrap: pretty;
+}
+
+/* ---- Dugme oka ----------------------------------------------------------
+   Beli blok sa 0.5px ivicom. border a ne outline — reset.css koristi outline
+   za :focus-visible, pa bi se fokus prsten i ukras poništavali.
+   -------------------------------------------------------------------------- */
+.work__peek {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0.5px solid rgb(13 27 42 / 0.15);
+  border-radius: var(--radius-btn);
+  background-color: var(--c-white);
+  color: var(--c-ink);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.work__peek svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (hover: hover) {
+  .work__peek:hover {
+    background-color: var(--c-ink);
+    color: var(--c-white);
+    transform: scale(1.06);
+  }
+}
+
+/* ---- Modal --------------------------------------------------------------- */
+.work-modal {
+  width: min(72rem, calc(100vw - 2 * var(--gutter)));
+  max-height: min(46rem, calc(100dvh - 4rem));
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-card);
+  background-color: var(--c-bg);
+  color: var(--c-ink);
+  overflow: hidden;
+}
+
+.work-modal::backdrop {
+  background-color: rgb(13 27 42 / 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.work-modal__scroll {
+  max-height: min(46rem, calc(100dvh - 4rem));
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.work-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  /* Sadržaj popupa je dugačak i klizi ispod ovog dugmeta — senka ga odvaja
+     da deluje kao da lebdi, umesto da izgleda kao rupa u tekstu. */
+  box-shadow: 0 2px 12px rgb(13 27 42 / 0.18);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0.5px solid rgb(13 27 42 / 0.15);
+  border-radius: var(--radius-btn);
+  background-color: var(--c-white);
+  color: var(--c-ink);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.work-modal__close svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (hover: hover) {
+  .work-modal__close:hover {
+    background-color: var(--c-ink);
+    color: var(--c-white);
+  }
+}
+
+.work-modal__img {
+  width: 100%;
+  height: clamp(14rem, 34vh, 22rem);
+  /* contain, ne cover — radovi su raznih formata i mora da se vidi ceo rad.
+     Portretni mockup bi se sa cover-om odsekao na trećinu visine. */
+  object-fit: contain;
+  background-color: var(--c-ink);
+}
+
+.work-modal__body {
+  padding: clamp(1.5rem, 3.3vw, 2.5rem);
+}
+
+.work-modal__title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.work-modal__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.work-modal__meta li {
+  padding: 6px 12px;
+  border: 1px solid var(--c-line);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: var(--c-muted);
+}
+
+.work-modal__body p {
+  max-width: 60ch;
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  line-height: 1.4444;
+  color: var(--c-muted);
+}
+
+.work-modal__body p + p {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .work__peek {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfinityFlow — Web dizajn, development, brend dizajn i fotografija</title>
+  <meta name="description" content="InfinityFlow — web dizajn, web development, grafički i brend dizajn i profesionalna fotografija.">
+
+  <script>document.documentElement.classList.add("has-js");</script>
+
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/StackSansHeadline-VariableFont_wght.ttf" crossorigin>
+  <link rel="preload" as="image" href="assets/img/hero-bg.jpg" fetchpriority="high">
+
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/pillars.css">
+  <link rel="stylesheet" href="assets/css/services.css">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+  <link rel="stylesheet" href="assets/css/case.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+  <link rel="stylesheet" href="assets/css/faq.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/CustomEase.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollSmoother.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrambleTextPlugin.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/Draggable.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/InertiaPlugin.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js" defer></script>
+
+  <script src="assets/js/smooth-scroll.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/footer-scramble.js" defer></script>
+  <script src="assets/js/reveal.js" defer></script>
+  <script src="assets/js/portfolio.js" defer></script>
+  <script src="assets/js/contact.js" defer></script>
+  <script src="assets/js/faq.js" defer></script>
+  <script src="assets/js/split-lines.js" defer></script>
+</head>
+<body>
+
+  <a href="#sadrzaj" class="skip-link">Preskočite na sadržaj</a>
+
+  <!-- ==========================================================
+       NAVIGACIJA  (Osmo — Fixed Underlay Navigation)
+       ========================================================== -->
+  <div class="underlay-nav">
+
+    <header class="underlay-nav__header">
+      <div class="underlay-nav__bar">
+        <div class="underlay-nav__container">
+
+          <a href="/" class="underlay-nav__logo" aria-label="InfinityFlow — početna">
+          <svg class="underlay-nav__logo-svg" width="100%" viewBox="0 0 166 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M68.7815 4.79932H66.0526V18.9463H68.7815V4.79932Z" fill="currentColor"/>
+          <path d="M60.2499 0.454821C59.6435 0.741685 59.1976 1.1534 58.9107 1.69295C58.6417 2.23249 58.5064 2.8627 58.5064 3.58803V4.80089H56.8893V7.12553H58.5064V18.9479H61.2101V7.12553H64.3686V4.80089H61.2101V3.58803C61.2101 2.74528 61.6649 2.32464 62.5745 2.32464H64.7476V0H62.5493C61.6233 0 60.8563 0.151607 60.2499 0.454821Z" fill="currentColor"/>
+          <path d="M68.9333 0H65.9011V3.10794H68.9333V0Z" fill="currentColor"/>
+          <path d="M53.6432 4.95115C52.9356 4.58106 52.1271 4.39526 51.2174 4.39526C50.3078 4.39526 49.5676 4.53052 48.9433 4.79955C48.3206 5.05223 47.8152 5.38963 47.4273 5.81026C47.0393 6.21455 46.745 6.65302 46.5429 7.12419V4.79955H43.8392V18.9466H46.5429V11.8983C46.5429 10.7702 46.7287 9.82636 47.0988 9.06833C47.4867 8.31029 47.9832 7.73805 48.5896 7.35011C49.196 6.96218 49.8366 6.76895 50.5099 6.76895C51.2338 6.76895 51.7986 6.92948 52.2029 7.24904C52.6072 7.55226 52.8851 7.99073 53.0367 8.56297C53.1883 9.11886 53.2641 9.78475 53.2641 10.5591V18.9466H55.9678V10.2306C55.9678 8.78295 55.7567 7.63698 55.3361 6.79422C54.9318 5.93512 54.367 5.32126 53.6432 4.94967V4.95115Z" fill="currentColor"/>
+          <path d="M41.9225 0H39.1683V18.9464H41.9225V0Z" fill="currentColor"/>
+          <path d="M93.9988 16.2696C93.7461 16.0169 93.6198 15.6289 93.6198 15.1072V7.12408H96.2476V4.79944H93.6198V1.26343H90.9161V4.79944H88.7936V7.12408H90.9161V15.1072C90.9161 16.3023 91.261 17.2461 91.9521 17.9372C92.6596 18.6105 93.703 18.9479 95.0853 18.9479H96.6519V16.6233H95.1106C94.6216 16.6233 94.2515 16.5059 93.9988 16.2696Z" fill="currentColor"/>
+          <path d="M87.5616 0H84.5295V3.10794H87.5616V0Z" fill="currentColor"/>
+          <path d="M80.5508 4.95115C79.8433 4.58106 79.0347 4.39526 78.1251 4.39526C77.2155 4.39526 76.4753 4.53052 75.851 4.79955C75.2282 5.05223 74.7229 5.38963 74.3349 5.81026C73.947 6.21455 73.6527 6.65302 73.4505 7.12419V4.79955H70.7469V18.9466H73.4505V11.8983C73.4505 10.7702 73.6363 9.82636 74.0064 9.06833C74.3944 8.31029 74.8908 7.73805 75.4972 7.35011C76.1037 6.96218 76.7428 6.76895 77.4176 6.76895C78.1414 6.76895 78.7063 6.92948 79.1105 7.24904C79.5148 7.55226 79.7928 7.99073 79.9444 8.56297C80.096 9.11886 80.1718 9.78475 80.1718 10.5591V18.9466H82.8755V10.2306C82.8755 8.78295 82.6644 7.63698 82.2438 6.79422C81.8395 5.93512 81.2747 5.32126 80.5508 4.94967V4.95115Z" fill="currentColor"/>
+          <path d="M87.4099 4.79932H84.681V18.9463H87.4099V4.79932Z" fill="currentColor"/>
+          <path d="M126.764 0L122.806 18.9672H126.315L130.273 0H126.764Z" fill="currentColor"/>
+          <path d="M141.883 5.18742C140.902 4.53789 139.654 4.21387 138.136 4.21387C136.619 4.21387 135.23 4.53789 133.976 5.18742C132.722 5.83695 131.657 6.73322 130.786 7.87622C129.932 9.0207 129.348 10.3346 129.031 11.821C128.719 13.2895 128.747 14.596 129.114 15.7405C129.499 16.8849 130.181 17.7812 131.161 18.4293C132.143 19.061 133.395 19.3775 134.914 19.3775C136.433 19.3775 137.817 19.0624 139.068 18.4293C140.324 17.7797 141.378 16.8835 142.233 15.7405C143.104 14.596 143.697 13.2895 144.009 11.821C144.324 10.3361 144.29 9.0207 143.905 7.87622C143.536 6.73173 142.863 5.83547 141.883 5.18742ZM140.396 11.821C140.217 12.6578 139.906 13.4173 139.467 14.101C139.044 14.7669 138.505 15.296 137.846 15.6884C137.204 16.0808 136.446 16.277 135.574 16.277C134.701 16.277 134.019 16.0808 133.526 15.6884C133.034 15.296 132.71 14.7669 132.554 14.101C132.42 13.4173 132.442 12.6578 132.619 11.821C132.8 10.9678 133.104 10.1994 133.529 9.51565C133.97 8.83342 134.521 8.29537 135.18 7.90149C135.84 7.50909 136.607 7.31289 137.479 7.31289C138.352 7.31289 139.027 7.50909 139.501 7.90149C139.993 8.29388 140.306 8.83194 140.44 9.51565C140.592 10.1994 140.578 10.9663 140.396 11.821Z" fill="currentColor"/>
+          <path d="M161.815 4.62402L157.576 15.1592L157.467 4.62402H156.919H154.194H153.646L149.08 15.1146L149.3 4.62402H145.556L145.963 18.9672H147.403H149H150.675L154.257 10.7388L154.342 18.9672H156.043H157.614H159.055L165.586 4.62402H161.815Z" fill="currentColor"/>
+          <path d="M106.673 4.79932L103.822 16.4329L99.9533 4.79932H97.0223L101.569 18.9463H103.821C103.657 19.4636 103.477 19.9199 103.281 20.3108C103.095 20.7314 102.843 21.0599 102.523 21.2962C102.204 21.5489 101.74 21.6753 101.134 21.6753H99.4911V23.9999H101.159C102.002 23.9999 102.7 23.8988 103.256 23.6967C103.828 23.4945 104.301 23.1824 104.671 22.7618C105.059 22.3575 105.395 21.8358 105.682 21.1952C105.985 20.5724 106.272 19.8233 106.541 18.9463L109.603 4.79932H106.672H106.673Z" fill="currentColor"/>
+          <path d="M115.762 3.04849H124.691L125.339 0H116.409H114.288H112.849L109.036 18.9672H112.598L114.084 10.9365H121.966L122.608 7.91478H114.728L115.762 3.04849Z" fill="currentColor"/>
+          <path d="M31.9162 6.30363L31.9017 6.39775C31.5987 7.98439 31.2584 9.66721 30.9305 11.2921C30.7423 12.2302 30.554 13.1632 30.372 14.0775C30.252 14.8026 30.0658 15.5121 29.7348 16.1317C28.9498 17.6138 27.5452 18.6719 25.88 18.915C23.4618 19.2698 21.751 17.7173 21.33 17.288L17.6458 13.7962L17.6417 13.792L11.593 8.05575L7.79813 4.45945C7.79813 4.45945 7.24271 3.90092 6.6666 3.98677C6.18357 4.05711 5.62504 4.57426 5.5423 5.39137C5.5423 5.39137 5.41818 6.06884 5.36957 6.31501C5.22683 7.02454 5.08307 7.74132 4.93723 8.4612C4.61452 10.0582 4.28044 11.7089 3.98566 13.2573C3.91947 13.822 4.16046 14.3754 4.61866 14.7064C5.081 15.0405 5.70882 15.0911 6.22598 14.8346C7.53232 14.0537 9.03931 12.9915 10.5422 11.7948C10.7563 11.6241 11.0635 11.6365 11.261 11.8248L13.3731 13.8262C13.613 14.0527 13.5975 14.4395 13.341 14.6474C12.8042 15.0818 12.1867 15.5669 11.5113 16.0655C10.5018 16.8133 9.36719 17.5921 8.20358 18.283L8.11774 18.3316C7.30994 18.7567 6.42043 18.9667 5.53299 18.9667C4.38697 18.9667 3.24509 18.6161 2.29146 17.9293C0.622081 16.7254 -0.233295 14.7074 0.0552774 12.6636L0.0697577 12.5695C0.372811 10.9829 0.7131 9.30003 1.04201 7.67513C1.23026 6.737 1.4185 5.80406 1.60054 4.88973C1.72052 4.16467 1.9067 3.45513 2.23767 2.83558C3.02272 1.35341 4.42731 0.295312 6.09255 0.0522492C8.51077 -0.30252 10.2215 1.24998 10.6425 1.67922L14.3267 5.17106L14.3308 5.17519L20.3795 10.9115L24.1744 14.5078C24.1744 14.5078 24.7298 15.0663 25.3059 14.9805C25.7889 14.9101 26.3475 14.393 26.4302 13.5759C26.4302 13.5759 26.5543 12.8984 26.603 12.6522C26.7457 11.9427 26.8895 11.2259 27.0353 10.506C27.358 8.90906 27.6921 7.2583 27.9869 5.70993C28.0531 5.1452 27.8121 4.59184 27.3539 4.26086C26.8915 3.92678 26.2637 3.8761 25.7465 4.13261C24.4381 4.91351 22.9311 5.97575 21.4293 7.17245C21.2173 7.34311 20.9101 7.3307 20.7125 7.14246L18.6005 5.14106C18.3605 4.91248 18.374 4.52772 18.6325 4.31982C19.1673 3.88541 19.7868 3.40032 20.4622 2.90178C21.4717 2.15397 22.6064 1.37513 23.77 0.684214L23.8558 0.636635C24.6636 0.211533 25.5531 0.00156739 26.4406 0.00156739C27.5866 0.00156739 28.7285 0.352201 29.6821 1.03898C31.3515 2.24292 32.2069 4.26086 31.9183 6.30466L31.9162 6.30363Z" fill="currentColor"/>
+          </svg>
+          </a>
+
+          <button type="button" data-underlay-nav-toggle aria-expanded="false" aria-controls="glavni-meni" aria-label="Otvori meni" class="underlay-nav__toggle">
+            <span class="underlay-nav__toggle-text" aria-hidden="true">
+              <span class="underlay-nav__toggle-label">Meni</span>
+              <span class="underlay-nav__toggle-label">Zatvori</span>
+            </span>
+            <span class="underlay-nav__toggle-icon" aria-hidden="true">
+              <span class="underlay-nav__toggle-bar"></span>
+              <span class="underlay-nav__toggle-bar"></span>
+            </span>
+          </button>
+
+        </div>
+      </div>
+    </header>
+
+    <nav id="glavni-meni" data-underlay-nav-menu class="underlay-nav__menu" aria-label="Glavna navigacija">
+      <div class="underlay-nav__inner">
+
+        <ul class="underlay-nav__list">
+          <li data-reveal-l>
+            <a href="/" aria-current="page" class="underlay-nav__link-large is--current"><span class="underlay-nav__link-label">Početna</span></a>
+          </li>
+          <li data-reveal-l>
+            <a href="#usluge" class="underlay-nav__link-large"><span class="underlay-nav__link-label">Usluge</span></a>
+          </li>
+          <li data-reveal-l>
+            <a href="#portfolio" class="underlay-nav__link-large"><span class="underlay-nav__link-label">Portfolio</span></a>
+          </li>
+          <li data-reveal-l>
+            <a href="#zakazi-poziv" class="underlay-nav__link-large"><span class="underlay-nav__link-label">Zakažite poziv</span></a>
+          </li>
+          <li data-reveal-l>
+            <a href="#faq" class="underlay-nav__link-large"><span class="underlay-nav__link-label">FAQ</span></a>
+          </li>
+        </ul>
+
+        <div class="underlay-nav__bottom">
+          <div class="underlay-nav__bottom-col">
+            <div data-reveal-s>
+              <span class="underlay-nav__link-small is--faded">Društvene mreže</span>
+            </div>
+            <ul class="underlay-nav__list is--small">
+              <li data-reveal-s><a href="#" class="underlay-nav__link-small">Instagram</a></li>
+              <li data-reveal-s><a href="#" class="underlay-nav__link-small">LinkedIn</a></li>
+              <li data-reveal-s><a href="#" class="underlay-nav__link-small">Behance</a></li>
+            </ul>
+          </div>
+          <div class="underlay-nav__bottom-col">
+            <div data-reveal-s>
+              <span class="underlay-nav__link-small is--faded">Brzi linkovi</span>
+            </div>
+            <ul class="underlay-nav__list is--small">
+              <li data-reveal-s><a href="politika-privatnosti.html" class="underlay-nav__link-small">Politika privatnosti</a></li>
+              <li data-reveal-s><a href="uslovi-koriscenja.html" class="underlay-nav__link-small">Uslovi korišćenja</a></li>
+            </ul>
+          </div>
+          <div class="underlay-nav__bottom-border"></div>
+        </div>
+
+      </div>
+    </nav>
+
+    <div data-underlay-nav-overlay class="underlay-nav__overlay">
+      <div class="underlay-nav__dark"></div>
+      <div class="underlay-nav__borders">
+        <div class="underlay-nav__border-row">
+          <div class="underlay-nav__border"></div>
+          <div class="underlay-nav__corner"></div>
+        </div>
+        <div class="underlay-nav__border-row">
+          <div class="underlay-nav__corner is--bottom"></div>
+          <div class="underlay-nav__border"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==========================================================
+       SADRŽAJ  — [data-main] je element koji se pomera ulevo
+       ========================================================== -->
+  <!-- ScrollSmoother: sve što se skroluje ide unutra; fiksirani elementi ostaju napolju -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+  <main id="sadrzaj" data-main>
+    <!-- ========================================================
+         HERO  (Figma node 1:6)
+         ======================================================== -->
+    <section class="hero">
+      <div class="hero__card">
+
+        <img class="hero__bg" src="assets/img/hero-bg.jpg" alt="" width="2651" height="1486" fetchpriority="high" decoding="async">
+        <div class="hero__veil"></div>
+
+        <div class="hero__content">
+
+          <p class="hero__status">
+            <span class="hero__status-dot" aria-hidden="true"></span>
+            Slobodni za nove projekte
+          </p>
+
+          <h1 class="hero__title" data-split>Stvaramo digitalna iskustva koja pokreću</h1>
+
+          <p class="hero__lead" data-split>
+            Spajamo dizajn, tehnologiju i kreativnost kako bismo vašem brendu dali snažno digitalno prisustvo.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#zakazi-poziv" class="btn btn--primary">Zakažite besplatne konsultacije</a>
+            <a href="#portfolio" class="btn btn--ghost">
+              <svg class="btn__icon" viewBox="0 0 15.0723 15.0723" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M15.0723 13.294C15.0723 14.2761 14.2859 15.0722 13.316 15.0723C12.3461 15.0723 11.5598 14.2761 11.5598 13.294V6.02169L2.9877 14.5615C2.29631 15.2502 1.18464 15.2409 0.50443 14.5409C-0.175719 13.8408 -0.166565 12.7152 0.524792 12.0265L9.02698 3.5565H1.75625C0.786332 3.5565 0 2.76032 0 1.77825C0 0.796184 0.786332 0 1.75625 0H13.316C14.2859 3.95661e-05 15.0723 0.796208 15.0723 1.77825V13.294Z"/>
+              </svg>
+              Pogledajte portfolio
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PILLARS  (Figma nodes 3:21 / 3:22 / 3:24)
+         ======================================================== -->
+    <section class="pillars" aria-label="Zašto InfinityFlow">
+      <ul class="pillars__grid" role="list">
+
+        <li class="pillar" data-animate data-animate-on="load">
+          <img class="pillar__img is--bottom" src="assets/img/pillar-tim.jpg"
+               alt="Član tima u kreativnom studiju InfinityFlow"
+               width="745" height="1024" loading="lazy" decoding="async">
+          <div class="pillar__scrim"></div>
+          <div class="pillar__body">
+            <h2 class="pillar__title">Jedan tim,<br>jedan dogovor</h2>
+            <p class="pillar__text">
+              Svaki projekat radi se iz našeg kreativnog studija, bez usklađivanja
+              sa drugim izvođačima.
+            </p>
+          </div>
+        </li>
+
+        <li class="pillar" data-animate data-animate-on="load" style="--i: 1">
+          <img class="pillar__img" src="assets/img/pillar-biznisi.jpg"
+               alt="Ugao moderne poslovne zgrade snimljen odozdo"
+               width="1200" height="1600" loading="lazy" decoding="async">
+          <div class="pillar__scrim"></div>
+          <div class="pillar__body">
+            <h2 class="pillar__title">Fokusirani na male i srednje biznise</h2>
+            <p class="pillar__text">
+              Nudimo rešenja prilagođena realnim budžetima i rokovima malih i
+              srednjih preduzeća u Srbiji.
+            </p>
+          </div>
+        </li>
+
+        <li class="pillar" data-animate data-animate-on="load" style="--i: 2">
+          <img class="pillar__img" src="assets/img/pillar-transparentno.jpg"
+               alt="Rukovanje posle dogovora u sali za sastanke"
+               width="1200" height="1798" loading="lazy" decoding="async">
+          <div class="pillar__scrim"></div>
+          <div class="pillar__body">
+            <h2 class="pillar__title">Jasno i transparentno</h2>
+            <p class="pillar__text">
+              Specijalna ponuda izrađena pre početka rada i dogovoren rok isporuke,
+              bez skrivenih troškova.
+            </p>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- ========================================================
+         USLUGE
+         ======================================================== -->
+    <section class="services" id="usluge">
+      <div class="services__inner">
+
+        <header class="section-head">
+          <div>
+            <p class="eyebrow" data-animate>Usluge</p>
+            <h2 class="section-title" data-split>Sve što je potrebno da se vaš brend istakne</h2>
+          </div>
+          <p class="section-lead" data-split>
+            Oblikujemo vaš brend, sajt i vizuelni sadržaj tako da privlače pažnju
+            i ostavljaju utisak.
+          </p>
+        </header>
+
+        <ol class="services__list" role="list">
+
+          <li class="service" data-animate>
+            <div class="service__row">
+              <span class="service__num" aria-hidden="true">01</span>
+              <h3 class="service__name">Web dizajn</h3>
+              <div class="service__body">
+                <p class="service__desc">
+                  Dizajn koji posetioca vodi tačno tamo gde treba. Krećemo od istraživanja i
+                  strukture, pa do prototipa u Figmi koji možete da kliknete i isprobate pre nego
+                  što se napiše prva linija koda.
+                </p>
+                <ul class="service__tags" role="list">
+                  <li>UX istraživanje</li>
+                  <li>Struktura sajta</li>
+                  <li>UI dizajn</li>
+                  <li>Prototip u Figmi</li>
+                  <li>Dizajn sistem</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="service" data-animate style="--i: 1">
+            <div class="service__row">
+              <span class="service__num" aria-hidden="true">02</span>
+              <h3 class="service__name">Web development</h3>
+              <div class="service__body">
+                <p class="service__desc">
+                  Dizajn pretvaramo u sajt koji se učitava brzo i ne lomi se na starijem telefonu.
+                  Čist kod, pristupačnost od početka i CMS koji vaš tim zaista ume sam da koristi.
+                </p>
+                <ul class="service__tags" role="list">
+                  <li>Front-end</li>
+                  <li>CMS integracija</li>
+                  <li>Optimizacija brzine</li>
+                  <li>Tehnički SEO</li>
+                  <li>Održavanje</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="service" data-animate style="--i: 2">
+            <div class="service__row">
+              <span class="service__num" aria-hidden="true">03</span>
+              <h3 class="service__name">Grafički i brend dizajn</h3>
+              <div class="service__body">
+                <p class="service__desc">
+                  Identitet koji ostaje dosledan i na vizit karti i na bilbordu. Logotip, boje,
+                  tipografija i jasna pravila koja sprečavaju da se brend raspadne kroz upotrebu.
+                </p>
+                <ul class="service__tags" role="list">
+                  <li>Logotip</li>
+                  <li>Vizuelni identitet</li>
+                  <li>Brand book</li>
+                  <li>Print materijali</li>
+                  <li>Dizajn za mreže</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="service" data-animate style="--i: 3">
+            <div class="service__row">
+              <span class="service__num" aria-hidden="true">04</span>
+              <h3 class="service__name">Profesionalno fotografisanje</h3>
+              <div class="service__body">
+                <p class="service__desc">
+                  Fotografije snimljene za vaš sajt, a ne kupljene sa stocka. Proizvod, prostor,
+                  tim i događaji — obrađeno i isporučeno u formatima koji su spremni za web.
+                </p>
+                <ul class="service__tags" role="list">
+                  <li>Produkt fotografija</li>
+                  <li>Enterijer i prostor</li>
+                  <li>Poslovni portreti</li>
+                  <li>Događaji</li>
+                  <li>Retuš i obrada</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+        </ol>
+
+        <div class="services__foot" data-animate>
+          <p class="services__foot-text">Niste sigurni koja usluga vam je potrebna?</p>
+          <a href="#zakazi-poziv" class="btn btn--accent">Zakažite besplatne konsultacije</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         PORTFOLIO
+         ======================================================== -->
+
+    <!-- ========================================================
+         PORTFOLIO — beskonačni slajder
+         ======================================================== -->
+    <section class="portfolio" id="portfolio">
+
+      <div class="portfolio__inner">
+        <header class="section-head is--centered">
+          <h2 class="section-title" data-split>Ideje koje smo pretvorili u rešenja</h2>
+          <p class="section-lead" data-split>
+            Brendovi koji su nam ukazali poverenje i ostvarili željene rezultate.
+          </p>
+        </header>
+      </div>
+
+      <div class="slider" data-slider>
+        <ul class="slider__track" data-slider-track role="list">
+
+          <li class="work">
+            <div class="work__media">
+              <img class="work__img" src="assets/img/fabrika-poklona.jpg" alt="Svetleća reklama sa logotipom Fabrika poklona"
+                   width="684" height="946" loading="lazy" decoding="async" draggable="false">
+              <div class="work__scrim"></div>
+              <button type="button" class="work__peek" data-work-open
+                      aria-label="Detalji projekta: Fabrika poklona">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12S5.8 5.5 12 5.5 21.5 12 21.5 12 18.2 18.5 12 18.5 2.5 12 2.5 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+              <div class="work__body">
+                <h3 class="work__title">Fabrika poklona</h3>
+                <p class="work__text">Logo dizajn / Brend identitet</p>
+              </div>
+            </div>
+            <template data-work-details>
+              <img class="case__hero" src="assets/img/fabrika-poklona/hero-signboard.jpg"
+                   alt="Svetleća reklama sa logotipom Fabrika poklona" width="1600" height="1200">
+
+              <div class="case__body">
+
+                <header>
+                  <p class="case__badge">Brend identitet</p>
+                  <h2 class="case__title">Fabrika poklona</h2>
+                  <p class="case__intro">
+                    Biznis koji se bavi pravljenjem poklona za sve vrste namena —
+                    diplomiranja, rođendani, rođenja.
+                  </p>
+                </header>
+
+                <section class="case__section is--split">
+                  <h3 class="case__label">Tipografija</h3>
+                  <div>
+                    <p class="case__typeface">FinalSix Heavy</p>
+                    <p class="case__typeface-note">Prikazano u fontu sajta — vidi originalne oblike na logotipu ispod.</p>
+                  </div>
+                </section>
+
+                <section class="case__section is--split">
+                  <h3 class="case__label">Boje</h3>
+                  <div class="case__swatches">
+                    <p class="swatch" style="--swatch: #1C1C1C; --swatch-ink: #FFFFFF">#1C1C1C</p>
+                    <p class="swatch" style="--swatch: #DCB654; --swatch-ink: #1C1C1C">#DCB654</p>
+                  </div>
+                </section>
+
+                <section class="case__section is--stack">
+                  <h3 class="case__label">Logo</h3>
+                  <ul class="case__logos" role="list">
+                    <li class="logo-card is--stacked" style="--swatch: #1C1C1C">
+                      <img src="assets/img/fabrika-poklona/logo-stack-mark.svg" alt="" width="115" height="134">
+                      <img src="assets/img/fabrika-poklona/logo-stack-word.svg"
+                           alt="Vertikalna verzija logotipa Fabrika poklona" width="288" height="111">
+                    </li>
+                    <li class="logo-card" style="--swatch: #DCB654">
+                      <img src="assets/img/fabrika-poklona/logo-mark.svg"
+                           alt="Znak — poklon kutija" width="197" height="229">
+                    </li>
+                    <li class="logo-card" style="--swatch: #1C1C1C">
+                      <img src="assets/img/fabrika-poklona/logo-horizontal.svg"
+                           alt="Horizontalna verzija logotipa Fabrika poklona" width="553" height="214">
+                    </li>
+                  </ul>
+                </section>
+
+                <section class="case__section is--stack">
+                  <h3 class="case__label">Primena</h3>
+                  <ul class="case__shots" role="list">
+                    <li><img src="assets/img/fabrika-poklona/mockup-tag.jpg"
+                             alt="Etiketa sa logotipom" width="830" height="623" loading="lazy"></li>
+                    <li><img src="assets/img/fabrika-poklona/mockup-sticker.jpg"
+                             alt="Nalepnice i ambalažni papir" width="1200" height="900" loading="lazy"></li>
+                    <li><img src="assets/img/fabrika-poklona/mockup-cards.jpg"
+                             alt="Vizit karte" width="1500" height="1000" loading="lazy"></li>
+                  </ul>
+                </section>
+
+              </div>
+            </template>
+          </li>
+          <li class="work">
+            <div class="work__media">
+              <img class="work__img" src="assets/img/casa-inzenjering/casa-sajt-laptop.jpg"
+                   alt="Sajt Casa Inženjering prikazan na laptopu"
+                   width="1500" height="1048" loading="lazy" decoding="async" draggable="false">
+              <div class="work__scrim"></div>
+
+              <button type="button" class="work__peek" data-work-open
+                      aria-label="Detalji projekta: Casa Inženjering">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12S5.8 5.5 12 5.5 21.5 12 21.5 12 18.2 18.5 12 18.5 2.5 12 2.5 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+
+              <div class="work__body">
+                <h3 class="work__title">Casa Inženjering</h3>
+                <p class="work__text">Web dizajn / Web development</p>
+              </div>
+            </div>
+
+            <template data-work-details>
+              <img class="case__hero" src="assets/img/casa-inzenjering/casa-sajt-laptop.jpg"
+                   alt="Naslovna strana sajta Casa Inženjering na laptopu"
+                   width="1500" height="1048">
+
+              <div class="case__body">
+
+                <header>
+                  <p class="case__badge">Web sajt</p>
+                  <h2 class="case__title">Casa Inženjering</h2>
+                  <p class="case__intro">
+                    Sajt za građevinsku firmu koja se bavi projektovanjem, renoviranjem i
+                    adaptacijom kuća, stanova i poslovnih zgrada — od ideje do useljenja.
+                  </p>
+                </header>
+
+                <section class="case__section is--stack">
+                  <h3 class="case__label">Primena</h3>
+                  <ul class="case__shots" role="list">
+                    <li><img src="assets/img/casa-inzenjering/casa-sajt-mobilni.jpg"
+                             alt="Naslovna strana sajta na mobilnom telefonu"
+                             width="1500" height="1125" loading="lazy"></li>
+                    <li><img src="assets/img/casa-inzenjering/casa-vizit-karta.jpg"
+                             alt="Vizit karta sa logotipom Casa Inženjering"
+                             width="1500" height="1125" loading="lazy"></li>
+                    <li><img src="assets/img/casa-inzenjering/casa-pribor.jpg"
+                             alt="Memorandum, koverta i flajer sa logotipom Casa Inženjering"
+                             width="1500" height="1125" loading="lazy"></li>
+                  </ul>
+                </section>
+
+              </div>
+            </template>
+          </li>
+          <li class="work">
+            <div class="work__media">
+              <img class="work__img" src="assets/img/sub8-media/sub8-majica.jpg"
+                   alt="Majica sa logotipom SUB8 Media"
+                   width="1500" height="1000" loading="lazy" decoding="async" draggable="false">
+              <div class="work__scrim"></div>
+
+              <button type="button" class="work__peek" data-work-open
+                      aria-label="Detalji projekta: SUB8 Media">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12S5.8 5.5 12 5.5 21.5 12 21.5 12 18.2 18.5 12 18.5 2.5 12 2.5 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+
+              <div class="work__body">
+                <h3 class="work__title">SUB8 Media</h3>
+                <p class="work__text">Logo dizajn / Brend identitet</p>
+              </div>
+            </div>
+
+            <template data-work-details>
+              <img class="case__hero" src="assets/img/sub8-media/sub8-logo.png"
+                   alt="Logotip SUB8 Media na žutoj podlozi"
+                   width="1500" height="1000">
+
+              <div class="case__body">
+
+                <header>
+                  <p class="case__badge">Brend identitet</p>
+                  <h2 class="case__title">SUB8 Media</h2>
+                  <p class="case__intro">
+                    Vizuelni identitet za YouTube kanal posvećen recenzijama sportskih
+                    automobila.
+                  </p>
+                </header>
+
+                <section class="case__section is--split">
+                  <h3 class="case__label">Boje</h3>
+                  <div class="case__swatches">
+                    <p class="swatch" style="--swatch: #FBD904; --swatch-ink: #121212">#FBD904</p>
+                    <p class="swatch" style="--swatch: #121212; --swatch-ink: #FFFFFF">#121212</p>
+                  </div>
+                </section>
+
+                <section class="case__section is--stack">
+                  <h3 class="case__label">Primena</h3>
+                  <ul class="case__shots" role="list">
+                    <li><img src="assets/img/sub8-media/sub8-kacket.jpg"
+                             alt="Kačket sa monogramom S8" width="1500" height="1125" loading="lazy"></li>
+                    <li><img src="assets/img/sub8-media/sub8-torba.jpg"
+                             alt="Platnena torba sa logotipom SUB8 Media" width="1500" height="1000" loading="lazy"></li>
+                    <li><img src="assets/img/sub8-media/sub8-majica.jpg"
+                             alt="Majica sa logotipom SUB8 Media" width="1500" height="1000" loading="lazy"></li>
+                  </ul>
+                </section>
+
+              </div>
+            </template>
+          </li>
+          <li class="work">
+            <div class="work__media">
+              <img class="work__img" src="assets/img/hedera-cleaning/hedera-sajt-mobilni.jpg"
+                   alt="Sajt Hedera Cleaning prikazan na telefonu"
+                   width="1500" height="1125" loading="lazy" decoding="async" draggable="false">
+              <div class="work__scrim"></div>
+
+              <button type="button" class="work__peek" data-work-open
+                      aria-label="Detalji projekta: Hedera Cleaning">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12S5.8 5.5 12 5.5 21.5 12 21.5 12 18.2 18.5 12 18.5 2.5 12 2.5 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+
+              <div class="work__body">
+                <h3 class="work__title">Hedera Cleaning</h3>
+                <p class="work__text">Web dizajn / Web development</p>
+              </div>
+            </div>
+
+            <template data-work-details>
+              <img class="case__hero" src="assets/img/hedera-cleaning/hedera-sajt-laptop.webp"
+                   alt="Naslovna strana sajta Hedera Cleaning na laptopu"
+                   width="1500" height="1125">
+
+              <div class="case__body">
+
+                <header>
+                  <p class="case__badge">Web sajt</p>
+                  <h2 class="case__title">Hedera Cleaning</h2>
+                  <p class="case__intro">
+                    Sajt za firmu koja radi dezinfekciju enterijera i klima sistema koloidnim
+                    srebrom — uklanja bakterije, gljivice i neprijatne mirise, bez hemije i
+                    bez grejanja.
+                  </p>
+                </header>
+
+                <section class="case__section is--stack">
+                  <h3 class="case__label">Primena</h3>
+                  <ul class="case__shots" role="list">
+                    <li><img src="assets/img/hedera-cleaning/hedera-sajt-tablet.webp"
+                             alt="Naslovna strana sajta na tabletu"
+                             width="1500" height="1125" loading="lazy"></li>
+                    <li><img src="assets/img/hedera-cleaning/hedera-sajt-mobilni.jpg"
+                             alt="Naslovna strana sajta na telefonu"
+                             width="1500" height="1125" loading="lazy"></li>
+                  </ul>
+                </section>
+
+              </div>
+            </template>
+          </li>
+          <li class="work">
+            <div class="work__media">
+              <img class="work__img" src="assets/img/work-5.jpg" alt="Projekat Auro"
+                   width="1200" height="900" loading="lazy" decoding="async" draggable="false">
+              <div class="work__scrim"></div>
+
+              <button type="button" class="work__peek" data-work-open
+                      aria-label="Detalji projekta: Auro">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12S5.8 5.5 12 5.5 21.5 12 21.5 12 18.2 18.5 12 18.5 2.5 12 2.5 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+
+              <div class="work__body">
+                <h3 class="work__title">Auro</h3>
+                <p class="work__text">Produkt fotografija za katalog nakita.</p>
+              </div>
+            </div>
+
+            <template data-work-details>
+              <img class="work-modal__img" src="assets/img/work-5.jpg" alt="" width="1200" height="900">
+              <div class="work-modal__body">
+                <h2 class="work-modal__title">Auro</h2>
+                <ul class="work-modal__meta" role="list">
+                  <li>Klijent: Auro</li>
+                  <li>Godina: 2024</li>
+                  <li>Fotografija</li>
+                </ul>
+                <p>Ovde ide opis izazova sa kojim je klijent došao i cilja koji smo postavili na početku projekta.</p>
+                <p>Ovde ide šta je isporučeno, kroz koje faze i sa kakvim rezultatom.</p>
+              </div>
+            </template>
+          </li>
+
+          <li class="work">
+            <div class="work__media">
+              <img class="work__img" src="assets/img/work-6.jpg" alt="Projekat Feniks Fit"
+                   width="1200" height="900" loading="lazy" decoding="async" draggable="false">
+              <div class="work__scrim"></div>
+
+              <button type="button" class="work__peek" data-work-open
+                      aria-label="Detalji projekta: Feniks Fit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12S5.8 5.5 12 5.5 21.5 12 21.5 12 18.2 18.5 12 18.5 2.5 12 2.5 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+
+              <div class="work__body">
+                <h3 class="work__title">Feniks Fit</h3>
+                <p class="work__text">Brend i sajt za lanac teretana.</p>
+              </div>
+            </div>
+
+            <template data-work-details>
+              <img class="work-modal__img" src="assets/img/work-6.jpg" alt="" width="1200" height="900">
+              <div class="work-modal__body">
+                <h2 class="work-modal__title">Feniks Fit</h2>
+                <ul class="work-modal__meta" role="list">
+                  <li>Klijent: Feniks Fit</li>
+                  <li>Godina: 2023</li>
+                  <li>Brend dizajn · Web dizajn</li>
+                </ul>
+                <p>Ovde ide opis izazova sa kojim je klijent došao i cilja koji smo postavili na početku projekta.</p>
+                <p>Ovde ide šta je isporučeno, kroz koje faze i sa kakvim rezultatom.</p>
+              </div>
+            </template>
+          </li>
+
+          <li class="work">
+            <div class="work__media">
+              <img class="work__img" src="assets/img/work-7.jpg" alt="Projekat Dunav Estate"
+                   width="1200" height="900" loading="lazy" decoding="async" draggable="false">
+              <div class="work__scrim"></div>
+
+              <button type="button" class="work__peek" data-work-open
+                      aria-label="Detalji projekta: Dunav Estate">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12S5.8 5.5 12 5.5 21.5 12 21.5 12 18.2 18.5 12 18.5 2.5 12 2.5 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+
+              <div class="work__body">
+                <h3 class="work__title">Dunav Estate</h3>
+                <p class="work__text">Portal za nekretnine sa naprednim filterima.</p>
+              </div>
+            </div>
+
+            <template data-work-details>
+              <img class="work-modal__img" src="assets/img/work-7.jpg" alt="" width="1200" height="900">
+              <div class="work-modal__body">
+                <h2 class="work-modal__title">Dunav Estate</h2>
+                <ul class="work-modal__meta" role="list">
+                  <li>Klijent: Dunav Estate</li>
+                  <li>Godina: 2023</li>
+                  <li>Web dizajn · Web development</li>
+                </ul>
+                <p>Ovde ide opis izazova sa kojim je klijent došao i cilja koji smo postavili na početku projekta.</p>
+                <p>Ovde ide šta je isporučeno, kroz koje faze i sa kakvim rezultatom.</p>
+              </div>
+            </template>
+          </li>
+
+          <li class="work">
+            <div class="work__media">
+              <img class="work__img" src="assets/img/work-8.jpg" alt="Projekat Mosaic"
+                   width="1200" height="900" loading="lazy" decoding="async" draggable="false">
+              <div class="work__scrim"></div>
+
+              <button type="button" class="work__peek" data-work-open
+                      aria-label="Detalji projekta: Mosaic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12S5.8 5.5 12 5.5 21.5 12 21.5 12 18.2 18.5 12 18.5 2.5 12 2.5 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+
+              <div class="work__body">
+                <h3 class="work__title">Mosaic</h3>
+                <p class="work__text">Dizajn sistem i biblioteka komponenti.</p>
+              </div>
+            </div>
+
+            <template data-work-details>
+              <img class="work-modal__img" src="assets/img/work-8.jpg" alt="" width="1200" height="900">
+              <div class="work-modal__body">
+                <h2 class="work-modal__title">Mosaic</h2>
+                <ul class="work-modal__meta" role="list">
+                  <li>Klijent: Mosaic</li>
+                  <li>Godina: 2023</li>
+                  <li>Web dizajn · Dizajn sistem</li>
+                </ul>
+                <p>Ovde ide opis izazova sa kojim je klijent došao i cilja koji smo postavili na početku projekta.</p>
+                <p>Ovde ide šta je isporučeno, kroz koje faze i sa kakvim rezultatom.</p>
+              </div>
+            </template>
+          </li>
+
+          <li class="work">
+            <div class="work__media">
+              <img class="work__img" src="assets/img/work-9.jpg" alt="Projekat Terra Vino"
+                   width="1200" height="900" loading="lazy" decoding="async" draggable="false">
+              <div class="work__scrim"></div>
+
+              <button type="button" class="work__peek" data-work-open
+                      aria-label="Detalji projekta: Terra Vino">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12S5.8 5.5 12 5.5 21.5 12 21.5 12 18.2 18.5 12 18.5 2.5 12 2.5 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+
+              <div class="work__body">
+                <h3 class="work__title">Terra Vino</h3>
+                <p class="work__text">Etikete, ambalaža i fotografija za vinariju.</p>
+              </div>
+            </div>
+
+            <template data-work-details>
+              <img class="work-modal__img" src="assets/img/work-9.jpg" alt="" width="1200" height="900">
+              <div class="work-modal__body">
+                <h2 class="work-modal__title">Terra Vino</h2>
+                <ul class="work-modal__meta" role="list">
+                  <li>Klijent: Terra Vino</li>
+                  <li>Godina: 2022</li>
+                  <li>Grafički dizajn · Fotografija</li>
+                </ul>
+                <p>Ovde ide opis izazova sa kojim je klijent došao i cilja koji smo postavili na početku projekta.</p>
+                <p>Ovde ide šta je isporučeno, kroz koje faze i sa kakvim rezultatom.</p>
+              </div>
+            </template>
+          </li>
+
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================
+         KONTAKT — Zakažite besplatne konsultacije
+         ======================================================== -->
+    <section class="contact" id="zakazi-poziv">
+      <div class="contact__card" data-animate>
+        <div class="contact__grid">
+
+          <div>
+            <p class="eyebrow contact__eyebrow">Zakažite poziv</p>
+            <h2 class="contact__title">Besplatne konsultacije, 30 minuta</h2>
+            <p class="contact__lead">
+              Ispričajte nam šta gradite. Vraćamo se sa konkretnim predlogom obima,
+              rokova i cene — bez obaveze.
+            </p>
+
+            <ul class="contact__points" role="list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M4 10.5l4 4 8-9"/>
+                </svg>
+                Odgovaramo u roku od jednog radnog dana
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M4 10.5l4 4 8-9"/>
+                </svg>
+                Ponuda sa fiksnim obimom i rokom, bez skrivenih troškova
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M4 10.5l4 4 8-9"/>
+                </svg>
+                Razgovor vodi neko ko će raditi na projektu
+              </li>
+            </ul>
+
+            <p class="contact__direct">
+              <span><a href="mailto:hello@infinityflow.rs">hello@infinityflow.rs</a></span>
+              <span><a href="tel:+381601304455">+381 60 130 44 55</a></span>
+            </p>
+          </div>
+
+          <form class="contact__form" data-contact-form action="" method="post">
+
+            <div class="field">
+              <label class="field__label" for="ime">Ime i prezime <span class="field__req">*</span></label>
+              <input class="field__input" type="text" id="ime" name="ime" required
+                     autocomplete="name" placeholder="Marko Marković">
+              <span class="field__error" data-error></span>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="email">Email <span class="field__req">*</span></label>
+              <input class="field__input" type="email" id="email" name="email" required
+                     autocomplete="email" placeholder="marko@firma.rs">
+              <span class="field__error" data-error></span>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="telefon">Telefon</label>
+              <input class="field__input" type="tel" id="telefon" name="telefon"
+                     autocomplete="tel" placeholder="+381 60 130 44 55">
+              <span class="field__error" data-error></span>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="firma">Firma</label>
+              <input class="field__input" type="text" id="firma" name="firma"
+                     autocomplete="organization" placeholder="Naziv firme">
+              <span class="field__error" data-error></span>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="usluga">Šta vam treba <span class="field__req">*</span></label>
+              <select class="field__select" id="usluga" name="usluga" required>
+                <option value="">Izaberite uslugu</option>
+                <option>Web dizajn</option>
+                <option>Web development</option>
+                <option>Grafički i brend dizajn</option>
+                <option>Profesionalno fotografisanje</option>
+                <option>Kombinacija / nisam siguran</option>
+              </select>
+              <span class="field__error" data-error></span>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="budzet">Okvirni budžet</label>
+              <select class="field__select" id="budzet" name="budzet">
+                <option value="">Bez odgovora</option>
+                <option>do 1.000 €</option>
+                <option>1.000 – 3.000 €</option>
+                <option>3.000 – 7.000 €</option>
+                <option>preko 7.000 €</option>
+              </select>
+              <span class="field__error" data-error></span>
+            </div>
+
+            <div class="field is--full">
+              <label class="field__label" for="poruka">O projektu <span class="field__req">*</span></label>
+              <textarea class="field__textarea" id="poruka" name="poruka" required
+                        placeholder="Par rečenica o tome šta gradite, u kom roku i šta vam je najvažnije."></textarea>
+              <span class="field__error" data-error></span>
+            </div>
+
+            <div class="field field--consent">
+              <input type="checkbox" id="saglasnost" name="saglasnost" required>
+              <label for="saglasnost">
+                Saglasan/na sam da InfinityFlow obradi moje podatke radi odgovora na upit.
+                <a href="politika-privatnosti.html">Politika privatnosti</a> <span class="field__req">*</span>
+              </label>
+              <span class="field__error" data-error></span>
+            </div>
+
+            <!-- honeypot: ljudi ga ne vide, boti ga popune -->
+            <div class="field field--trap" aria-hidden="true">
+              <label for="vebsajt">Ne popunjavaj ovo polje</label>
+              <input type="text" id="vebsajt" name="vebsajt" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="contact__submit">
+              <button type="submit" class="btn btn--primary" data-contact-submit>
+                Zakažite besplatne konsultacije
+              </button>
+              <span class="contact__note">Odgovor stiže u roku od jednog radnog dana.</span>
+            </div>
+
+            <p class="contact__status" data-contact-status role="status" aria-live="polite"></p>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         FAQ
+         ======================================================== -->
+    <section class="faq" id="faq">
+      <div class="faq__inner">
+
+        <header class="section-head">
+          <div>
+            <p class="eyebrow" data-animate>FAQ</p>
+            <h2 class="section-title" data-split>Pitanja koja dobijamo pre svakog projekta</h2>
+          </div>
+          <p class="section-lead" data-split>
+            Ako ovde nema odgovora na vaše pitanje, zakažite poziv — odgovaramo
+            konkretno, bez uvijanja.
+          </p>
+        </header>
+
+        <ul class="faq__list" role="list">
+
+          <li class="faq__item" data-animate style="--i: 0">
+            <h3 class="faq__q">
+              <button type="button" class="faq__trigger" aria-expanded="false" aria-controls="faq-answer-1">
+                <span>Koliko traje izrada sajta?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__body" id="faq-answer-1">
+              <div class="faq__body-inner">
+                <p class="faq__answer">Prezentacioni sajt obično traje četiri do šest nedelja od potpisivanja do lansiranja, a veći projekti sa e-commerceom ili višejezičnim sadržajem osam do dvanaest. Tačan rok dobijate u ponudi, pre početka rada.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item" data-animate style="--i: 1">
+            <h3 class="faq__q">
+              <button type="button" class="faq__trigger" aria-expanded="false" aria-controls="faq-answer-2">
+                <span>Koliko košta?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__body" id="faq-answer-2">
+              <div class="faq__body-inner">
+                <p class="faq__answer">Cena zavisi od obima, pa je ne računamo unapred na osnovu paketa. Posle besplatnih konsultacija dobijate ponudu sa fiksnim obimom, rokom i cenom — bez naknadnih stavki koje se pojave usput.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item" data-animate style="--i: 2">
+            <h3 class="faq__q">
+              <button type="button" class="faq__trigger" aria-expanded="false" aria-controls="faq-answer-3">
+                <span>Mogu li da uzmem samo jednu uslugu?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__body" id="faq-answer-3">
+              <div class="faq__body-inner">
+                <p class="faq__answer">Možete. Radimo i pojedinačno — samo dizajn, samo development, samo fotografiju. Kad se uzmu zajedno, prednost je što nema prepravki na prelazu između faza.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item" data-animate style="--i: 3">
+            <h3 class="faq__q">
+              <button type="button" class="faq__trigger" aria-expanded="false" aria-controls="faq-answer-4">
+                <span>Ko piše tekstove za sajt?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__body" id="faq-answer-4">
+              <div class="faq__body-inner">
+                <p class="faq__answer">Ako imate tekstove, radimo sa njima. Ako nemate, dajemo strukturu i predlog sadržaja po sekcijama, a finalno pisanje se dogovara posebno.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item" data-animate style="--i: 0">
+            <h3 class="faq__q">
+              <button type="button" class="faq__trigger" aria-expanded="false" aria-controls="faq-answer-5">
+                <span>Da li mogu sam da menjam sadržaj posle lansiranja?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__body" id="faq-answer-5">
+              <div class="faq__body-inner">
+                <p class="faq__answer">Da. Sajt isporučujemo sa CMS-om i kratkom obukom za vaš tim, tako da tekst, slike i nove stavke menjate bez nas.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item" data-animate style="--i: 1">
+            <h3 class="faq__q">
+              <button type="button" class="faq__trigger" aria-expanded="false" aria-controls="faq-answer-6">
+                <span>Šta je sa domenom i hostingom?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__body" id="faq-answer-6">
+              <div class="faq__body-inner">
+                <p class="faq__answer">Možemo da preuzmemo podešavanje domena, hostinga i sertifikata, ili da sve postavimo na vaš postojeći nalog. Troškovi domena i hostinga se plaćaju provajderu direktno i nisu deo naše cene.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item" data-animate style="--i: 2">
+            <h3 class="faq__q">
+              <button type="button" class="faq__trigger" aria-expanded="false" aria-controls="faq-answer-7">
+                <span>Kako teče saradnja?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__body" id="faq-answer-7">
+              <div class="faq__body-inner">
+                <p class="faq__answer">Kroz četiri koraka: konsultacije i definisanje obima, dizajn i prototip koji odobravate, izrada, pa lansiranje i predaja. Posle svake faze ide vaša povratna informacija pre nego što se krene dalje.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="faq__item" data-animate style="--i: 3">
+            <h3 class="faq__q">
+              <button type="button" class="faq__trigger" aria-expanded="false" aria-controls="faq-answer-8">
+                <span>Radite li i van Beograda?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__body" id="faq-answer-8">
+              <div class="faq__body-inner">
+                <p class="faq__answer">Da. Dizajn i development radimo potpuno onlajn, gde god da ste. Za fotografisanje dolazimo na lokaciju — u tom slučaju se putni troškovi dogovaraju unapred i stoje u ponudi.</p>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================
+       FOOTER  (Figma node 5:25)
+       ========================================================== -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__nav">
+
+        <div>
+          <img class="site-footer__logo" src="assets/img/footer-logo.svg"
+               alt="InfinityFlow" width="219" height="32" loading="lazy" decoding="async">
+          <p class="site-footer__tagline">
+            Kreativni studio koji pomaže malim i srednjim biznisima da poboljšaju
+            svoj brend i digitalno prisustvo.
+          </p>
+        </div>
+
+        <nav class="site-footer__col" aria-label="Prečice">
+          <a class="site-footer__link is--strong" href="#portfolio">Portfolio</a>
+          <a class="site-footer__link is--strong" href="#zakazi-poziv">Zakažite konsultacije</a>
+          <a class="site-footer__link is--strong" href="#faq">FAQ</a>
+        </nav>
+
+        <div class="site-footer__col">
+          <h2 class="site-footer__heading">Naše usluge</h2>
+          <a class="site-footer__link" href="#usluge">Web dizajn</a>
+          <a class="site-footer__link" href="#usluge">Web development</a>
+          <a class="site-footer__link" href="#usluge">Grafički i brend dizajn</a>
+          <a class="site-footer__link" href="#usluge">Profesionalno fotografisanje</a>
+        </div>
+
+        <div class="site-footer__col">
+          <h2 class="site-footer__heading">Kontakt</h2>
+          <a class="site-footer__link" href="mailto:hello@infinityflow.rs">hello@infinityflow.rs</a>
+          <a class="site-footer__link" href="tel:+381601304455">+381 60 130 44 55</a>
+          <p class="site-footer__link">Beograd, Srbija</p>
+        </div>
+
+      </div>
+
+      <p class="site-footer__word" aria-hidden="true"><span data-scramble>izaberi pravi tok</span></p>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">© 2026 InfinityFlow. Sva prava zadržana.</p>
+      </div>
+
+    </div>
+  </footer>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       MODAL sa detaljima rada — sadržaj se ubacuje iz <template>
+       ========================================================== -->
+  <dialog class="work-modal" data-work-dialog aria-label="Detalji projekta">
+    <button type="button" class="work-modal__close" data-work-close aria-label="Zatvori">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+           stroke-linecap="round" aria-hidden="true" focusable="false">
+        <path d="M5 5l14 14M19 5L5 19"/>
+      </svg>
+    </button>
+    <div class="work-modal__scroll" data-work-dialog-body></div>
+  </dialog>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+/* ==========================================================================
+   KONTAKT — "Zakaži besplatne konsultacije"
+   Tamna kartica (isti jezik kao hero) sa formom u dve kolone.
+   ========================================================================== */
+
+.contact {
+  padding: clamp(5rem, 8.3vw, 7.5rem) var(--gutter);
+}
+
+.contact__card {
+  position: relative;
+  isolation: isolate;
+  max-width: var(--container);
+  width: 100%;
+  margin-inline: auto;
+  padding: clamp(2rem, 4.4vw, 4rem);
+  border-radius: var(--radius-card);
+  background-color: var(--c-ink);
+  color: var(--c-white);
+  overflow: hidden;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(2rem, 4.4vw, 4rem);
+  align-items: start;
+}
+
+/* ---- Leva kolona --------------------------------------------------------- */
+.contact__title {
+  max-width: 14ch;
+  margin-bottom: 1rem;
+  font-size: clamp(1.875rem, 3.33vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.contact__lead {
+  max-width: 34ch;
+  margin-bottom: 2rem;
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  line-height: 1.4444;
+  color: rgb(255 255 255 / 0.7);
+  text-wrap: pretty;
+}
+
+.contact__eyebrow {
+  border-color: rgb(255 255 255 / 0.25);
+  color: var(--c-white);
+}
+
+.contact__points {
+  display: flex;
+  flex-flow: column;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.contact__points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.contact__points svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  color: var(--c-green);
+}
+
+.contact__direct {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(255 255 255 / 0.15);
+  font-size: 1rem;
+}
+
+.contact__direct a {
+  color: var(--c-white);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgb(255 255 255 / 0.4);
+  transition: text-decoration-color 0.25s ease;
+}
+
+@media (hover: hover) {
+  .contact__direct a:hover { text-decoration-color: var(--c-white); }
+}
+
+/* ---- Forma --------------------------------------------------------------- */
+.contact__form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+}
+
+.field.is--full {
+  grid-column: 1 / -1;
+}
+
+.field__label {
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.field__req {
+  color: var(--c-green);
+}
+
+.field__input,
+.field__select,
+.field__textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  border-radius: var(--radius-btn);
+  background-color: rgb(255 255 255 / 0.06);
+  color: var(--c-white);
+  font-size: 1rem;
+  line-height: 1.3;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.field__textarea {
+  min-height: 7.5rem;
+  resize: vertical;
+}
+
+.field__input::placeholder,
+.field__textarea::placeholder {
+  color: rgb(255 255 255 / 0.4);
+}
+
+.field__input:focus,
+.field__select:focus,
+.field__textarea:focus {
+  outline: none;
+  border-color: rgb(255 255 255 / 0.55);
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.field__input:focus-visible,
+.field__select:focus-visible,
+.field__textarea:focus-visible {
+  outline: 2px solid var(--c-white);
+  outline-offset: 2px;
+}
+
+/* Select strelica — inline SVG kao data URI, da ostane jedan fajl manje */
+.field__select {
+  appearance: none;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23ffffff' stroke-width='1.5'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 8px;
+}
+
+.field__select option {
+  background-color: var(--c-ink);
+  color: var(--c-white);
+}
+
+/* Greška po polju */
+.field__error {
+  display: none;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  color: #FF8A7A;
+}
+
+.field.is--invalid .field__input,
+.field.is--invalid .field__select,
+.field.is--invalid .field__textarea {
+  border-color: #FF8A7A;
+}
+
+.field.is--invalid .field__error {
+  display: block;
+}
+
+/* Checkbox saglasnosti */
+.field--consent {
+  flex-flow: row;
+  align-items: flex-start;
+  gap: 12px;
+  grid-column: 1 / -1;
+  margin-top: 0.25rem;
+}
+
+.field--consent input {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  accent-color: var(--c-white);
+}
+
+.field--consent label {
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.field--consent a {
+  color: var(--c-white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.field--consent.is--invalid label {
+  color: #FF8A7A;
+}
+
+/* Honeypot — skriveno od ljudi, vidljivo botovima */
+.field--trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---- Dno forme ----------------------------------------------------------- */
+.contact__submit {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.contact__submit .btn {
+  background-color: var(--c-white);
+  color: var(--c-ink);
+  padding-inline: 24px;
+}
+
+@media (hover: hover) {
+  .contact__submit .btn:hover:not(:disabled) {
+    background-color: rgb(255 255 255 / 0.88);
+  }
+}
+
+.contact__submit .btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.contact__note {
+  font-size: 0.875rem;
+  line-height: 1.3;
+  color: rgb(255 255 255 / 0.55);
+}
+
+/* Poruka o ishodu — čita je i screen reader preko aria-live */
+.contact__status {
+  grid-column: 1 / -1;
+  padding: 14px 16px;
+  border-radius: var(--radius-btn);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.contact__status:empty {
+  display: none;
+}
+
+.contact__status.is--ok {
+  background-color: rgb(52 199 89 / 0.15);
+  border: 1px solid rgb(52 199 89 / 0.4);
+  color: #B6F0C4;
+}
+
+.contact__status.is--error {
+  background-color: rgb(255 138 122 / 0.12);
+  border: 1px solid rgb(255 138 122 / 0.4);
+  color: #FFB9AF;
+}
+
+/* ---- Responsive ---------------------------------------------------------- */
+@media screen and (max-width: 1023px) {
+  .contact__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contact__form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact__submit .btn {
+    width: 100%;
+  }
+}
+
+/* ---- Spotlight: plavi sjaj koji prati miš --------------------------------
+   Kartica već ima isolation:isolate i overflow:hidden, pa z-index -1 stoji
+   iznad njene pozadine a ispod sadržaja.
+   -------------------------------------------------------------------------- */
+.contact__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(
+    circle 26rem at var(--mx, 50%) var(--my, 50%),
+    rgb(16 106 202 / 0.5),
+    rgb(16 106 202 / 0.2) 48%,
+    rgb(16 106 202 / 0) 78%
+  );
+  filter: blur(64px);            /* mekši prelaz — sjaj bez vidljive ivice kruga */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+@media (hover: hover) {
+  .contact__card.is--hover::before {
+    opacity: 1;
+  }
+}
