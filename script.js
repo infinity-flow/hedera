@@ -508,7 +508,8 @@ const Scroll = {
       name: get("name"),
       phone: get("phone"),
       email: get("email"),
-      address: get("address"),
+      // usluga je samo na teritoriji Beograda — grad se dopisuje ako ga klijent nije naveo
+      address: /beograd/i.test(get("address")) ? get("address") : `${get("address")}, Beograd`,
       vehicleType: get("vehicle"),
       car: get("car"),
       plateAndColor: get("plate"),
