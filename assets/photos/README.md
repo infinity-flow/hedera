@@ -5,10 +5,10 @@ Sve fotografije na sajtu su na mestu. Da biste neku zamenili, ubacite novu **pod
 | Fajl | Sekcija | Format |
 |---|---|---|
 | `uredjaj-kabina.jpg` (+ `uredjaj-kabina-1200.webp`, `uredjaj-kabina-2000.webp`) | Tehnologija | 3:2 (na desktopu prikazano 540 px visine) |
-| `vozilo-automobil.jpg` | Za svako vozilo | 4:5, 800×1000 px |
-| `vozilo-kombi.jpg` | Za svako vozilo | 4:5, 800×1000 px |
-| `vozilo-kamion.jpg` | Za svako vozilo | 4:5, 800×1000 px |
-| `vozilo-autobus.jpg` | Za svako vozilo | 4:5, 800×1000 px |
+| `vozilo-automobil.jpg` | Za svako vozilo | 4:5, 623×779 px, bela pozadina |
+| `vozilo-kombi.jpg` | Za svako vozilo | 4:5, 623×779 px, bela pozadina |
+| `vozilo-kamion.jpg` | Za svako vozilo | 4:5, 623×779 px, bela pozadina |
+| `vozilo-autobus.jpg` | Za svako vozilo | 4:5, 623×779 px, bela pozadina |
 
 Saveti:
 - JPG, veličina fajla po mogućstvu ispod ~300 KB.
